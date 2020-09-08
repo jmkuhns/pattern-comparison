@@ -54,6 +54,7 @@ var practice_right = [
     data: {stim: "prac_3_2.png", corr_resp: prac_correct[2], exp_stage: "practice", position: "right"}
     }];
 var num_practice_trials = 3;
+
 for (i = 0; i < num_practice_trials; i++){
 
 var practice_left_loop = practice_left[i];
