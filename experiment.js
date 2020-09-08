@@ -36,13 +36,9 @@ timeline.push(instructions, instructions2);
 
 var prac_correct = [37, 39, 39];
 
-var practice_left = [patterns_practice + "prac_1_1.png",
-patterns_practice + "prac_2_1.png",
-patterns_practice + "prac_3_1.png"];
+var practice_left = [patterns_practice + "prac_1_1.png", patterns_practice + "prac_2_1.png", patterns_practice + "prac_3_1.png"];
 
-var practice_right = [patterns_practice + "prac_1_2.png",
-patterns_practice + "prac_2_2.png",
-patterns_practice + "prac_3_2.png"];
+var practice_right = [patterns_practice + "prac_1_2.png", patterns_practice + "prac_2_2.png", patterns_practice + "prac_3_2.png"];
 
 
 /*
