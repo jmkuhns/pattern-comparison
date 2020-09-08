@@ -18,7 +18,7 @@ var instructions = {
   '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
   '<br><br><p>In this experiment you will be asked to determine whether two patterns of lines are the same or different. If the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
   '<br><p>You will complete a few practice trials with feedback before starting.</p>'+
-  '<img src="https://jmkuhns.github.io/pattern-comparison/patterns_practice/prac_1_1.png></img>"'
+  '<img src="https://jmkuhns.github.io/pattern-comparison/patterns_practice/prac_1_1.png></img>"'+
   '<br><p>Press any key to continue.</p>',
   post_trial_gap: 1000,
   data:{
