@@ -32,7 +32,7 @@ var instructions2 = {
   post_trial_gap: 1000
 };
 timeline.push(instructions, instructions2);
-
+/* // here
 var prac_correct = [37, 39, 39];
 var practice_left = [
   {stimulus: patterns_practice + "prac_1_1.png",
@@ -65,7 +65,7 @@ var prac_correct_loop = prac_correct[i];
 var practice_test = {
       type: "image-keyboard-response",
       choices: [37, 39],
-      stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:50%"></img></div><div class="column"><img src=' + practice_right_loop + ' style="width:50%></img></div></div>"',
+      stimulus: '<div class="row"><div class="column"><img src="' + practice_left_loop + '" style="width:50%"></img></div><div class="column"><img src=' + practice_right_loop + ' style="width:50%></img></div></div>"',
       data: {
         exp_stage: "pattern comp",
         corr_resp: prac_correct_loop
@@ -81,9 +81,11 @@ var practice_test = {
     };
     timeline.push(practice_test);
 }
+*/ //here
 
 /*defining stimuli*/
 // set up numbers to coordinate with the file names
+/* // here
 var nums_01 = ['01', '02', '03', '04', '05', '06', '07', '08', '09'];
 var nums_2 = [];
 for (i = 10; i < 31; i++){nums_2.push(i)}
@@ -152,3 +154,4 @@ var debrief = {
 };
 
 timeline.push(debrief);
+*/ // here
