@@ -124,7 +124,7 @@ for (i = 0; i < 30; i ++){
       data: {stim: i, corr_resp: p1_correct[i], exp_stage: "pattern", position: "right"}
     }];
   var cresp = p1_correct[i];
-  var pattern_name: patterns_page_1_left[i];
+  var pattern_name = patterns_page_1_left[i];
   var test = {
     type: "image-keyboard-response",
     choices: [37, 39],
