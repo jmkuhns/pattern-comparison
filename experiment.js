@@ -145,70 +145,9 @@ for (i = 0; i < 30; i ++){
   }
   timeline.push(test);
 }
-
-
-var test_practice = {
-  timeline: [fixation, test],
-  timeline_variables: test_stimuli,
-  data: {
-    task: "practice"
-  },
-  sample: {
-    type: 'fixed-repetitions',
-    size: reps_per_practice
-  }
-};
-
-
-var test_proc ={
-  timeline: [fixation, test],
-  timeline_variables: test_stimuli,
-  data: {
-    task: "main"
-  },
-  sample: {
-    type: 'fixed-repetitions',
-    size: reps_per_trial_type
-  }
-};
-
-
-timeline.push(test_practice);
-var prac_debrief = {
-  type: "html-keyboard-response",
-  stimulus: function(){
-    var prac_trials = jsPsych.data.get().filter({
-      trial_type: 'image-keyboard-response'
-    }).count();
-    var prac_accuracy = Math.round(jsPsych.data.get().filter({correct: true}).count() / prac_trials * 100);
-    var prac_congruent_rt = Math.round(jsPsych.data.get().filter({correct: true, stim_type: 'congruent'}).select('rt').mean());
-    var prac_incongruent_rt = Math.round(jsPsych.data.get().filter({correct: true, stim_type: 'incongruent'}).select('rt').mean());
-    return "<p>You responded correctly on <strong>"+prac_accuracy+"%</strong> of the trials.</p> " +
-    "<p>Your average response time for congruent trials was <strong>" + prac_congruent_rt + "ms</strong>.</p>"+
-    "<p>Your average response time for incongruent trials was <strong>" + prac_incongruent_rt + "ms</strong>.</p>"+
-    "<br><p>You have now completed the practice trials. Press any key to begin the task.</p>"
-  }
-}
-timeline.push(prac_debrief);
-timeline.push(test_proc);
-
-/*defining debriefing block*/
 var debrief = {
   type: "html-keyboard-response",
-  stimulus: function() {
-    //var bar = JSON.stringify(jsPsych.data.get().json());
-    //console.log(bar);
-    var total_trials = jsPsych.data.get().filter({trial_type: 'image-keyboard-response'}).count();
-    var accuracy = Math.round(jsPsych.data.get().filter({correct: true}).count() / total_trials * 100);
-    var congruent_rt = Math.round(jsPsych.data.get().filter({correct: true, stim_type: 'congruent'}).select('rt').mean());
-    var incongruent_rt = Math.round(jsPsych.data.get().filter({correct: true, stim_type: 'incongruent'}).select('rt').mean());
-    return "<p>You responded correctly on <strong>"+accuracy+"%</strong> of the trials.</p> " +
-    "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>"+
-    "<p>Your average response time for incongruent trials was <strong>" + incongruent_rt + "ms</strong>.</p>"+
-    "<p>Press any key to complete the experiment. Thank you!</p>"
-  }
+	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>"
 };
-
-/*set up experiment structure*/
 
 timeline.push(debrief);
