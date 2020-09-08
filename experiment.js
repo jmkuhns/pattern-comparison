@@ -71,8 +71,8 @@ var num_practice_trials = 3;
 
 for (i = 0; i < num_practice_trials; i++){
 
-var practice_left_loop.stimulus = practice_left[i];
-var practice_right_loop.stimulus = practice_right[i];
+var practice_left_loop = practice_left[i];
+var practice_right_loop = practice_right[i];
 var prac_correct_loop = prac_correct[i];
 
 var practice_test = {
