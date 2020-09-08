@@ -62,34 +62,38 @@ var practice_right = [
     {stimulus: patterns_practice + "prac_3_2.png",
     data: {stim: "prac_3_2.png", corr_resp: prac_correct[2], exp_stage: "practice", position: "right"}
     }];
-    */
+*/
 var num_practice_trials = 3;
 
 for (i = 0; i < num_practice_trials; i++){
 
-var practice_left_loop = practice_left[i];
-var practice_right_loop = practice_right[i];
-var prac_correct_loop = prac_correct[i];
+  var practice_left_loop = practice_left[i];
+  var practice_right_loop = practice_right[i];
+  var prac_correct_loop = prac_correct[i];
 
-var practice_test = {
-      type: "image-keyboard-response",
-      choices: [37, 39],
-      stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + practice_right_loop + ' style="width:100px;height:100px";></img></div></div>',
-      data: {
-        stim: i,
-        exp_stage: "practice pattern comp",
-        corr_resp: prac_correct_loop
-      },
-  		response_ends_trial: true,
-  		on_finish: function(data){
-  			if (data.key_press == data.corr_resp){
-  				data.accuracy = 1;
-  			}else {
-  					data.accuracy = 0;
-  				}
-        }
-    };
-    timeline.push(practice_test);
+
+
+
+  var practice_test = {
+        type: "html-keyboard-response",
+        choices: [37, 39],
+        stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + practice_right_loop + ' style="width:100px;height:100px";></img></div></div>',
+        data: {
+          stim: i,
+          exp_stage: "practice pattern comp",
+          corr_resp: prac_correct_loop
+        },
+    		response_ends_trial: true,
+    		on_finish: function(data){
+    			if (data.key_press == data.corr_resp){
+    				data.accuracy = 1;
+    			}else {
+    					data.accuracy = 0;
+    				}
+          }
+      };
+
+timeline.push(practice_test);
 }
 
 
