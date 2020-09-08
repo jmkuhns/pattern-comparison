@@ -119,7 +119,7 @@ for (i = 0; i < 30; i ++){
       stimulus: patterns + patterns_page_1_left[i],
       data: {stim: i, corr_resp: p1_correct[i], exp_stage: "pattern", position: "left"}
     }];
-    var p1_right = {
+    var p1_right = [{
       stimulus: patterns + patterns_page_1_right[i],
       data: {stim: i, corr_resp: p1_correct[i], exp_stage: "pattern", position: "right"}
     }];
