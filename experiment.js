@@ -102,7 +102,7 @@ while (i < num_practice_trials){
       timeline.push(practice_test);
       i++
 }
-timeline2 = [];
+var timeline2 = [];
 var debrief = {
   type: "html-keyboard-response",
 	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>"
