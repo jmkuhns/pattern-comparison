@@ -99,7 +99,7 @@ while (i < num_practice_trials){
 
       timeline.push(practice_test);
       if (jsPsych.totalTime() - timer > 5000){
-        break;
+        timeline.push(debrief);
       }
       i++
 }
