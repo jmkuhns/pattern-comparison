@@ -87,16 +87,18 @@ for (i = 0; i < num_practice_trials; i++){
     		response_ends_trial: true,
         on_start: function(){
           if (jsPsych.totalTime() - timer > 1000){
-            jsPsych.endtimeline(); 
+            jsPsych.endtimeline();
           }
         },
-    		on_finish: function(){
-          function(data){
+    		on_finish: function(data){
+
           if (data.key_press == data.corr_resp){
     				data.accuracy = 1;
-    			}else {
+    			} else {
     					data.accuracy = 0;
     				}
+          if (data.time_elapsed - timer > 1000){
+            jsPsych.endtimeline();
           }
         }
       };
