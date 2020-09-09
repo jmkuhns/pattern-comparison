@@ -65,17 +65,6 @@ var practice_right = [
 */
 var num_practice_trials = 3;
 
-var practice_test = {
-  type: "html-keyboard-response",
-  choices: [37, 39],
-  stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + practice_right_loop + ' style="width:100px;height:100px";></img></div></div>',
-  data: {
-    exp_stage: "practice pattern comp",
-    corr_resp: prac_correct_loop
-  },
-}
-
-
 var i = 0;
 while (i < num_practice_trials){
   var practice_left_loop = practice_left[i];
