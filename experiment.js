@@ -67,6 +67,9 @@ var num_practice_trials = 3;
 
 var i = 0;
 while (i < num_practice_trials){
+  if (i == 0){
+    var timer = jsPsych.totalTime();
+  }
   var practice_left_loop = practice_left[i];
   var practice_right_loop = practice_right[i];
   var prac_correct_loop = prac_correct[i];
@@ -78,11 +81,6 @@ while (i < num_practice_trials){
           stim: i,
           exp_stage: "practice pattern comp",
           corr_resp: prac_correct_loop
-        },
-        on_load: function(){
-          setTimeout(function(){
-          jsPsych.endCurrentTimeline()
-              }, 3000)
         },
     		response_ends_trial: true,
     		on_finish: function(data){
@@ -97,15 +95,20 @@ while (i < num_practice_trials){
         ]
       };
       timeline.push(practice_test);
+      function(){
+        setTimeout(function(){
+          jsPsych.endCurrentTimeline()
+            }, 3000)
+      }
       i++
 }
-
+timeline2 = [];
 var debrief = {
   type: "html-keyboard-response",
 	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>"
 };
 
-timeline.push(debrief);
+timeline2.push(debrief);
 
 /*defining stimuli*/
 // set up numbers to coordinate with the file names
