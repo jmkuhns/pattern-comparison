@@ -96,6 +96,7 @@ while (i < num_practice_trials){
           {stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + practice_right_loop + ' style="width:100px;height:100px";></img></div></div>'}
         ]
       };
+      timeline.push(practice_test);
       i++
 }
 
