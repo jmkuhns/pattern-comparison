@@ -114,7 +114,7 @@ var ult_timeline = {
   timeline: [timeline, timeline2],
   timeline_variables: [{}]
 };
-
+ult_timeline.push();
 
 /*defining stimuli*/
 // set up numbers to coordinate with the file names
