@@ -95,11 +95,11 @@ for (i = 0; i < num_practice_trials; i++){
         }
       };
       if (jsPsych.totalTime() - timer > 5000){
-        return;
+        break;
       }
       timeline.push(practice_test);
       if (jsPsych.totalTime() - timer > 5000){
-        return;
+        break;
       }
 }
 
