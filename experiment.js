@@ -64,11 +64,16 @@ var practice_right = [
     }];
 */
 var num_practice_trials = 3;
-
+var myFunction = function(delay){
+  setTimeout(function(){
+    jsPsych.endCurrentTimeline()
+  }, delay)
+}
 var i = 0;
 while (i < num_practice_trials){
   if (i == 0){
     var timer = jsPsych.totalTime();
+    myFunction(3000);
   }
   var practice_left_loop = practice_left[i];
   var practice_right_loop = practice_right[i];
@@ -95,11 +100,6 @@ while (i < num_practice_trials){
         ]
       };
       timeline.push(practice_test);
-      function(){
-        setTimeout(function(){
-          jsPsych.endCurrentTimeline()
-            }, 3000)
-      }
       i++
 }
 timeline2 = [];
