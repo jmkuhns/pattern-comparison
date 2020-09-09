@@ -79,9 +79,10 @@ while (i < num_practice_trials){
   var practice_right_loop = practice_right[i];
   var prac_correct_loop = prac_correct[i];
 
-  var practice_test = {
+  timeline.push({
         type: "html-keyboard-response",
         choices: [37, 39],
+        stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + practice_right_loop + ' style="width:100px;height:100px";></img></div></div>',
         data: {
           stim: i,
           exp_stage: "practice pattern comp",
@@ -94,12 +95,8 @@ while (i < num_practice_trials){
     			} else {
     					data.accuracy = 0;
     				}
-        },
-        timeline: [
-          {stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + practice_right_loop + ' style="width:100px;height:100px";></img></div></div>'}
-        ]
-      };
-      timeline.push(practice_test);
+        }
+      });
       i++
 }
 var timeline2 = [];
