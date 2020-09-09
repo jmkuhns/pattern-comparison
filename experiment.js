@@ -65,7 +65,7 @@ var practice_right = [
 */
 var num_practice_trials = 3;
 
-do{
+
 for (i = 0; i < num_practice_trials; i++){
   if (i == 0){
     var timer = jsPsych.totalTime();
@@ -86,7 +86,7 @@ for (i = 0; i < num_practice_trials; i++){
         },
     		response_ends_trial: true,
         on_start: function(){
-          if (jsPsych.totalTime() - timer > 1000){
+          if (jsPsych.totalTime() - timer > 5000){
             jsPsych.endCurrentTimeline();
           }
         },
@@ -97,16 +97,15 @@ for (i = 0; i < num_practice_trials; i++){
     			} else {
     					data.accuracy = 0;
     				}
-          if (data.time_elapsed - timer > 1000){
+          if (data.time_elapsed - timer > 5000){
             jsPsych.endCurrentTimeline();
           }
         }
       };
 
       timeline.push(practice_test);
-    }
 }
-while(jsPsych.totalTime() - timer > 1000);
+
 var debrief = {
   type: "html-keyboard-response",
 	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>"
