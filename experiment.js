@@ -99,13 +99,13 @@ while (i < num_practice_trials){
       });
       i++
 }
-var timeline2 = [];
+
 var debrief = {
   type: "html-keyboard-response",
 	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>"
 };
 
-timeline2.push(debrief);
+timeline.push(debrief);
 
 
 /*defining stimuli*/
