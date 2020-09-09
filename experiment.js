@@ -65,10 +65,10 @@ var practice_right = [
 */
 var num_practice_trials = 3;
 
-
+do{
 for (i = 0; i < num_practice_trials; i++){
   if (i == 0){
-    var  timer = jsPsych.totalTime();
+    var timer = jsPsych.totalTime();
   }
 
   var practice_left_loop = practice_left[i];
@@ -103,8 +103,10 @@ for (i = 0; i < num_practice_trials; i++){
         }
       };
 
-timeline.push(practice_test);
+      timeline.push(practice_test);
+    }
 }
+while(jsPsych.totalTime() - timer > 1000);
 var debrief = {
   type: "html-keyboard-response",
 	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>"
