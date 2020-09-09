@@ -85,11 +85,6 @@ for (i = 0; i < num_practice_trials; i++){
           corr_resp: prac_correct_loop
         },
     		response_ends_trial: true,
-        on_start: function(){
-          if (jsPsych.totalTime() - timer > 5000){
-            return;
-          }
-        },
     		on_finish: function(data){
 
           if (data.key_press == data.corr_resp){
@@ -97,13 +92,15 @@ for (i = 0; i < num_practice_trials; i++){
     			} else {
     					data.accuracy = 0;
     				}
-          if (data.time_elapsed - timer > 5000){
-            return;
-          }
         }
       };
-
+      if (jsPsych.totalTime() - timer > 5000){
+        return;
+      }
       timeline.push(practice_test);
+      if (jsPsych.totalTime() - timer > 5000){
+        return;
+      }
 }
 
 var debrief = {
