@@ -110,8 +110,6 @@ var debrief = {
 
 timeline2.push(debrief);
 
-var ult_timeline = [];
-ult_timeline.push(timeline, timeline2);
 
 /*defining stimuli*/
 // set up numbers to coordinate with the file names
