@@ -83,7 +83,7 @@ while (i < num_practice_trials){
   timeline.push({
         type: "html-keyboard-response",
         choices: [37, 39],
-        stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + 'style="width:100px;height:100px";></img></div><div class="column"><img src='+ practice_right_loop +  'style="width:100px;height:100px";></img></div></div>',
+        stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + practice_right_loop + '  style="width:100px;height:100px";></img></div></div>',
         data: {
           stim: i+1,
           exp_stage: "practice pattern comp",
