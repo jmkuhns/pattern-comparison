@@ -30,7 +30,8 @@ var instructions2 = {
   type: "html-keyboard-response",
   stimulus:'<p>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
   '<br><p>Press any key to begin the practice trials.</p>',
-  post_trial_gap: 1000
+  post_trial_gap: 1000,
+  data:{exp_stage: "instructions"}
 };
 timeline.push(instructions, instructions2);
 
@@ -102,7 +103,8 @@ while (i < num_practice_trials){
 
 var debrief = {
   type: "html-keyboard-response",
-	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>"
+	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>",
+  data:{exp_stage: "instructions"}
 };
 
 timeline.push(debrief);
