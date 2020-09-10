@@ -36,44 +36,60 @@ var instructions2 = {
 timeline.push(instructions, instructions2);
 
 var prac_correct = [37, 39, 39];
-
+/*
 var practice_left = [
   {stimulus: patterns_practice + 'prac_1_1.png'}, {stimulus: patterns_practice + 'prac_2_1.png'},  {stimulus: patterns_practice + 'prac_3_1.png'}
   ];
-
+  */
+var practice_left = [patterns_practice + "prac_1_1.png", patterns_practice + "prac_2_1.png", patterns_practice + "prac_3_1.png"];
+var practice_right = [patterns_practice + "prac_1_2.png", patterns_practice + "prac_2_2.png", patterns_practice + "prac_3_2.png"];
+/*
 var practice_right = [
   {stimulus: patterns_practice + 'prac_1_2.png'},
   {stimulus: patterns_practice + 'prac_2_2.png'},
   {stimulus: patterns_practice + 'prac_3_2.png'}
   ];
-
-  var my_expando_function = function(left, right, length){
+*/
+var my_expando_function = function(left, right, length){
     to_paste = [];
-    next_step = [];
     for (var index = 0; index < length; index++) {
       to_paste.push({left: left[index],right: right[index]});
     }
+    return to_paste;
+}
 
-
+my_expando_function(practice_left, practice_right, practice_left.length);
 
 var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus: function(){
-                var html='<div class="row"><div class="column"><img src=' +jsPsych.timelineVariable('left', true)+"'>";
-                html += "<p>"+jsPsych.timelineVariable('name', true)+"</p>";
+                var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>';
                 return html;
             },
-            timeline_variables: [
+  data: {
+    stim: i+1,
+    exp_stage: "practice pattern comp",
+    corr_resp: prac_correct_loop
+  },
+  response_ends_trial: true,
+  on_finish: function(data){
+    if (data.key_press == data.corr_resp){
+      data.accuracy = 1;
+    } else {
+        data.accuracy = 0;
+      }
+  }
+};
 
-              ]
-
-
-  '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + practice_right_loop + '  style="width:100px;height:100px";></img></div></div>'
+var shebang = {
+  timeline: practice_trials,
+  timeline_variables: to_paste
 }
 
+timeline.push(shebang);
 
-var num_practice_trials = 3;
+// var num_practice_trials = 3;
 var myFunction = function(delay){
   setTimeout(function(){
     jsPsych.endCurrentTimeline()
@@ -91,7 +107,7 @@ for (i = 0; i<30; i++){
 }
 */
 //to_paste.push('{left: ' + left[index] + ', right: '+ right[index] +'}');
-
+/*
 var my_expando_function = function(left, right, length){
   to_paste = [];
   next_step = [];
@@ -107,7 +123,9 @@ var my_expando_function = function(left, right, length){
 
 const json = '{"result":true, "count":42}';
 const obj = JSON.parse(json);
+*/
 
+/*
 var i = 0;
 while (i < num_practice_trials){
 //  if (i == 0){
@@ -138,6 +156,7 @@ while (i < num_practice_trials){
       });
       i++
 }
+*/
 
 var debrief = {
   type: "html-keyboard-response",
