@@ -63,7 +63,10 @@ my_expando_function(practice_left, practice_right, practice_left.length);
 var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
-  stimulus: {'<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>'},
+  stimulus: function(){
+                var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>';
+                return html;
+            },
   timeline_variables: [to_paste],
   data: {
     exp_stage: "practice pattern comp"
