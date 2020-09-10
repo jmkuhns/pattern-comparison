@@ -68,18 +68,19 @@ var practice_trials = {
                 return html;
             },
   data: {
-    stim: i+1,
-    exp_stage: "practice pattern comp",
-    corr_resp: prac_correct_loop
+    exp_stage: "practice pattern comp"
+    // ,
+    // corr_resp: prac_correct
   },
-  response_ends_trial: true,
-  on_finish: function(data){
-    if (data.key_press == data.corr_resp){
-      data.accuracy = 1;
-    } else {
-        data.accuracy = 0;
-      }
-  }
+  response_ends_trial: true
+  // ,
+  // on_finish: function(data){
+  //  if (data.key_press == data.corr_resp){
+  //    data.accuracy = 1;
+  //  } else {
+  //      data.accuracy = 0;
+  //    }
+  // }
 };
 
 var shebang = {
