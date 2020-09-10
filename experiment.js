@@ -76,18 +76,18 @@ while (i < num_practice_trials){
 //    var timer = jsPsych.totalTime();
 //    myFunction(3000);
 //  }
-//  var practice_left_loop = practice_left[i];
-//  var practice_right_loop = practice_right[i];
-//  var prac_correct_loop = prac_correct[i];
-// to use the jquery method, would just need the whole list of picture links
+  var practice_left_loop = practice_left[i];
+  var practice_right_loop = practice_right[i];
+  var prac_correct_loop = prac_correct[i];
+
   timeline.push({
         type: "html-keyboard-response",
         choices: [37, 39],
-        stimulus: '<div class="row"><div class="column"><img src= jQuery{  practice_left[i] } style="width:100px;height:100px";></img></div><div class="column"><img src=jQuery{practice_right[i]}  style="width:100px;height:100px";></img></div></div>',
+        stimulus: '<div class="row"><div class="column"><img src=' + practice_left_loop + 'style="width:100px;height:100px";></img></div><div class="column"><img src='+ practice_right_loop +  'style="width:100px;height:100px";></img></div></div>',
         data: {
-          stim: i,
+          stim: i+1,
           exp_stage: "practice pattern comp",
-          corr_resp: prac_correct[i]
+          corr_resp: prac_correct_loop
         },
     		response_ends_trial: true,
     		on_finish: function(data){
