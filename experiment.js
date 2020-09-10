@@ -67,6 +67,7 @@ var practice_trials = {
                 var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>';
                 return html;
             },
+  timeline_variables: [to_paste],
   data: {
     exp_stage: "practice pattern comp"
     // ,
@@ -82,14 +83,14 @@ var practice_trials = {
   //    }
   // }
 };
-
+/*
 var shebang = {
   timeline: practice_trials,
   timeline_variables: to_paste
 }
-
 timeline.push(shebang);
-
+*/
+timeline.push(practice_trials);
 // var num_practice_trials = 3;
 var myFunction = function(delay){
   setTimeout(function(){
