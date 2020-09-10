@@ -37,39 +37,77 @@ timeline.push(instructions, instructions2);
 
 var prac_correct = [37, 39, 39];
 
-var practice_left = [patterns_practice + "prac_1_1.png", patterns_practice + "prac_2_1.png", patterns_practice + "prac_3_1.png"];
-
-var practice_right = [patterns_practice + "prac_1_2.png", patterns_practice + "prac_2_2.png", patterns_practice + "prac_3_2.png"];
-
-
-/*
 var practice_left = [
-  {stimulus: patterns_practice + "prac_1_1.png",
-  data: {stim: "prac_1_1.png", corr_resp: prac_correct[0], exp_stage: "practice", position: "left"}
-  },
-  {stimulus: patterns_practice + "prac_2_1.png",
-  data: {stim: "prac_2_1.png", corr_resp: prac_correct[1], exp_stage: "practice", position: "left"}
-  },
-  {stimulus: patterns_practice + "prac_3_1.png",
-  data: {stim: "prac_3_1.png", corr_resp: prac_correct[2], exp_stage: "practice", position: "left"}
-  }];
+  {stimulus: patterns_practice + 'prac_1_1.png'}, {stimulus: patterns_practice + 'prac_2_1.png'},  {stimulus: patterns_practice + 'prac_3_1.png'}
+  ];
+
 var practice_right = [
-    {stimulus: patterns_practice + "prac_1_2.png",
-    data: {stim: "prac_1_2.png", corr_resp: prac_correct[0], exp_stage: "practice", position: "right"}
-    },
-    {stimulus: patterns_practice + "prac_2_2.png",
-    data: {stim: "prac_2_2.png", corr_resp: prac_correct[1], exp_stage: "practice", position: "right"}
-    },
-    {stimulus: patterns_practice + "prac_3_2.png",
-    data: {stim: "prac_3_2.png", corr_resp: prac_correct[2], exp_stage: "practice", position: "right"}
-    }];
-*/
+  {stimulus: patterns_practice + 'prac_1_2.png'},
+  {stimulus: patterns_practice + 'prac_2_2.png'},
+  {stimulus: patterns_practice + 'prac_3_2.png'}
+  ];
+
+  var my_expando_function = function(left, right, length){
+    to_paste = [];
+    next_step = [];
+    for (var index = 0; index < length; index++) {
+      to_paste.push({left: left[index],right: right[index]});
+    }
+
+
+
+var practice_trials = {
+  type: "html-keyboard-response",
+  choices: [37, 39],
+  stimulus: function(){
+                var html='<div class="row"><div class="column"><img src=' +jsPsych.timelineVariable('left', true)+"'>";
+                html += "<p>"+jsPsych.timelineVariable('name', true)+"</p>";
+                return html;
+            },
+            timeline_variables: [
+
+              ]
+
+
+  '<div class="row"><div class="column"><img src=' + practice_left_loop + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + practice_right_loop + '  style="width:100px;height:100px";></img></div></div>'
+}
+
+
 var num_practice_trials = 3;
 var myFunction = function(delay){
   setTimeout(function(){
     jsPsych.endCurrentTimeline()
   }, delay)
 }
+/*
+var patterns_page_1_left = [];
+for (i = 0; i<30; i++){
+  patterns_page_1_left.push( "1_" + nums_01[i] + "_01")
+}
+
+var patterns_page_1_right = [];
+for (i = 0; i<30; i++){
+  patterns_page_1_right.push( "1_" + nums_01[i] + "_02")
+}
+*/
+//to_paste.push('{left: ' + left[index] + ', right: '+ right[index] +'}');
+
+var my_expando_function = function(left, right, length){
+  to_paste = [];
+  next_step = [];
+  for (var index = 0; index < length; index++) {
+    to_paste.push({left: left[index],right: right[index]});
+  }
+  for (var index = 0; index < length; index++) {
+    next_step.push( toString(to_paste[index]) );
+  }
+    return next_step;
+}
+
+
+const json = '{"result":true, "count":42}';
+const obj = JSON.parse(json);
+
 var i = 0;
 while (i < num_practice_trials){
 //  if (i == 0){
