@@ -127,8 +127,7 @@ timeline.push(looping_node);
 
 var interim_instructions = {
   type: "html-keyboard-response",
-  stimulus:
-  '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
+  stimulus: '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
   '<br><p>Press any key to begin.</p>',
   post_trial_gap: 1000,
   data:{
@@ -153,6 +152,7 @@ var test_trials_p1 = {
                 '  style="width:50px;height:50px";></img>'+
                 '</div>'+
               '</div>';
+    return html;
   },
   data: {
     exp_stage: "pattern_comp_p_1",
@@ -161,7 +161,7 @@ var test_trials_p1 = {
     length: test_index
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, delay);
+    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
   },
   response_ends_trial: true,
   on_finish: function(data){
@@ -226,7 +226,7 @@ var test_trials_p2 = {
     length: test_index_2
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, delay);
+    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
   },
   response_ends_trial: true,
   on_finish: function(data){
