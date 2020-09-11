@@ -75,6 +75,7 @@ var p2_correct = [39, 39, 37, 37, 37, 37, 39, 39, 37, 37, 39, 39, 37, 39, 39, 39
 
 jsPsych.pluginAPI.preloadImages(images = [practice_left, practice_right, patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right]);
 
+// set up practice trials
 var practice_index = 0;
 
 var practice_trials = {
@@ -221,7 +222,7 @@ var looping_node_p2 = {
   timeline: [test_trials_p2],
   loop_function: function(){
     test_index_2++;
-      if (test_index == p2_correct.length){
+      if (test_index_2 == p2_correct.length){
           return false; // don't loop again
       } else {
           return true; // loop again
@@ -229,7 +230,7 @@ var looping_node_p2 = {
   }
 }
 
-timeline.push(looping_node_p1);
+timeline.push(looping_node_p2);
 
 
 var debrief = {
