@@ -3,8 +3,28 @@
 // Paper version had two separately timed versions with 32 pairs per pages
 // half are same, half are different
 // Difference is in 1 LD for a string
+/*
+jsPsych.pluginAPI.setTimeout(function() {
+  jsPsych.finishTrial(
+    function() {
+      jsPsych.endCurrentTimeline();
+      timeline.push( function() {
+        var blank = {
+        type: "html-keyboard-response",
+        choices: jsPsych.NO_KEYS,
+        trial_duration: 5000,
+        stimuli: '<p>it_worked</p>',
+        data: {
+          exp_stage: "timeout",
+          length: test_index
+        }
+      }
+  });
+}
+  );
 
-
+        }, 500);
+        */
 /*
 var practice_left = [
   {left: patterns_practice + 'prac_1_1.png'},
