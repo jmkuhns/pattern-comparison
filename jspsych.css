@@ -36,6 +36,7 @@ p {
 
 /* Classes for changing location of things */
 .column {
+  float: left;
   width: 33.33%;
 }
 
