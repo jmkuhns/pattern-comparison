@@ -36,20 +36,22 @@ var instructions2 = {
 timeline.push(instructions, instructions2);
 
 var prac_correct = [37, 39, 39];
-/*
+
 var practice_left = [
-  {stimulus: patterns_practice + 'prac_1_1.png'}, {stimulus: patterns_practice + 'prac_2_1.png'},  {stimulus: patterns_practice + 'prac_3_1.png'}
+  {left: patterns_practice + 'prac_1_1.png'},
+  {left: patterns_practice + 'prac_2_1.png'},
+  {left: patterns_practice + 'prac_3_1.png'}
   ];
-  */
+/*
 var practice_left = [patterns_practice + "prac_1_1.png", patterns_practice + "prac_2_1.png", patterns_practice + "prac_3_1.png"];
 var practice_right = [patterns_practice + "prac_1_2.png", patterns_practice + "prac_2_2.png", patterns_practice + "prac_3_2.png"];
-/*
-var practice_right = [
-  {stimulus: patterns_practice + 'prac_1_2.png'},
-  {stimulus: patterns_practice + 'prac_2_2.png'},
-  {stimulus: patterns_practice + 'prac_3_2.png'}
-  ];
 */
+var practice_right = [
+  {right: patterns_practice + 'prac_1_2.png'},
+  {right: patterns_practice + 'prac_2_2.png'},
+  {right: patterns_practice + 'prac_3_2.png'}
+  ];
+
 /*
 var my_expando_function = function(left, right, length){
     to_paste = [];
@@ -60,7 +62,7 @@ var my_expando_function = function(left, right, length){
 }
 
 my_expando_function(practice_left, practice_right, practice_left.length);
-*/
+
 var to_paste = [
 {left: practice_left[0], right: practice_right[0]},
 {left: practice_left[1], right: practice_right[1]},
@@ -70,7 +72,7 @@ var myFunction = function(delay){
   setTimeout(function(){
     jsPsych.endCurrentTimeline()
   }, delay)
-}
+}*/
 var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
@@ -97,7 +99,7 @@ var practice_trials = {
 
 var shebang = {
   timeline: [practice_trials],
-  timeline_variables: [to_paste]
+  timeline_variables: [practice_left, practice_right]
 }
 timeline.push(shebang);
 
