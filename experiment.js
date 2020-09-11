@@ -62,7 +62,7 @@ var practice_trials = {
     exp_stage: "practice pattern comp",
     corr_resp: prac_correct[practice_index]
   },
-  response_ends_trial: true
+  response_ends_trial: true,
 
 //  on_load: function(){
 //    myfunction(500)
