@@ -66,7 +66,7 @@ var practice_trials = {
   },
   response_ends_trial: true,
   on_load: {
-    jsPsych.pluginAPI.setTimeout(function(){ jsPsych.endCurrentTimeline()}, 500)
+    jsPsych.pluginAPI.setTimeout( jsPsych.endCurrentTimeline(), 500)
   },
 //  function(){
 //    myFunction(500)
