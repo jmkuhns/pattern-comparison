@@ -83,11 +83,11 @@ var practice_trials = {
     var html='<div class="row">' +
                 '<div class="column"><img src=' +
                      practice_left[practice_index] +
-                     ' style="width:75px;height:75px";>' +
+                     ' style="width:50px;height:50px";>' +
                      '</img>' +
                 '</div>' +
                 '<div class="column"><img src=' + practice_right[practice_index] +
-                '  style="width:75px;height:75px";></img>'+
+                '  style="width:50px;height:50px";></img>'+
                 '</div>'+
               '</div>';
     return html;
@@ -143,8 +143,16 @@ var test_trials_p1 = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
-    var html='<div class="row"><div class="column"><img src=' + patterns_page_1_left[test_index] + ' style="width:75px;height:75px";></img></div><div class="column"><img src=' + patterns_page_1_right[test_index] + '  style="width:75px;height:75px";></img></div></div>';
-    return html;
+    var html='<div class="row">' +
+                '<div class="column"><img src=' +
+                     patterns_page_1_left[test_index] +
+                     ' style="width:50px;height:50px";>' +
+                     '</img>' +
+                '</div>' +
+                '<div class="column"><img src=' + patterns_page_1_right[test_index] +
+                '  style="width:50px;height:50px";></img>'+
+                '</div>'+
+              '</div>';
   },
   data: {
     exp_stage: "pattern_comp_p_1",
@@ -199,7 +207,16 @@ var test_trials_p2 = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
-    var html='<div class="row"><div class="column"><img src=' + patterns_page_2_left[test_index_2] + ' style="width:75px;height:75px";></img></div><div class="column"><img src=' + patterns_page_2_right[test_index_2] + '  style="width:75px;height:75px";></img></div></div>';
+    var html='<div class="row">' +
+                '<div class="column"><img src=' +
+                     patterns_page_2_left[test_index_2] +
+                     ' style="width:50px;height:50px";>' +
+                     '</img>' +
+                '</div>' +
+                '<div class="column"><img src=' + patterns_page_2_right[test_index_2] +
+                '  style="width:50px;height:50px";></img>'+
+                '</div>'+
+              '</div>';
     return html;
   },
   data: {
