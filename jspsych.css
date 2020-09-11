@@ -38,7 +38,7 @@ p {
 .column {
   float: left;
   width: 33.33%;
-  padding: 50px;
+  padding: 100px;
 }
 
 /* Clear floats after image containers */
