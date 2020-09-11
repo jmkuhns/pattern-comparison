@@ -174,15 +174,7 @@ var test_trials_p1 = {
   on_finish: function(){
   if (timedout == 1) {
     jsPsych.endCurrentTimeline();
-  }
-  //function(data){
-    if (data.key_press == data.corr_resp){
-      data.accuracy = 1;
-    } else {
-      data.accuracy = 0;
-      }
-
-    //}
+    }
   }
 };
 
@@ -194,7 +186,15 @@ var looping_node_p1 = {
           return false; // don't loop again
       } else {
           return true; // loop again
-      }
+      };
+      function(data){
+        if (data.key_press == data.corr_resp){
+          data.accuracy = 1;
+        } else {
+          data.accuracy = 0;
+          }
+
+        }
   }
 }
 
