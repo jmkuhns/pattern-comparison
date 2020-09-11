@@ -51,22 +51,22 @@ nums_01 = nums_01.concat(nums_2);
 
 var patterns_page_1_left = [];
 for (i = 0; i<30; i++){
-  patterns_page_1_left.push( patterns + "1_" + nums_01[i] + "_01.png")
+  patterns_page_1_left.push( patterns + "1_" + nums_01[i] + "_1.png")
 }
 
 var patterns_page_1_right = [];
 for (i = 0; i<30; i++){
-  patterns_page_1_right.push( patterns+ "1_" + nums_01[i] + "_02.png")
+  patterns_page_1_right.push( patterns+ "1_" + nums_01[i] + "_2.png")
 }
 
 var patterns_page_2_left = [];
 for (i = 0; i<30; i++){
-  patterns_page_2_left.push( patterns + "2_" + nums_01[i] + "_01.png")
+  patterns_page_2_left.push( patterns + "2_" + nums_01[i] + "_1.png")
 }
 
 var patterns_page_2_right = [];
 for (i = 0; i<30; i++){
-  patterns_page_2_right.push( patterns+ "2_" + nums_01[i] + "_02.png")
+  patterns_page_2_right.push( patterns+ "2_" + nums_01[i] + "_2.png")
 }
 // 37 = same; 39 = diff
 var p1_correct = [37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 39, 39, 37, 39, 37, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 37];
