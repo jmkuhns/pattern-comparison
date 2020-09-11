@@ -43,6 +43,7 @@ p {
 /* Clear floats after image containers */
 .row::after {
   content: "";
+  clear: both;
   display: table;
 }
 .left {
