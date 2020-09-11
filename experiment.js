@@ -83,11 +83,11 @@ var practice_trials = {
     var html='<div class="row">' +
                 '<div class="column"><img src=' +
                      practice_left[practice_index] +
-                     ' style="width:2.5vw;height:2.5vh";>' +
+                     ' style="width:50px;height:50px";>' +
                      '</img>' +
                 '</div>' +
                 '<div class="column"><img src=' + practice_right[practice_index] +
-                '  style="width:2.5vw;height:2.5vh";></img>'+
+                '  style="width:50px;height:50px";></img>'+
                 '</div>'+
               '</div>';
     return html;
