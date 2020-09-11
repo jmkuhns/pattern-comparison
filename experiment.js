@@ -69,8 +69,8 @@ var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
-    var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div></div>';
-    html += '<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>';
+    var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div>';
+    html += '<div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>';
     return html;
   },
   data: {
