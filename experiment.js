@@ -163,20 +163,23 @@ var test_trials_p1 = {
   on_load: function(){
     jsPsych.pluginAPI.setTimeout(function() {
       jsPsych.finishTrial(
-        timeline.push( function() {
-          var blank = {
-          type: "html-keyboard-response",
-          choices: jsPsych.NO_KEYS,
-          trial_duration: 5000,
-          stimuli: '<p>it_worked</p>',
-          data: {
-            exp_stage: "timeout",
-            length: test_index
+        function() {
+          jsPsych.endCurrentTimeline();
+          timeline.push( function() {
+            var blank = {
+            type: "html-keyboard-response",
+            choices: jsPsych.NO_KEYS,
+            trial_duration: 5000,
+            stimuli: '<p>it_worked</p>',
+            data: {
+              exp_stage: "timeout",
+              length: test_index
+            }
           }
-        }
-      })
+      });
+    }
       );
-      jsPsych.endCurrentTimeline();
+
             }, 500);
   },
   response_ends_trial: true,
