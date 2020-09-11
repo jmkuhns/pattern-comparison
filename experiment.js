@@ -37,62 +37,58 @@ timeline.push(instructions, instructions2);
 
 var prac_correct = [37, 39, 39];
 
-var practice_left = [
-  {left: patterns_practice + 'prac_1_1.png'},
-  {left: patterns_practice + 'prac_2_1.png'},
-  {left: patterns_practice + 'prac_3_1.png'}
-  ];
 
-var practice_right = [
-  {right: patterns_practice + 'prac_1_2.png'},
-  {right: patterns_practice + 'prac_2_2.png'},
-  {right: patterns_practice + 'prac_3_2.png'}
-  ];
-
+var practice_left = [patterns_practice + "prac_1_1.png", patterns_practice + "prac_2_1.png", patterns_practice + "prac_3_1.png"];
+var practice_right = [patterns_practice + "prac_1_2.png", patterns_practice + "prac_2_2.png", patterns_practice + "prac_3_2.png"];
 
 var myFunction = function(delay){
   setTimeout(function(){
     jsPsych.endCurrentTimeline()
   }, delay)
 }
+
+var practice_index = 0;
+
+
 var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
-    var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div>';
-    html += '<div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>';
+    var html='<div class="row"><div class="column"><img src=' + practice_left[practice_index] + ' style="width:100px;height:100px";></img></div>';
+    html += '<div class="column"><img src=' + practice_right[practice_index] + '  style="width:100px;height:100px";></img></div></div>';
     return html;
   },
-  timeline_variables: [
-    {left: patterns_practice + 'prac_1_1.png', right: patterns_practice + 'prac_1_2.png'},
-    {left: patterns_practice + 'prac_2_1.png', right: patterns_practice + 'prac_2_2.png'},
-    {left: patterns_practice + 'prac_3_1.png', right: patterns_practice + 'prac_3_2.png'}
-  /*
-    {left: practice_left[0], right: practice_right[0]},
-    {left: practice_left[1], right: practice_right[1]},
-    {left: practice_left[2], right: practice_right[2]}
-  */
-  ],
   data: {
-    exp_stage: "practice pattern comp"
-  //  ,
-  //  corr_resp: prac_correct
+    exp_stage: "practice pattern comp",
+    corr_resp: prac_correct[practice_index]
   },
   response_ends_trial: true
 
 //  on_load: function(){
 //    myfunction(500)
 //  },
-//   on_finish: function(data){
-//    if (data.key_press == data.corr_resp){
-//      data.accuracy = 1;
-//    } else {
-//      data.accuracy = 0;
-//      }
-//    }
+   on_finish: function(data){
+    if (data.key_press == data.corr_resp){
+      data.accuracy = 1;
+    } else {
+      data.accuracy = 0;
+      }
+  }
 };
 
-timeline.push(practice_trials);
+var looping_node = {
+  timeline: [practice_trials],
+  loop_function: function(){
+    practice_index++;
+      if (practice_index == practice_left.length){
+          return false; // don't loop again
+      } else {
+          return true; // loop again
+      }
+  }
+}
+
+timeline.push(looping_node);
 
 var debrief = {
   type: "html-keyboard-response",
