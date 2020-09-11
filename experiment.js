@@ -67,12 +67,12 @@ var to_paste = [
 {left: practice_left[0], right: practice_right[0]},
 {left: practice_left[1], right: practice_right[1]},
 {left: practice_left[2], right: practice_right[2]}
-];
+];*/
 var myFunction = function(delay){
   setTimeout(function(){
     jsPsych.endCurrentTimeline()
   }, delay)
-}*/
+}
 var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
@@ -99,11 +99,14 @@ var practice_trials = {
 
 var shebang = {
   timeline: [practice_trials],
-  timeline_variables: [practice_left, practice_right],
-  sample: {
-        type: 'without-replacement',
-        size: practice_left.length // 10 trials, with replacement
-    }
+  timeline_variables: [
+    {left: practice_left[0], right: practice_right[0]},
+    {left: practice_left[1], right: practice_right[1]},
+    {left: practice_left[2], right: practice_right[2]}
+  ],
+  on_load: function(){
+    myfunction(500)
+  }
 }
 timeline.push(shebang);
 
