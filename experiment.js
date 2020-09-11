@@ -161,7 +161,10 @@ var test_trials_p1 = {
     length: test_index
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
+    jsPsych.pluginAPI.setTimeout(function() {
+      jsPsych.finishTrial();
+      jsPsych.endCurrentTimeline();
+            }, 500);
   },
   response_ends_trial: true,
   on_finish: function(data){
@@ -226,7 +229,10 @@ var test_trials_p2 = {
     length: test_index_2
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
+    jsPsych.pluginAPI.setTimeout(function() {
+      jsPsych.finishTrial();
+      jsPsych.endCurrentTimeline();
+    }, 30000);
   },
   response_ends_trial: true,
   on_finish: function(data){
