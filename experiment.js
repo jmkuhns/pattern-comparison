@@ -60,12 +60,10 @@ var my_expando_function = function(left, right, length){
 }
 
 my_expando_function(practice_left, practice_right, practice_left.length);
-*/
+
 var to_paste = [
-  {left: practice_left[0], right: practice_right[0]},
-  {left: practice_left[1], right: practice_right[1]},
-  {left: practice_left[2], right: practice_right[2]}  
-];
+
+];*/
 
 var practice_trials = {
   type: "html-keyboard-response",
@@ -74,7 +72,11 @@ var practice_trials = {
                 var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>';
                 return html;
             },
-  timeline_variables: [to_paste],
+  timeline_variables: [
+    {left: practice_left[0], right: practice_right[0]},
+    {left: practice_left[1], right: practice_right[1]},
+    {left: practice_left[2], right: practice_right[2]}
+  ],
   data: {
     exp_stage: "practice pattern comp"
     // ,
