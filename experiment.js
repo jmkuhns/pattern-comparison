@@ -69,15 +69,10 @@ var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
-    var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left') + ' style="width:100px;height:100px";></img></div><div class="column"><img src=';
-    html = html.concat(jsPsych.timelineVariable('right') + '  style="width:100px;height:100px";></img></div></div>');
+    var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div></div>';
+    html += '<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>';
     return html;
   },
-  timeline_variables: [
-    {left: practice_left[0], right: practice_right[0]},
-    {left: practice_left[1], right: practice_right[1]},
-    {left: practice_left[2], right: practice_right[2]}
-  ],
   data: {
     exp_stage: "practice pattern comp"
     // ,
@@ -93,20 +88,20 @@ var practice_trials = {
   //    }
   // }
 };
-/*
+
 var shebang = {
-  timeline: practice_trials,
-  timeline_variables: to_paste
+  timeline: [practice_trials],
+  timeline_variables: [
+    {left: practice_left[0], right: practice_right[0]},
+    {left: practice_left[1], right: practice_right[1]},
+    {left: practice_left[2], right: practice_right[2]}
+  ]
 }
 timeline.push(shebang);
-*/
-timeline.push(practice_trials);
+
+// timeline.push(practice_trials);
 // var num_practice_trials = 3;
-var myFunction = function(delay){
-  setTimeout(function(){
-    jsPsych.endCurrentTimeline()
-  }, delay)
-}
+
 /*
 var patterns_page_1_left = [];
 for (i = 0; i<30; i++){
