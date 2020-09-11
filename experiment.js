@@ -187,15 +187,16 @@ var looping_node_p1 = {
       } else {
           return true; // loop again
       };
-      function(data){
-        if (data.key_press == data.corr_resp){
-          data.accuracy = 1;
-        } else {
-          data.accuracy = 0;
-          }
 
-        }
-  }
+  },
+  on_finish: function(data){
+    if (data.key_press == data.corr_resp){
+      data.accuracy = 1;
+    } else {
+      data.accuracy = 0;
+      }
+
+    }
 }
 
 timeline.push(looping_node_p1);
