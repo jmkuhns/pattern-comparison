@@ -36,15 +36,12 @@ p {
 
 /* Classes for changing location of things */
 .column {
-  float: left;
   width: 33.33%;
-  padding: 50px;
 }
 
 /* Clear floats after image containers */
 .row::after {
   content: "";
-  clear: both;
   display: table;
 }
 .left {
