@@ -74,9 +74,9 @@ var practice_trials = {
   },
   response_ends_trial: true,
 
-  on_load: function(){
-    myfunction(500)
-  },
+//  on_load: function(){
+//    myfunction(500)
+//  },
    on_finish: function(data){
     if (data.key_press == data.corr_resp){
       data.accuracy = 1;
