@@ -175,14 +175,14 @@ var test_trials_p1 = {
   if (timedout == 1) {
     jsPsych.endCurrentTimeline();
   }
-  function(data){
+  //function(data){
     if (data.key_press == data.corr_resp){
       data.accuracy = 1;
     } else {
       data.accuracy = 0;
       }
 
-    }
+    //}
   }
 };
 
