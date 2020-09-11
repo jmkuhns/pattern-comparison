@@ -68,10 +68,7 @@ var to_paste = [
 var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
-  stimulus: function(){
-                var html='<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>';
-                return html;
-            },
+  stimulus: '<div class="row"><div class="column"><img src=' + jsPsych.timelineVariable('left', true) + ' style="width:100px;height:100px";></img></div><div class="column"><img src=' + jsPsych.timelineVariable('right', true) + '  style="width:100px;height:100px";></img></div></div>',
   timeline_variables: [
     {left: practice_left[0], right: practice_right[0]},
     {left: practice_left[1], right: practice_right[1]},
