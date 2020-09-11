@@ -136,6 +136,7 @@ var interim_instructions = {
 }
 timeline.push(interim_instructions);
 
+var timedout;
 var test_index = 0;
 // patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right
 var test_trials_p1 = {
@@ -158,38 +159,30 @@ var test_trials_p1 = {
     exp_stage: "pattern_comp_p_1",
     corr_resp: p1_correct[test_index],
     stim: patterns_page_1_left[test_index],
-    length: test_index
+    length: test_index,
+    time_out: timedout
   },
   on_load: function(){
     jsPsych.pluginAPI.setTimeout(function() {
       jsPsych.finishTrial(
-        function() {
-          jsPsych.endCurrentTimeline();
-          timeline.push( function() {
-            var blank = {
-            type: "html-keyboard-response",
-            choices: jsPsych.NO_KEYS,
-            trial_duration: 5000,
-            stimuli: '<p>it_worked</p>',
-            data: {
-              exp_stage: "timeout",
-              length: test_index
-            }
-          }
-      });
-    }
-      );
-
-            }, 500);
+        function(){
+          timedout = 1;
+        }
+      )}, 500);
   },
   response_ends_trial: true,
-  on_finish: function(data){
+  on_finish: function(){
+  if (timedout == 1) {
+    jsPsych.endCurrentTimeline();
+  }
+  function(data){
     if (data.key_press == data.corr_resp){
       data.accuracy = 1;
     } else {
       data.accuracy = 0;
       }
 
+    }
   }
 };
 
@@ -246,7 +239,7 @@ var test_trials_p2 = {
   },
   on_load: function(){
     jsPsych.pluginAPI.setTimeout(function() {
-      jsPsych.finishTrial();
+      //jsPsych.finishTrial();
       jsPsych.endCurrentTimeline();
     }, 30000);
   },
