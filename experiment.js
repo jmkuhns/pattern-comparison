@@ -82,8 +82,8 @@ var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
-    var html='<div class="row"><div class="column"><img src=' + practice_left[practice_index] + ' style="width:100px;height:100px";></img></div>';
-    html += '<div class="column"><img src=' + practice_right[practice_index] + '  style="width:100px;height:100px";></img></div></div>';
+    var html='<div class="row"><div class="column"><img src=' + practice_left[practice_index] + ' style="width:75px;height:75px";></img></div>';
+    html += '<div class="column"><img src=' + practice_right[practice_index] + '  style="width:75px;height:75px";></img></div></div>';
     return html;
   },
   data: {
@@ -137,8 +137,8 @@ var test_trials_p1 = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
-    var html='<div class="row"><div class="column"><img src=' + patterns_page_1_left[test_index] + ' style="width:100px;height:100px";></img></div>';
-    html += '<div class="column"><img src=' + patterns_page_1_right[test_index] + '  style="width:100px;height:100px";></img></div></div>';
+    var html='<div class="row"><div class="column"><img src=' + patterns_page_1_left[test_index] + ' style="width:75px;height:75px";></img></div>';
+    html += '<div class="column"><img src=' + patterns_page_1_right[test_index] + '  style="width:75px;height:75px";></img></div></div>';
     return html;
   },
   data: {
@@ -148,7 +148,7 @@ var test_trials_p1 = {
     length: test_index
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
+    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 5000);
   },
   response_ends_trial: true,
   on_finish: function(data){
@@ -194,8 +194,8 @@ var test_trials_p2 = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
-    var html='<div class="row"><div class="column"><img src=' + patterns_page_2_left[test_index_2] + ' style="width:100px;height:100px";></img></div>';
-    html += '<div class="column"><img src=' + patterns_page_2_right[test_index_2] + '  style="width:100px;height:100px";></img></div></div>';
+    var html='<div class="row"><div class="column"><img src=' + patterns_page_2_left[test_index_2] + ' style="width:75px;height:75px";></img></div>';
+    html += '<div class="column"><img src=' + patterns_page_2_right[test_index_2] + '  style="width:75px;height:75px";></img></div></div>';
     return html;
   },
   data: {
@@ -205,7 +205,7 @@ var test_trials_p2 = {
     length: test_index_2
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
+    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 5000);
   },
   response_ends_trial: true,
   on_finish: function(data){
