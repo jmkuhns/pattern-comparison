@@ -143,7 +143,8 @@ var test_trials_p1 = {
   data: {
     exp_stage: "pattern_comp_p_1",
     corr_resp: p1_correct[test_index],
-    stim: patterns_page_1_left[test_index]
+    stim: patterns_page_1_left[test_index],
+    length: test_index
   },
   on_load: function(){
     jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
@@ -199,7 +200,8 @@ var test_trials_p2 = {
   data: {
     exp_stage: "pattern_comp_p_2",
     corr_resp: p2_correct[test_index_2],
-    stim: patterns_page_2_left[test_index_2]
+    stim: patterns_page_2_left[test_index_2],
+    length: test_index_2
   },
   on_load: function(){
     jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
