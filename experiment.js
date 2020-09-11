@@ -66,7 +66,11 @@ var to_paste = [
 {left: practice_left[1], right: practice_right[1]},
 {left: practice_left[2], right: practice_right[2]}
 ];
-
+var myFunction = function(delay){
+  setTimeout(function(){
+    jsPsych.endCurrentTimeline()
+  }, delay)
+}
 var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
