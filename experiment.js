@@ -72,7 +72,7 @@ var p1_correct = [37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 39, 39, 37, 39
 var p2_correct = [39, 39, 37, 37, 37, 37, 39, 39, 37, 37, 39, 39, 37, 39, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 39, 37, 37, 39];
 
 jsPsych.pluginAPI.preloadImages(images = [practice_left, practice_right, patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right]);
-
+var delay = 30000;
 // set up practice trials
 var practice_index = 0;
 
@@ -161,7 +161,7 @@ var test_trials_p1 = {
     length: test_index
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 5000);
+    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, delay);
   },
   response_ends_trial: true,
   on_finish: function(data){
@@ -226,7 +226,7 @@ var test_trials_p2 = {
     length: test_index_2
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 5000);
+    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, delay);
   },
   response_ends_trial: true,
   on_finish: function(data){
