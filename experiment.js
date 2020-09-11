@@ -80,7 +80,6 @@ var accuracy_function = function(data){
     }
 
   };
-};
 // var delay = 30000;
 // set up practice trials
 var practice_index = 0;
