@@ -99,7 +99,11 @@ var practice_trials = {
 
 var shebang = {
   timeline: [practice_trials],
-  timeline_variables: [practice_left, practice_right]
+  timeline_variables: [practice_left, practice_right],
+  sample: {
+        type: 'without-replacement',
+        size: practice_left.length // 10 trials, with replacement
+    }
 }
 timeline.push(shebang);
 
