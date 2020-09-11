@@ -58,7 +58,7 @@ var patterns_page_1_right = [];
 for (i = 0; i<30; i++){
   patterns_page_1_right.push( patterns+ "1_" + nums_01[i] + "_2.png")
 }
-
+// cmon
 var patterns_page_2_left = [];
 for (i = 0; i<30; i++){
   patterns_page_2_left.push( patterns + "2_" + nums_01[i] + "_1.png")
