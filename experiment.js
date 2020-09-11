@@ -86,7 +86,11 @@ var practice_trials = {
     // ,
     // corr_resp: prac_correct
   },
-  response_ends_trial: true
+  response_ends_trial: true,
+
+  on_load: function(){
+    myfunction(500)
+  }
   // ,
   // on_finish: function(data){
   //  if (data.key_press == data.corr_resp){
@@ -103,10 +107,7 @@ var shebang = {
     {left: practice_left[0], right: practice_right[0]},
     {left: practice_left[1], right: practice_right[1]},
     {left: practice_left[2], right: practice_right[2]}
-  ],
-  on_load: function(){
-    myfunction(500)
-  }
+  ]
 }
 timeline.push(shebang);
 
