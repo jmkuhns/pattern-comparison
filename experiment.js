@@ -70,7 +70,7 @@ var practice_trials = {
   ],
   data: {
     exp_stage: "practice pattern comp",
-     corr_resp: prac_correct
+    corr_resp: prac_correct
   },
   response_ends_trial: true,
 
@@ -81,7 +81,7 @@ var practice_trials = {
     if (data.key_press == data.corr_resp){
       data.accuracy = 1;
     } else {
-        data.accuracy = 0;
+      data.accuracy = 0;
       }
     }
 };
