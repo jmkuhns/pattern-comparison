@@ -167,8 +167,8 @@ var test_trials_p1 = {
           var blank = {
           type: "html-keyboard-response",
           choices: jsPsych.NO_KEYS,
-          trial_duration: 500,
-          stimuli: '<p></p>',
+          trial_duration: 5000,
+          stimuli: '<p>it_worked</p>',
           data: {
             exp_stage: "timeout",
             length: test_index
