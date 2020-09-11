@@ -50,6 +50,7 @@ var practice_right = [
   {stimulus: patterns_practice + 'prac_3_2.png'}
   ];
 */
+/*
 var my_expando_function = function(left, right, length){
     to_paste = [];
     for (var index = 0; index < length; index++) {
@@ -59,6 +60,12 @@ var my_expando_function = function(left, right, length){
 }
 
 my_expando_function(practice_left, practice_right, practice_left.length);
+*/
+var to_paste = [
+  {left: practice_left[0], right: practice_right[0]},
+  {left: practice_left[1], right: practice_right[1]},
+  {left: practice_left[2], right: practice_right[2]}  
+];
 
 var practice_trials = {
   type: "html-keyboard-response",
