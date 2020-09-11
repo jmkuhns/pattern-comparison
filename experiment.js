@@ -91,8 +91,8 @@ var practice_trials = {
     corr_resp: prac_correct[practice_index],
     stim: practice_left[practice_index]
   },
-  response_ends_trial: true
-   on_finish: function(data){
+  response_ends_trial: true,
+  on_finish: function(data){
     if (data.key_press == data.corr_resp){
       data.accuracy = 1;
     } else {
