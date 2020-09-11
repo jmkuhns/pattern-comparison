@@ -9,7 +9,7 @@
 /* fonts and type */
 
  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
- 
+
 html {
   font-family: 'Open Sans', 'Arial', sans-serif;
   font-size: 18px;
@@ -38,7 +38,7 @@ p {
 /* Classes for changing location of things */
 .column {
   float: left;
-  width: 40%;
+  width: 33.33%;
   padding: 150px;
 }
 
