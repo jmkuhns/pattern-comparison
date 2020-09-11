@@ -64,26 +64,32 @@ var practice_trials = {
     return html;
   },
   timeline_variables: [
+    {left: patterns_practice + 'prac_1_1.png', right: patterns_practice + 'prac_1_2.png'},
+    {left: patterns_practice + 'prac_2_1.png', right: patterns_practice + 'prac_2_2.png'},
+    {left: patterns_practice + 'prac_3_1.png', right: patterns_practice + 'prac_3_2.png'}
+  /*
     {left: practice_left[0], right: practice_right[0]},
     {left: practice_left[1], right: practice_right[1]},
     {left: practice_left[2], right: practice_right[2]}
+  */
   ],
   data: {
-    exp_stage: "practice pattern comp",
-    corr_resp: prac_correct
+    exp_stage: "practice pattern comp"
+  //  ,
+  //  corr_resp: prac_correct
   },
-  response_ends_trial: true,
+  response_ends_trial: true
 
 //  on_load: function(){
 //    myfunction(500)
 //  },
-   on_finish: function(data){
-    if (data.key_press == data.corr_resp){
-      data.accuracy = 1;
-    } else {
-      data.accuracy = 0;
-      }
-    }
+//   on_finish: function(data){
+//    if (data.key_press == data.corr_resp){
+//      data.accuracy = 1;
+//    } else {
+//      data.accuracy = 0;
+//      }
+//    }
 };
 
 timeline.push(practice_trials);
