@@ -80,7 +80,15 @@ var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
-    var html='<div class="row"><div class="column"><img src=' + practice_left[practice_index] + ' style="width:75px;height:75px";></img></div><div class="column"><img src=' + practice_right[practice_index] + '  style="width:75px;height:75px";></img></div></div>';
+    var html='<div class="row">' +
+                '<div class="column"><img src=' +
+                     practice_left[practice_index] +
+                     ' style="width:75px;height:75px";>' +
+                     '</img>'+
+                '</div>'+
+                '<div class="column"><img src=' + practice_right[practice_index] + '  style="width:75px;height:75px";></img>'+
+                '</div>'+
+              '</div>';
     return html;
   },
   data: {
