@@ -239,7 +239,7 @@ var current_timer = Date.now()+30000;
 var alt_test_trials = {
   loop_function:function(){
     test_index++;
-      if (test_index == p1_correct.length || time_var <= 0){
+      if (test_index == p1_correct.length || current_timer <= 0){
           return false; // don't loop again
       } else {
           return true; // loop again
@@ -263,6 +263,13 @@ var alt_test_trials = {
       return html;
     },
     on_start: function(){
+      var trial_timeout = setTimeout(function () {
+          if (current_timer <= 0) {
+            jsPsych.endCurrentTimeline();
+          }
+        }, 30000);
+    },
+    on_load: function(){
       current_timer -= jsPsych.totalTime();
     },
     trial_duration: current_timer,
