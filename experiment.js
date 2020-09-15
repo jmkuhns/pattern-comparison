@@ -280,7 +280,7 @@ var alt_test_trials = {
     stim: patterns_page_1_left[test_index],
     length: test_index,
     time_out: timedout,
-    trial_time: time_var
+    trial_time: current_timer
   },
     on_finish: function(data){
       if (data.key_press == data.corr_resp){
