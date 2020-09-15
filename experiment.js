@@ -218,35 +218,14 @@ var test_trials_p1 = {
     }
   }
 };
-
-var looping_node_p1 = {
-  timeline: [test_trials_p1],
-  loop_function: function(){
-    test_index++;
-      if (test_index == p1_correct.length){
-          return false; // don't loop again
-      } else {
-          return true; // loop again
-      };
-
-  }
-}
 */
+
+
 var timedout = 0;
 var test_index = 0;
 var current_timer = Date.now()+30000;
 //var time_var = current_timer - Date.now();
 var alt_test_trials = {
-  loop_function:function(){
-    test_index++;
-      if (test_index == p1_correct.length || current_timer <= 0){
-          return false; // don't loop again
-      } else {
-          return true; // loop again
-      };
-
-  },
-  timeline: [{
     type: "html-keyboard-response",
     choices: [37, 39],
     stimulus:   function(){
@@ -262,17 +241,7 @@ var alt_test_trials = {
                 '</div>';
       return html;
     },
-    on_start: function(){
-      var trial_timeout = setTimeout(function () {
-          if (current_timer <= 0) {
-            jsPsych.endCurrentTimeline();
-          }
-        }, 30000);
-    },
-    on_load: function(){
-      current_timer -= jsPsych.totalTime();
-    },
-    trial_duration: current_timer,
+    // trial_duration: current_timer,
   //  response_ends_trial: true,
   data: {
     exp_stage: "pattern_comp_p_1",
@@ -289,9 +258,26 @@ var alt_test_trials = {
         data.accuracy = 0;
         }
     }
-  }]
 };
 
+var looping_node_p1 = {
+  timeline: [alt_test_trials],
+  on_start:function(){
+    var trial_timeout = setTimeout(function () {
+          jsPsych.endCurrentTimeline();
+      }, 5000);
+  },
+  loop_function:function(){
+    current_timer -= jsPsych.totalTime();
+    test_index++;
+      if (test_index == p1_correct.length || current_timer <= 0){
+          return false; // don't loop again
+      } else {
+          return true; // loop again
+      };
+
+  }
+}
 
 // timeline.push(looping_node_p1);
 /*
