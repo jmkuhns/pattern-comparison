@@ -73,7 +73,68 @@ jsPsych.pluginAPI.setTimeout(function() {
 
         }, 500);
         */
+/*
+var test_index_2 = 0;
+// patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right
+var test_trials_p2 = {
+  type: "html-keyboard-response",
+  choices: [37, 39],
+  stimulus:   function(){
+    var html='<div class="row">' +
+                '<div class="column"><img src=' +
+                     patterns_page_2_left[test_index_2] +
+                     ' style="width:150px;height:150px";>' +
+                     '</img>' +
+                '</div>' +
+                '<div class="column"><img src=' + patterns_page_2_right[test_index_2] +
+                '  style="width:150px;height:150px";></img>'+
+                '</div>'+
+              '</div>';
+    return html;
+  },
+  data: {
+    exp_stage: "pattern_comp_p_2",
+    corr_resp: p2_correct[test_index_2],
+    stim: patterns_page_2_left[test_index_2],
+    length: test_index_2
+  },
+  on_load: function(){
+    jsPsych.pluginAPI.setTimeout(function() {
+      //jsPsych.finishTrial();
+      jsPsych.endCurrentTimeline();
+    }, 30000);
+  },
+  response_ends_trial: true,
+  on_finish: function(data){
+    if (data.key_press == data.corr_resp){
+      data.accuracy = 1;
+    } else {
+      data.accuracy = 0;
+      }
 
+  }
+};
+
+var looping_node_p2 = {
+  timeline: [test_trials_p2],
+  loop_function: function(){
+    test_index_2++;
+      if (test_index_2 == p2_correct.length){
+          return false; // don't loop again
+      } else {
+          return true; // loop again
+      }
+  }
+}
+
+timeline.push(looping_node_p2);
+*/
+
+
+
+
+//timeline.push(node_p1);
+//timeline.push(debrief);
 
 
         /*
