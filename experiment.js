@@ -125,7 +125,6 @@ var accuracy_function = function(){
     var lasttrialdata = jsPsych.data.getLastTrialData();
     inside_accuracy_function(lasttrialdata);
   }
-}
 
 var alt_test_trials = {
   timeline:[{
