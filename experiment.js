@@ -602,12 +602,12 @@ var alt_test_trials = {
                 '</div>';
       return html;
     },
-    post_trial_gap: 250,
-    on_start:function(){
+    post_trial_gap: 250
+    /*on_start:function(){
       var trial_timeout = setTimeout(function () {
             jsPsych.endCurrentTimeline();;
         }, 3000);
-      },
+      },*/
     // trial_duration: current_timer,
   //  response_ends_trial: true,
 }],
@@ -619,6 +619,7 @@ var alt_test_trials = {
         data.accuracy = 0;
         }
     },
+    trial_duration: 3000,
     timeline_variables: [
           {
             stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_1.png',
