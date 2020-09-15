@@ -521,7 +521,8 @@ var alt_practice = {
                 '</div>'+
               '</div>';
     return html;
-  }
+  },
+      post_trial_gap: 250
   }],
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
@@ -607,7 +608,7 @@ var alt_test_trials = {
       return html;
     },
     post_trial_gap: 250,
-    on_load: timeout_function()
+    on_load: timeout_function
     // trial_duration: current_timer,
   //  response_ends_trial: true,
 }],
