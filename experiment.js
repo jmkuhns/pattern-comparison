@@ -604,7 +604,7 @@ var alt_test_trials = {
                   '  style="width:150px;height:150px";></img>'+
                   '</div>'+
                 '</div>'+
-                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 3000)'></button>";
+                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 10000)'></button>";
       return html;
     },
     post_trial_gap: 250,
@@ -836,7 +836,6 @@ var alt_test_trials = {
 };
 
 timeline.push(alt_test_trials)
-timeline.push(debrief);
 /*,
 loop_function:function(){
   current_timer -= jsPsych.totalTime();
@@ -849,7 +848,7 @@ loop_function:function(){
 
 }*/
 // timeline.push(looping_node_p1);
-/*
+
 var interim_instructions_2 = {
   type: "html-keyboard-response",
   stimulus:
@@ -862,65 +861,251 @@ var interim_instructions_2 = {
 }
 timeline.push(interim_instructions_2);
 
-
-var test_index_2 = 0;
-// patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right
-var test_trials_p2 = {
-  type: "html-keyboard-response",
-  choices: [37, 39],
-  stimulus:   function(){
-    var html='<div class="row">' +
-                '<div class="column"><img src=' +
-                     patterns_page_2_left[test_index_2] +
-                     ' style="width:150px;height:150px";>' +
-                     '</img>' +
-                '</div>' +
-                '<div class="column"><img src=' + patterns_page_2_right[test_index_2] +
-                '  style="width:150px;height:150px";></img>'+
-                '</div>'+
-              '</div>';
-    return html;
-  },
-  data: {
-    exp_stage: "pattern_comp_p_2",
-    corr_resp: p2_correct[test_index_2],
-    stim: patterns_page_2_left[test_index_2],
-    length: test_index_2
-  },
-  on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {
-      //jsPsych.finishTrial();
-      jsPsych.endCurrentTimeline();
-    }, 30000);
-  },
-  response_ends_trial: true,
-  on_finish: function(data){
-    if (data.key_press == data.corr_resp){
-      data.accuracy = 1;
-    } else {
-      data.accuracy = 0;
-      }
-
-  }
-};
-
-var looping_node_p2 = {
-  timeline: [test_trials_p2],
-  loop_function: function(){
-    test_index_2++;
-      if (test_index_2 == p2_correct.length){
-          return false; // don't loop again
-      } else {
-          return true; // loop again
-      }
-  }
+var timeout_function1 = function(){
+  document.getElementById('hidden-button').click(); jsPsych.endCurrentTimeline();
 }
 
-timeline.push(looping_node_p2);
-*/
+// idea for timer
+// html keyoard response has trial_duration function.
+// This can be updated after each trial. e.g., set a time limit like timer = 30000 ms or something, and then on the onload of each trial, subtract the timer from the current run time and set that value as the trial_duration
+
+// var test_index = 0;
+//var time_var = current_timer - Date.now();
+var test_trials_p2 = {
+  timeline:[{
+    type: "html-keyboard-response",
+    choices: [37, 39],
+    stimulus:   function(){
+      var html= '<div class="row">' +
+                  '<div class="column"><img src=' +
+                  jsPsych.timelineVariable('stimulus_1', true) +
+                       //patterns_page_1_left[test_index] +
+                       ' style="width:150px;height:150px";>' +
+                       '</img>' +
+                  '</div>' +
+                  '<div class="column"><img src=' +
+                  jsPsych.timelineVariable('stimulus_2', true)+
+                  // patterns_page_1_right[test_index] +
+                  '  style="width:150px;height:150px";></img>'+
+                  '</div>'+
+                '</div>'+
+                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function1, 10000)'></button>";
+      return html;
+    },
+    post_trial_gap: 250,
+    on_load: timeout_function1
+    // trial_duration: current_timer,
+  //  response_ends_trial: true,
+}],
+  data: jsPsych.timelineVariable('data'),
+  on_finish: function(data){
+      if (data.key_press == data.corr_resp){
+        data.accuracy = 1;
+      } else {
+        data.accuracy = 0;
+        }
+    },
+    trial_duration: 3000,
+    timeline_variables: [
+              {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_01_1.png',
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_01_2.png',
+            data: { stim: 1, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_02_1.png',
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_02_2.png',
+            data: { stim: 2, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_03_1.png',
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_03_2.png',
+            data: { stim: 3, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_04_1.png',
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_04_2.png',
+            data: { stim: 4, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_05_1.png',
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_05_2.png',
+            data: { stim: 5, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_06_1.png',
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_06_2.png',
+            data: { stim: 6, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_07_1.png',
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_07_2.png',
+            data: { stim: 7, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_08_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_08_2.png',
+
+            data: { stim: 8, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_09_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_09_2.png',
+
+            data: { stim: 9, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_10_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_10_2.png',
+
+            data: { stim: 10, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_11_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_11_2.png',
+
+            data: { stim: 11, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_12_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_12_2.png',
+
+            data: { stim: 12, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_13_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_13_2.png',
+
+            data: { stim: 13, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_14_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_14_2.png',
+
+            data: { stim: 14, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_15_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_15_2.png',
+
+            data: { stim: 15, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_16_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_16_2.png',
+
+            data: { stim: 16, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_17_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_17_2.png',
+
+            data: { stim: 17, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_18_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_18_2.png',
+
+            data: { stim: 18, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_19_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_19_2.png',
+
+            data: { stim: 19, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_20_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_20_2.png',
+
+            data: { stim: 20, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_21_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_21_2.png',
+
+            data: { stim: 21, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_22_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_22_2.png',
+
+            data: { stim: 22, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_23_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_23_2.png',
+
+            data: { stim: 23, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_24_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_24_2.png',
+
+            data: { stim: 24, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_25_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_25_2.png',
+
+            data: { stim: 25, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_26_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_26_2.png',
+
+            data: { stim: 26, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_27_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_27_2.png',
+
+            data: { stim: 27, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_28_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_28_2.png',
+
+            data: { stim: 28, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_29_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_29_2.png',
+
+            data: { stim: 29, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+            },
+            {
+            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_30_1.png',
+
+            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_30_2.png',
+
+            data: { stim: 30, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+            }
+    ]
+};
 
 
-
-
-//timeline.push(node_p1);
-//timeline.push(debrief);
+timeline.push(test_trials_p2);
+timeline.push(debrief);
