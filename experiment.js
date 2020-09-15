@@ -99,9 +99,9 @@ var accuracy_function = function(){
   //var key = jsPsych.data.get()[global_trial].key_press;
   var data = jsPsych.data.get().last(1);
   if(data.key_press == data.corr_resp){
-    jsPsych.data.get().addToLast({data.accuracy = 1});
+    jsPsych.data.get().addToLast({accuracy = 1});
   } else{
-    jsPsych.data.get().addToLast({data.accuracy = 0});
+    jsPsych.data.get().addToLast({accuracy = 0});
   }
   };
 
