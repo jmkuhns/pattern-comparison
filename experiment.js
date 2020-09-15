@@ -236,7 +236,6 @@ var timedout = 0;
 var test_index = 0;
 var alt_test_trials = {
   loop_function:function(){
-    var time_var = current_timer - Date.now();
     test_index++;
       if (test_index == p1_correct.length || time_var <= 0){
           return false; // don't loop again
@@ -261,17 +260,11 @@ var alt_test_trials = {
                 '</div>';
       return html;
     },
-    on_load: function(){
+    on_start: function(){
       if (test_index == 0){
         var current_timer = Date.now()+30000;
-      }
-
-      /*jsPsych.pluginAPI.setTimeout(function() {
-        jsPsych.finishTrial(
-          function(){
-          var  timedout = 1;
-          }
-        )}, 500);*/
+      };
+      var time_var = current_timer - Date.now();
     },
     trial_duration: time_var,
   //  response_ends_trial: true,
