@@ -607,22 +607,11 @@ var alt_test_trials = {
       return html;
     },
     post_trial_gap: 250,
-    on_start:function(){
-
-
-
-      var trial_timeout = setTimeout(;
-        }, 30000);
-      }
+    on_load: timeout_function()
     // trial_duration: current_timer,
   //  response_ends_trial: true,
 }],
   data: jsPsych.timelineVariable('data'),
-  on_start:function(){
-    var trial_timeout = setTimeout(function () {
-          jsPsych.endCurrentTimeline();
-      }, 30000);
-    },
   on_finish: function(data){
       if (data.key_press == data.corr_resp){
         data.accuracy = 1;
