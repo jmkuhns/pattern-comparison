@@ -235,7 +235,7 @@ var looping_node_p1 = {
 var timedout = 0;
 var test_index = 0;
 var current_timer = Date.now()+5000;
-var time_var = current_timer - Date.now();
+//var time_var = current_timer - Date.now();
 var alt_test_trials = {
   loop_function:function(){
     test_index++;
