@@ -653,7 +653,6 @@ var node_p1 = {
   on_start:function(){
     var trial_timeout = setTimeout(function () {
           jsPsych.endCurrentTimeline();
-        }
       }, 3000);
   }
 }
