@@ -559,9 +559,6 @@ var interim_instructions = {
   post_trial_gap: 1000,
   data:{
     exp_stage: "instructions"
-  },
-  on_finish: function(){
-    var current_timer = jsPsych.totalTime()+30000;
   }
 }
 var debrief = {
@@ -620,7 +617,6 @@ var alt_test_trials = {
         data.accuracy = 0;
         }
     },
-    trial_duration: 3000,
     timeline_variables: [
           {
             stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_1.png',
@@ -836,18 +832,6 @@ var alt_test_trials = {
 };
 
 timeline.push(alt_test_trials)
-/*,
-loop_function:function(){
-  current_timer -= jsPsych.totalTime();
-  test_index++;
-    if (test_index == p1_correct.length || current_timer <= 0){
-        return false; // don't loop again
-    } else {
-        return true; // loop again
-    };
-
-}*/
-// timeline.push(looping_node_p1);
 
 var interim_instructions_2 = {
   type: "html-keyboard-response",
@@ -865,12 +849,6 @@ var timeout_function1 = function(){
   document.getElementById('hidden-button').click(); jsPsych.endCurrentTimeline();
 }
 
-// idea for timer
-// html keyoard response has trial_duration function.
-// This can be updated after each trial. e.g., set a time limit like timer = 30000 ms or something, and then on the onload of each trial, subtract the timer from the current run time and set that value as the trial_duration
-
-// var test_index = 0;
-//var time_var = current_timer - Date.now();
 var test_trials_p2 = {
   timeline:[{
     type: "html-keyboard-response",
@@ -879,23 +857,19 @@ var test_trials_p2 = {
       var html= '<div class="row">' +
                   '<div class="column"><img src=' +
                   jsPsych.timelineVariable('stimulus_1', true) +
-                       //patterns_page_1_left[test_index] +
-                       ' style="width:150px;height:150px";>' +
+                  ' style="width:150px;height:150px";>' +
                        '</img>' +
                   '</div>' +
                   '<div class="column"><img src=' +
                   jsPsych.timelineVariable('stimulus_2', true)+
-                  // patterns_page_1_right[test_index] +
                   '  style="width:150px;height:150px";></img>'+
                   '</div>'+
                 '</div>'+
-                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function1, 10000)'></button>";
+                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function1, 30000)'></button>";
       return html;
     },
     post_trial_gap: 250,
     on_load: timeout_function1
-    // trial_duration: current_timer,
-  //  response_ends_trial: true,
 }],
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
@@ -905,7 +879,6 @@ var test_trials_p2 = {
         data.accuracy = 0;
         }
     },
-    trial_duration: 3000,
     timeline_variables: [
               {
             stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_01_1.png',
