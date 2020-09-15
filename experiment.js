@@ -112,8 +112,8 @@ var timeout_function = function(){
   document.getElementById('hidden-button').click(); jsPsych.endCurrentTimeline();
 }
 
-var inside_accuracy_function = function(x){
-    if(x.key_press == x.corr_resp){
+var inside_accuracy_function = function(lasttrialdata){
+    if(lasttrialdata.key_press == lasttrialdata.corr_resp){
       jsPsych.data.get().addToLast({accuracy: 1});
 
     } else {
@@ -154,7 +154,6 @@ var alt_test_trials = {
   data: jsPsych.timelineVariable('data'),
   on_finish: function(){
       accuracy_function();
-
     },
     timeline_variables: [
           {
