@@ -73,6 +73,62 @@ jsPsych.pluginAPI.setTimeout(function() {
 
         }, 500);
         */
+
+
+
+        /*
+        // set up practice trials
+        var practice_index = 0;
+        var practice_trials = {
+          type: "html-keyboard-response",
+          choices: [37, 39],
+          stimulus:   function(){
+            var html='<div class="row">' +
+                        '<div class="column"><img src=' +
+                             practice_left[practice_index] +
+                             ' style="width:150px;height:150px";>' +
+                             '</img>' +
+                        '</div>' +
+                        '<div class="column"><img src=' + practice_right[practice_index] +
+                        '  style="width:150px;height:150px";></img>'+
+                        '</div>'+
+                      '</div>';
+            return html;
+          },
+          data: {
+            exp_stage: "practice pattern comp",
+          },
+          response_ends_trial: true,
+          on_finish: function(data){
+            if (data.key_press == data.corr_resp){
+              data.accuracy = 1;
+            } else {
+              data.accuracy = 0;
+              }
+          }
+        };
+
+        var looping_node = {
+          timeline: [practice_trials],
+          data: function() {
+              jsPsych.data.get().addToLast({
+              success: true,
+              prac_index: practice_index,
+              corr_resp: prac_correct[practice_index],
+              stim: practice_left[practice_index]
+            })
+          },
+          loop_function: function(){
+            practice_index++;
+              if (practice_index == practice_left.length){
+                  return false; // don't loop again
+              } else {
+                  return true; // loop again
+              }
+          }
+        }
+
+        */
 /*
 var practice_left = [
   {left: patterns_practice + 'prac_1_1.png'},
