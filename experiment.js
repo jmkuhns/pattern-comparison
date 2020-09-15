@@ -264,6 +264,7 @@ var alt_test_trials = {
     },
     on_start: function(){
       var time_var = current_timer - Date.now();
+      console.log(time_var);
     },
     trial_duration: time_var,
   //  response_ends_trial: true,
