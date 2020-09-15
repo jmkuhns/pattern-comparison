@@ -610,13 +610,11 @@ timeline.push(instructions, instructions2);
 timeline.push(looping_node);
 timeline.push(interim_instructions);
 
-var delay = 30000;
 // idea for timer
 // html keyoard response has trial_duration function.
 // This can be updated after each trial. e.g., set a time limit like timer = 30000 ms or something, and then on the onload of each trial, subtract the timer from the current run time and set that value as the trial_duration
 
-var timedout = 0;
-var test_index = 0;
+// var test_index = 0;
 //var time_var = current_timer - Date.now();
 var alt_test_trials = {
     type: "html-keyboard-response",
@@ -649,7 +647,7 @@ var alt_test_trials = {
     }
 };
 
-var looping_node_p1 = {
+var node_p1 = {
   timeline: [alt_test_trials],
   timeline_variables: [test_1_1, test_1_2],
   on_start:function(){
@@ -658,19 +656,19 @@ var looping_node_p1 = {
           jsPsych.endCurrentTimeline();
         }
       }, 10);
-  },
-  loop_function:function(){
-    current_timer -= jsPsych.totalTime();
-    test_index++;
-      if (test_index == p1_correct.length || current_timer <= 0){
-          return false; // don't loop again
-      } else {
-          return true; // loop again
-      };
-
   }
 }
+/*,
+loop_function:function(){
+  current_timer -= jsPsych.totalTime();
+  test_index++;
+    if (test_index == p1_correct.length || current_timer <= 0){
+        return false; // don't loop again
+    } else {
+        return true; // loop again
+    };
 
+}*/
 // timeline.push(looping_node_p1);
 /*
 var interim_instructions_2 = {
@@ -749,5 +747,5 @@ var debrief = {
 };
 
 
-timeline.push(alt_test_trials);
+timeline.push(node_p1);
 timeline.push(debrief);
