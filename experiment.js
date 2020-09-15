@@ -235,6 +235,16 @@ var looping_node_p1 = {
 var timedout = 0;
 var test_index = 0;
 var alt_test_trials = {
+  loop_function:function(){
+    var time_var = current_timer - Date.now();
+    test_index++;
+      if (test_index == p1_correct.length || time_var <= 0){
+          return false; // don't loop again
+      } else {
+          return true; // loop again
+      };
+
+  },
   timeline: [{
     type: "html-keyboard-response",
     choices: [37, 39],
@@ -279,17 +289,7 @@ var alt_test_trials = {
         data.accuracy = 0;
         }
     }
-  }],
-  loop_function:function(){
-    var time_var = current_timer - Date.now();
-    test_index++;
-      if (test_index == p1_correct.length || time_var <= 0){
-          return false; // don't loop again
-      } else {
-          return true; // loop again
-      };
-
-  },
+  }]
 };
 
 
