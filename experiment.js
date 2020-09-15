@@ -618,7 +618,7 @@ timeline.push(instructions, instructions2);
 timeline.push(prac_node);
 //timeline.push(looping_node);
 timeline.push(interim_instructions);
-
+timeline.push(debrief);
 
 // idea for timer
 // html keyoard response has trial_duration function.
@@ -966,5 +966,5 @@ var debrief = {
 };
 
 
-timeline.push(node_p1);
-timeline.push(debrief);
+//timeline.push(node_p1);
+//timeline.push(debrief);
