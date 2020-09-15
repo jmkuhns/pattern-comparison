@@ -572,9 +572,12 @@ var debrief = {
 timeline = [];
 timeline.push(welcome);
 timeline.push(instructions, instructions2);
-// timeline.push(alt_practice);
+timeline.push(alt_practice);
 timeline.push(interim_instructions);
 
+var timeout_function = function(){
+  document.getElementById('hidden-button').click(); jsPsych.endCurrentTimeline();
+}
 
 // idea for timer
 // html keyoard response has trial_duration function.
@@ -599,19 +602,27 @@ var alt_test_trials = {
                   // patterns_page_1_right[test_index] +
                   '  style="width:150px;height:150px";></img>'+
                   '</div>'+
-                '</div>';
+                '</div>'+
+                "<button ID = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 3000)'></button>";
       return html;
     },
-    post_trial_gap: 250
-    /*on_start:function(){
-      var trial_timeout = setTimeout(function () {
-            jsPsych.endCurrentTimeline();;
-        }, 3000);
-      },*/
+    post_trial_gap: 250,
+    on_start:function(){
+
+
+
+      var trial_timeout = setTimeout(;
+        }, 30000);
+      }
     // trial_duration: current_timer,
   //  response_ends_trial: true,
 }],
   data: jsPsych.timelineVariable('data'),
+  on_start:function(){
+    var trial_timeout = setTimeout(function () {
+          jsPsych.endCurrentTimeline();
+      }, 30000);
+    },
   on_finish: function(data){
       if (data.key_press == data.corr_resp){
         data.accuracy = 1;
