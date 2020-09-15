@@ -134,13 +134,11 @@ var alt_test_trials = {
       var html= '<div class="row">' +
                   '<div class="column"><img src=' +
                   jsPsych.timelineVariable('stimulus_1', true) +
-                       //patterns_page_1_left[test_index] +
                        ' style="width:150px;height:150px";>' +
                        '</img>' +
                   '</div>' +
                   '<div class="column"><img src=' +
                   jsPsych.timelineVariable('stimulus_2', true)+
-                  // patterns_page_1_right[test_index] +
                   '  style="width:150px;height:150px";></img>'+
                   '</div>'+
                 '</div>';
