@@ -606,8 +606,10 @@ var interim_instructions = {
 timeline = [];
 timeline.push(welcome);
 timeline.push(instructions, instructions2);
-timeline.push(looping_node);
+timeline.push(prac_node);
+//timeline.push(looping_node);
 timeline.push(interim_instructions);
+
 
 // idea for timer
 // html keyoard response has trial_duration function.
