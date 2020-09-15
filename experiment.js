@@ -234,7 +234,7 @@ var looping_node_p1 = {
 */
 var timedout = 0;
 var test_index = 0;
-var current_timer = Date.now()+5000;
+var current_timer = Date.now()+30000;
 //var time_var = current_timer - Date.now();
 var alt_test_trials = {
   loop_function:function(){
@@ -263,10 +263,9 @@ var alt_test_trials = {
       return html;
     },
     on_start: function(){
-      var time_var = current_timer - Date.now();
-      console.log(time_var);
+      current_timer -= jsPsych.totalTime();
     },
-    trial_duration: time_var,
+    trial_duration: current_timer,
   //  response_ends_trial: true,
   data: {
     exp_stage: "pattern_comp_p_1",
