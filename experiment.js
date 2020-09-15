@@ -123,6 +123,7 @@ var practice_trials = {
   },
   data: {
     exp_stage: "practice pattern comp",
+    prac_index: practice_index,
     corr_resp: prac_correct[practice_index],
     stim: practice_left[practice_index]
   },
