@@ -93,21 +93,16 @@ var record_acc = function() {
 }*/
 
 var accuracy_function = function(){
-  var global_trial = jsPsych.progress().current_trial_global;
-  var stim = jsPsych.data.getData()[global_trial].stim;
-  var corr = jsPsych.data.getData()[global_trial].corr_resp;
-  var key = jsPsych.data.getData()[global_trial].key_press;
-
-  if (key == corr){
-    correct = 1;
-  } else {
-    correct = 0;
+  //var global_trial = jsPsych.progress().current_trial_global;
+  //ar stim = jsPsych.data.get()[global_trial].stim;
+  //var corr = jsPsych.data.get()[global_trial].corr_resp;
+  //var key = jsPsych.data.get()[global_trial].key_press;
+  var data = jsPsych.data.get().last(1);
+  if(data.key_press == data.corr_resp){
+    jsPsych.data.get().addToLast({data.accuracy = 1});
+  } else{
+    jsPsych.data.get().addToLast({data.accuracy = 0});
   }
-  jsPsych.data.addDataToLastTrial({
-    accuracy: correct,
-    trial_num: current_trial
-  })
-  current_trial = current_trial + 1
   };
 
 // var delay = 30000;
