@@ -91,11 +91,11 @@ var practice_trials = {
     var html='<div class="row">' +
                 '<div class="column"><img src=' +
                      practice_left[practice_index] +
-                     ' style="width:125px;height:125px";>' +
+                     ' style="width:150px;height:150px";>' +
                      '</img>' +
                 '</div>' +
                 '<div class="column"><img src=' + practice_right[practice_index] +
-                '  style="width:125px;height:125px";></img>'+
+                '  style="width:150px;height:150px";></img>'+
                 '</div>'+
               '</div>';
     return html;
@@ -154,11 +154,11 @@ var test_trials_p1 = {
     var html='<div class="row">' +
                 '<div class="column"><img src=' +
                      patterns_page_1_left[test_index] +
-                     ' style="width:125px;height:125px";>' +
+                     ' style="width:150px;height:150px";>' +
                      '</img>' +
                 '</div>' +
                 '<div class="column"><img src=' + patterns_page_1_right[test_index] +
-                '  style="width:125px;height:125px";></img>'+
+                '  style="width:150px;height:150px";></img>'+
                 '</div>'+
               '</div>';
     return html;
@@ -224,11 +224,11 @@ var test_trials_p2 = {
     var html='<div class="row">' +
                 '<div class="column"><img src=' +
                      patterns_page_2_left[test_index_2] +
-                     ' style="width:125px;height:125px";>' +
+                     ' style="width:150px;height:150px";>' +
                      '</img>' +
                 '</div>' +
                 '<div class="column"><img src=' + patterns_page_2_right[test_index_2] +
-                '  style="width:125px;height:125px";></img>'+
+                '  style="width:150px;height:150px";></img>'+
                 '</div>'+
               '</div>';
     return html;
