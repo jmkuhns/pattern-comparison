@@ -88,7 +88,7 @@ var record_acc = function() {
 	})
 	current_trial = current_trial + 1
 }*/
-
+/*
 var accuracy_function = function(){
   //var global_trial = jsPsych.progress().current_trial_global;
   //ar stim = jsPsych.data.get()[global_trial].stim;
@@ -101,7 +101,7 @@ var accuracy_function = function(){
     jsPsych.data.get().addToLast({accuracy = 0});
   }
   };
-
+*/
 
 // set up practice trials
 var practice_index = 0;
