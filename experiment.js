@@ -648,7 +648,7 @@ var alt_test_trials = {
 
 var node_p1 = {
   timeline: [alt_test_trials],
-  timeline_variables: [test_1_1, test_1_2],
+  timeline_variables: [test_1],
   on_start:function(){
     var trial_timeout = setTimeout(function () {
           jsPsych.endCurrentTimeline();
