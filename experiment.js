@@ -605,7 +605,7 @@ var alt_test_trials = {
     post_trial_gap: 250,
     on_start:function(){
       var trial_timeout = setTimeout(function () {
-            jsPsych.endCurrentTimeline();
+            jsPsych.endExperiment("gotcha!~");
         }, 3000);
       },
     // trial_duration: current_timer,
