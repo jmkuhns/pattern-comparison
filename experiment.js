@@ -604,7 +604,7 @@ var alt_test_trials = {
                   '  style="width:150px;height:150px";></img>'+
                   '</div>'+
                 '</div>'+
-                "<button ID = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 3000)'></button>";
+                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 3000)'></button>";
       return html;
     },
     post_trial_gap: 250,
