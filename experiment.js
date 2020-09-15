@@ -160,6 +160,9 @@ var interim_instructions = {
   post_trial_gap: 1000,
   data:{
     exp_stage: "instructions"
+  },
+  on_finish: function(){
+    var current_timer = jsPsych.totalTime()+30000;
   }
 }
 
@@ -223,7 +226,6 @@ var test_trials_p1 = {
 
 var timedout = 0;
 var test_index = 0;
-var current_timer = jsPsych.totalTime()+30000;
 //var time_var = current_timer - Date.now();
 var alt_test_trials = {
     type: "html-keyboard-response",
