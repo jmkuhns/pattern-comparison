@@ -223,7 +223,7 @@ var test_trials_p1 = {
 
 var timedout = 0;
 var test_index = 0;
-var current_timer = Date.now()+30000;
+var current_timer = jsPsych.totalTime()+30000;
 //var time_var = current_timer - Date.now();
 var alt_test_trials = {
     type: "html-keyboard-response",
@@ -264,7 +264,9 @@ var looping_node_p1 = {
   timeline: [alt_test_trials],
   on_start:function(){
     var trial_timeout = setTimeout(function () {
+        if(jsPsych.totalTime() - current_timer > 5000){
           jsPsych.endCurrentTimeline();
+        }
       }, 5000);
   },
   loop_function:function(){
