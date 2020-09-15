@@ -37,6 +37,21 @@ var prac_correct = [37, 39, 39];
 var practice_left = [patterns_practice + "prac_1_1.png", patterns_practice + "prac_2_1.png", patterns_practice + "prac_3_1.png"];
 var practice_right = [patterns_practice + "prac_1_2.png", patterns_practice + "prac_2_2.png", patterns_practice + "prac_3_2.png"];
 
+var practice_stims = [
+  {stimulus_1: patterns_practice + "prac_1_1.png",
+    stimulus_2: patterns_practice + "prac_1_2.png",
+    data: {corr_resp: 37, exp_stage: "practice"}},
+    {stimulus_1: patterns_practice + "prac_2_1.png",
+    stimulus_2: patterns_practice + "prac_2_2.png",
+      data: {corr_resp: 39, exp_stage: "practice"}},
+      {stimulus_1: patterns_practice + "prac_3_1.png",
+      stimulus_2: patterns_practice + "prac_3_2.png",
+        data: {corr_resp: 39, exp_stage: "practice"}}
+
+]
+
+
+
 // set up test stimuli
 var nums_01 = ['01', '02', '03', '04', '05', '06', '07', '08', '09'];
 var nums_2 = [];
@@ -484,7 +499,41 @@ var test_2 = [
 
 jsPsych.pluginAPI.preloadImages(images = [practice_left, practice_right]);
 
+var alt_practice = {
+  type: "html-keyboard-response",
+  choices: [37, 39],
+  stimulus: function(){
+    var html='<div class="row">' +
+                '<div class="column"><img src=' +
+                  jsPsych.timelineVariable("stimulus_1", true) +
+                     //practice_left[practice_index] +
+                     ' style="width:150px;height:150px";>' +
+                     '</img>' +
+                '</div>' +
+                '<div class="column"><img src=' +
+                jsPsych.timelineVariable("stimulus_2", true) +
+                //practice_right[practice_index] +
+                '  style="width:150px;height:150px";></img>'+
+                '</div>'+
+              '</div>';
+    return html;
+  },
+  data: jsPsych.timelineVariable('data'),
+  on_finish: function(data){
+    if (data.key_press == data.corr_resp){
+      data.accuracy = 1;
+    } else {
+      data.accuracy = 0;
+      }
+  }
+};
 
+var prac_node = {
+  timeline: [alt_practice],
+  timeline_variables: [practice_stims]
+};
+
+/*
 // set up practice trials
 var practice_index = 0;
 var practice_trials = {
@@ -536,7 +585,7 @@ var looping_node = {
   }
 }
 
-
+*/
 // practice end
 
 // interim instructions...You will have 30 seconds...
