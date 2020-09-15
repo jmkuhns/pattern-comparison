@@ -64,436 +64,418 @@ for (i = 0; i<30; i++){
   patterns_page_2_right.push( patterns+ "2_" + nums_01[i] + "_2.png")
 }
 
-var test_1_1 = [
-    {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_1.png',
-      data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
+var test_1 = [
       {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_02_1.png',
-      data: { stim: 2, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_03_1.png',
-      data: { stim: 3, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_04_1.png',
-      data: { stim: 4, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_05_1.png',
-      data: { stim: 5, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_06_1.png',
-      data: { stim: 6, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_07_1.png',
-      data: { stim: 7, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_08_1.png',
-      data: { stim: 8, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_09_1.png',
-      data: { stim: 9, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_10_1.png',
-      data: { stim: 10, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_11_1.png',
-      data: { stim: 11, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_12_1.png',
-      data: { stim: 12, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_13_1.png',
-      data: { stim: 13, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_14_1.png',
-      data: { stim: 14, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_15_1.png',
-      data: { stim: 15, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_16_1.png',
-      data: { stim: 16, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_17_1.png',
-      data: { stim: 17, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_18_1.png',
-      data: { stim: 18, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_19_1.png',
-      data: { stim: 19, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_20_1.png',
-      data: { stim: 20, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_21_1.png',
-      data: { stim: 21, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_22_1.png',
-      data: { stim: 22, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_23_1.png',
-      data: { stim: 23, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_24_1.png',
-      data: { stim: 24, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_25_1.png',
-      data: { stim: 25, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_26_1.png',
-      data: { stim: 26, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_27_1.png',
-      data: { stim: 27, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_28_1.png',
-      data: { stim: 28, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_29_1.png',
-      data: { stim: 29, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_30_1.png',
-      data: { stim: 30, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      }
-];
-var test_1_2 = [
-        {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_02_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_03_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_04_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_05_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_06_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_07_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_08_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_09_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_10_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_11_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_12_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_13_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_14_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_15_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_16_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_17_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_18_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_19_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_20_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_21_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_22_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_23_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_24_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_25_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_26_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_27_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_28_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_29_2.png'
-      },
-      {
-      stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_30_2.png'
-      }
-];
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_1.png',
 
-var test_2_1 = [
-    {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_01_1.png',
-      data: { stim: 1, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_02_1.png',
-      data: { stim: 2, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_03_1.png',
-      data: { stim: 3, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_04_1.png',
-      data: { stim: 4, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_05_1.png',
-      data: { stim: 5, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_06_1.png',
-      data: { stim: 6, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_07_1.png',
-      data: { stim: 7, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_08_1.png',
-      data: { stim: 8, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_09_1.png',
-      data: { stim: 9, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_10_1.png',
-      data: { stim: 10, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_11_1.png',
-      data: { stim: 11, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_12_1.png',
-      data: { stim: 12, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_13_1.png',
-      data: { stim: 13, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_14_1.png',
-      data: { stim: 14, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_15_1.png',
-      data: { stim: 15, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_16_1.png',
-      data: { stim: 16, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_17_1.png',
-      data: { stim: 17, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_18_1.png',
-      data: { stim: 18, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_19_1.png',
-      data: { stim: 19, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_20_1.png',
-      data: { stim: 20, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_21_1.png',
-      data: { stim: 21, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_22_1.png',
-      data: { stim: 22, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_23_1.png',
-      data: { stim: 23, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_24_1.png',
-      data: { stim: 24, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_25_1.png',
-      data: { stim: 25, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_26_1.png',
-      data: { stim: 26, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_27_1.png',
-      data: { stim: 27, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_28_1.png',
-      data: { stim: 28, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_29_1.png',
-      data: { stim: 29, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-      },
-      {
-      stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_30_1.png',
-      data: { stim: 30, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
-      }
-];
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_2.png',
 
-var test_2_2 = [
-      {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_01_2.png'
+        data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_02_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_02_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_02_2.png',
+
+        data: { stim: 2, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_03_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_03_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_03_2.png',
+
+        data: { stim: 3, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_04_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_04_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_04_2.png',
+
+        data: { stim: 4, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_05_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_05_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_05_2.png',
+
+        data: { stim: 5, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_06_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_06_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_06_2.png',
+
+        data: { stim: 6, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_07_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_07_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_07_2.png',
+
+        data: { stim: 7, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_08_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_08_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_08_2.png',
+
+        data: { stim: 8, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_09_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_09_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_09_2.png',
+
+        data: { stim: 9, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_10_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_10_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_10_2.png',
+
+        data: { stim: 10, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_11_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_11_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_11_2.png',
+
+        data: { stim: 11, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_12_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_12_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_12_2.png',
+
+        data: { stim: 12, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_13_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_13_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_13_2.png',
+
+        data: { stim: 13, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_14_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_14_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_14_2.png',
+
+        data: { stim: 14, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_15_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_15_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_15_2.png',
+
+        data: { stim: 15, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_16_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_16_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_16_2.png',
+
+        data: { stim: 16, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_17_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_17_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_17_2.png',
+
+        data: { stim: 17, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_18_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_18_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_18_2.png',
+
+        data: { stim: 18, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_19_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_19_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_19_2.png',
+
+        data: { stim: 19, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_20_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_20_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_20_2.png',
+
+        data: { stim: 20, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_21_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_21_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_21_2.png',
+
+        data: { stim: 21, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_22_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_22_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_22_2.png',
+
+        data: { stim: 22, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_23_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_23_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_23_2.png',
+
+        data: { stim: 23, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_24_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_24_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_24_2.png',
+
+        data: { stim: 24, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_25_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_25_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_25_2.png',
+
+        data: { stim: 25, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_26_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_26_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_26_2.png',
+
+        data: { stim: 26, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_27_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_27_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_27_2.png',
+
+        data: { stim: 27, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_28_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_28_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_28_2.png',
+
+        data: { stim: 28, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_29_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_29_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_29_2.png',
+
+        data: { stim: 29, corr_resp:  39, exp_stage: 'pattern_comp_p1'}
         },
         {
-        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_30_2.png'
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_30_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_30_2.png',
+
+        data: { stim: 30, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
         }
 ];
+
+var test_2 = [
+          {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_01_1.png',
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_01_2.png',
+        data: { stim: 1, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_02_1.png',
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_02_2.png',
+        data: { stim: 2, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_03_1.png',
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_03_2.png',
+        data: { stim: 3, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_04_1.png',
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_04_2.png',
+        data: { stim: 4, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_05_1.png',
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_05_2.png',
+        data: { stim: 5, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_06_1.png',
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_06_2.png',
+        data: { stim: 6, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_07_1.png',
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_07_2.png',
+        data: { stim: 7, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_08_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_08_2.png',
+
+        data: { stim: 8, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_09_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_09_2.png',
+
+        data: { stim: 9, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_10_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_10_2.png',
+
+        data: { stim: 10, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_11_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_11_2.png',
+
+        data: { stim: 11, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_12_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_12_2.png',
+
+        data: { stim: 12, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_13_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_13_2.png',
+
+        data: { stim: 13, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_14_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_14_2.png',
+
+        data: { stim: 14, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_15_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_15_2.png',
+
+        data: { stim: 15, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_16_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_16_2.png',
+
+        data: { stim: 16, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_17_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_17_2.png',
+
+        data: { stim: 17, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_18_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_18_2.png',
+
+        data: { stim: 18, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_19_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_19_2.png',
+
+        data: { stim: 19, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_20_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_20_2.png',
+
+        data: { stim: 20, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_21_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_21_2.png',
+
+        data: { stim: 21, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_22_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_22_2.png',
+
+        data: { stim: 22, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_23_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_23_2.png',
+
+        data: { stim: 23, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_24_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_24_2.png',
+
+        data: { stim: 24, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_25_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_25_2.png',
+
+        data: { stim: 25, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_26_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_26_2.png',
+
+        data: { stim: 26, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_27_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_27_2.png',
+
+        data: { stim: 27, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_28_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_28_2.png',
+
+        data: { stim: 28, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_29_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_29_2.png',
+
+        data: { stim: 29, corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+        },
+        {
+        stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_30_1.png',
+
+        stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/2_30_2.png',
+
+        data: { stim: 30, corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+        }
+];
+
 
 // 37 = same; 39 = diff
 //var p1_correct = [37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 39, 39, 37, 39, 37, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 37];
@@ -501,39 +483,7 @@ var test_2_2 = [
 // var p2_correct = [39, 39, 37, 37, 37, 37, 39, 39, 37, 37, 39, 39, 37, 39, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 39, 37, 37, 39];
 
 jsPsych.pluginAPI.preloadImages(images = [practice_left, practice_right]);
-/*
-var record_acc = function() {
-	var global_trial = jsPsych.progress().current_trial_global
-	var stim = jsPsych.data.getData()[global_trial].stim.toLowerCase()
-	var target = jsPsych.data.getData()[global_trial].target.toLowerCase()
-	var key = jsPsych.data.getData()[global_trial].key_press
-	if (stim == target && key == 37) {
-		correct = true
-	} else if (stim != target && key == 40) {
-		correct = true
-	} else {
-		correct = false
-	}
-	jsPsych.data.addDataToLastTrial({
-		correct: correct,
-		trial_num: current_trial
-	})
-	current_trial = current_trial + 1
-}*/
-/*
-var accuracy_function = function(){
-  //var global_trial = jsPsych.progress().current_trial_global;
-  //ar stim = jsPsych.data.get()[global_trial].stim;
-  //var corr = jsPsych.data.get()[global_trial].corr_resp;
-  //var key = jsPsych.data.get()[global_trial].key_press;
-  var data = jsPsych.data.get().last(1);
-  if(data.key_press == data.corr_resp){
-    jsPsych.data.get().addToLast({accuracy = 1});
-  } else{
-    jsPsych.data.get().addToLast({accuracy = 0});
-  }
-  };
-*/
+
 
 // set up practice trials
 var practice_index = 0;
