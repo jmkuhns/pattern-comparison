@@ -273,7 +273,8 @@ var alt_test_trials = {
     corr_resp: p1_correct[test_index],
     stim: patterns_page_1_left[test_index],
     length: test_index,
-    time_out: timedout
+    time_out: timedout,
+    trial_time: time_var
   },
     on_finish: function(data){
       if (data.key_press == data.corr_resp){
