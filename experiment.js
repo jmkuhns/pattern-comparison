@@ -123,9 +123,6 @@ var practice_trials = {
   },
   data: {
     exp_stage: "practice pattern comp",
-    prac_index: practice_index,
-    corr_resp: prac_correct[practice_index],
-    stim: practice_left[practice_index]
   },
   response_ends_trial: true,
   on_finish: function(data){
@@ -139,6 +136,14 @@ var practice_trials = {
 
 var looping_node = {
   timeline: [practice_trials],
+  data: function() {
+      jsPsych.data.get().addToLast({
+      success: true,
+      prac_index: practice_index,
+      corr_resp: prac_correct[practice_index],
+      stim: practice_left[practice_index]
+    })
+  },
   loop_function: function(){
     practice_index++;
       if (practice_index == practice_left.length){
