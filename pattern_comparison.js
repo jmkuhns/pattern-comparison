@@ -3,6 +3,54 @@
 // Paper version had two separately timed versions with 32 pairs per pages
 // half are same, half are different
 // Difference is in 1 LD for a string
+// patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right
+/*
+var test_trials_p1 = {
+  type: "html-keyboard-response",
+  choices: [37, 39],
+  stimulus:   function(){
+    var html='<div class="row">' +
+                '<div class="column"><img src=' +
+                     patterns_page_1_left[test_index] +
+                     ' style="width:150px;height:150px";>' +
+                     '</img>' +
+                '</div>' +
+                '<div class="column"><img src=' + patterns_page_1_right[test_index] +
+                '  style="width:150px;height:150px";></img>'+
+                '</div>'+
+              '</div>';
+    return html;
+  },
+  data: {
+    exp_stage: "pattern_comp_p_1",
+    corr_resp: p1_correct[test_index],
+    stim: patterns_page_1_left[test_index],
+    length: test_index,
+    time_out: timedout
+  },
+  on_load: function(){
+    if (test_index == 0){
+      var current_timer = Date.now()+30000;
+    }
+    var time_var = current_timer - Date.now();
+
+    //jsPsych.pluginAPI.setTimeout(function() {
+    //  jsPsych.finishTrial(
+    //    function(){
+    //    var  timedout = 1;
+    //    }
+    //  )}, 500);
+  },
+  trial_duration: time_var,
+//  response_ends_trial: true,
+  on_finish: function(){
+  accuracy_function();
+  if (timedout == 1) {
+    jsPsych.endCurrentTimeline();
+    }
+  }
+};
+*/
 /*
 jsPsych.pluginAPI.setTimeout(function() {
   jsPsych.finishTrial(
