@@ -502,6 +502,8 @@ var test_2 = [
 jsPsych.pluginAPI.preloadImages(images = [practice_left, practice_right]);
 
 var alt_practice = {
+  timeline: [
+  {
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus: function(){
@@ -519,7 +521,8 @@ var alt_practice = {
                 '</div>'+
               '</div>';
     return html;
-  },
+  }
+  }],
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
     if (data.key_press == data.corr_resp){
@@ -527,11 +530,7 @@ var alt_practice = {
     } else {
       data.accuracy = 0;
       }
-  }
-};
-
-var prac_node = {
-  timeline: [alt_practice],
+  },
   timeline_variables: [
     {stimulus_1: patterns_practice + "prac_1_1.png",
       stimulus_2: patterns_practice + "prac_1_2.png",
@@ -547,6 +546,8 @@ var prac_node = {
       stim:  "prac_3_1.png"}}
   ]
 };
+
+
 
 /*
 // set up practice trials
@@ -621,7 +622,7 @@ var interim_instructions = {
 timeline = [];
 timeline.push(welcome);
 timeline.push(instructions, instructions2);
-timeline.push(prac_node);
+timeline.push(alt_practice);
 //timeline.push(looping_node);
 //timeline.push(interim_instructions);
 timeline.push(debrief);
