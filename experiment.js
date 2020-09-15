@@ -72,17 +72,46 @@ var p1_correct = [37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 39, 39, 37, 39
 var p2_correct = [39, 39, 37, 37, 37, 37, 39, 39, 37, 37, 39, 39, 37, 39, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 39, 37, 37, 39];
 
 jsPsych.pluginAPI.preloadImages(images = [practice_left, practice_right, patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right]);
-var accuracy_function = function(data){
-  if (data.key_press == data.corr_resp){
-    data.accuracy = 1;
-  } else {
-    data.accuracy = 0;
-    }
+/*
+var record_acc = function() {
+	var global_trial = jsPsych.progress().current_trial_global
+	var stim = jsPsych.data.getData()[global_trial].stim.toLowerCase()
+	var target = jsPsych.data.getData()[global_trial].target.toLowerCase()
+	var key = jsPsych.data.getData()[global_trial].key_press
+	if (stim == target && key == 37) {
+		correct = true
+	} else if (stim != target && key == 40) {
+		correct = true
+	} else {
+		correct = false
+	}
+	jsPsych.data.addDataToLastTrial({
+		correct: correct,
+		trial_num: current_trial
+	})
+	current_trial = current_trial + 1
+}*/
 
+var accuracy_function = function(){
+  var global_trial = jsPsych.progress().current_trial_global;
+  var stim = jsPsych.data.getData()[global_trial].stim;
+  var corr = jsPsych.data.getData()[global_trial].corr_resp;
+  var key = jsPsych.data.getData()[global_trial].key_press;
+
+  if (key == corr){
+    correct = 1;
+  } else {
+    correct = 0;
+  }
+  jsPsych.data.addDataToLastTrial({
+    accuracy: correct,
+    trial_num: current_trial
+  })
+  current_trial = current_trial + 1
   };
+
 // var delay = 30000;
 // set up practice trials
-var practice_index = 0;
 
 var practice_trials = {
   type: "html-keyboard-response",
@@ -180,7 +209,7 @@ var test_trials_p1 = {
   },
   response_ends_trial: true,
   on_finish: function(){
-  accuracy_function(data);
+  accuracy_function();
   if (timedout == 1) {
     jsPsych.endCurrentTimeline();
     }
