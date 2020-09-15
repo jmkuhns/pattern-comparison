@@ -652,10 +652,9 @@ var node_p1 = {
   timeline_variables: [test_1_1, test_1_2],
   on_start:function(){
     var trial_timeout = setTimeout(function () {
-        if(jsPsych.totalTime() - current_timer < 5000){
           jsPsych.endCurrentTimeline();
         }
-      }, 10);
+      }, 3000);
   }
 }
 /*,
