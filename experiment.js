@@ -255,7 +255,6 @@ var alt_test_trials = {
       if (test_index == 0){
         var current_timer = Date.now()+30000;
       }
-      var time_var = current_timer - Date.now();
 
       /*jsPsych.pluginAPI.setTimeout(function() {
         jsPsych.finishTrial(
@@ -282,8 +281,9 @@ var alt_test_trials = {
     }
   }],
   loop_function:function(){
+    var time_var = current_timer - Date.now();
     test_index++;
-      if (test_index == p1_correct.length){
+      if (test_index == p1_correct.length || time_var <= 0){
           return false; // don't loop again
       } else {
           return true; // loop again
