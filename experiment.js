@@ -1,4 +1,3 @@
-var timeline = [];
 var patterns = "https://jmkuhns.github.io/pattern-comparison/patterns/";
 var patterns_practice = "https://jmkuhns.github.io/pattern-comparison/patterns_practice/";
 
@@ -10,7 +9,6 @@ var welcome = {
     exp_stage: "instructions"
   }
 };
-timeline.push(welcome);
 /*set up instructions block*/
 var pic_1 = patterns_practice + "prac_1_1.png";
 var instructions = {
@@ -31,7 +29,6 @@ var instructions2 = {
   post_trial_gap: 1000,
   data:{exp_stage: "instructions"}
 };
-timeline.push(instructions, instructions2);
 
 
 // set up practice stimuli
@@ -105,7 +102,7 @@ var accuracy_function = function(){
   }
   };
 
-// var delay = 30000;
+
 // set up practice trials
 var practice_index = 0;
 var practice_trials = {
@@ -151,7 +148,6 @@ var looping_node = {
   }
 }
 
-timeline.push(looping_node);
 
 // practice end
 
@@ -166,11 +162,17 @@ var interim_instructions = {
     exp_stage: "instructions"
   }
 }
-timeline.push(interim_instructions);
+
+
+var delay = 30000;
+// idea for timer
+// html keyoard response has trial_duration function.
+// This can be updated after each trial. e.g., set a time limit like timer = 30000 ms or something, and then on the onload of each trial, subtract the timer from the current run time and set that value as the trial_duration
 
 var timedout = 0;
 var test_index = 0;
 // patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right
+/*
 var test_trials_p1 = {
   type: "html-keyboard-response",
   choices: [37, 39],
@@ -195,14 +197,20 @@ var test_trials_p1 = {
     time_out: timedout
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {
-      jsPsych.finishTrial(
-        function(){
-        var  timedout = 1;
-        }
-      )}, 500);
+    if (test_index == 0){
+      var current_timer = Date.now()+30000;
+    }
+    var time_var = current_timer - Date.now();
+
+    //jsPsych.pluginAPI.setTimeout(function() {
+    //  jsPsych.finishTrial(
+    //    function(){
+    //    var  timedout = 1;
+    //    }
+    //  )}, 500);
   },
-  response_ends_trial: true,
+  trial_duration: time_var,
+//  response_ends_trial: true,
   on_finish: function(){
   accuracy_function();
   if (timedout == 1) {
@@ -223,9 +231,70 @@ var looping_node_p1 = {
 
   }
 }
+*/
+var timedout = 0;
+var test_index = 0;
+var alt_test_trials = {
+  timeline: [{
+    type: "html-keyboard-response",
+    choices: [37, 39],
+    stimulus:   function(){
+      var html='<div class="row">' +
+                  '<div class="column"><img src=' +
+                       patterns_page_1_left[test_index] +
+                       ' style="width:150px;height:150px";>' +
+                       '</img>' +
+                  '</div>' +
+                  '<div class="column"><img src=' + patterns_page_1_right[test_index] +
+                  '  style="width:150px;height:150px";></img>'+
+                  '</div>'+
+                '</div>';
+      return html;
+    },
+    on_load: function(){
+      if (test_index == 0){
+        var current_timer = Date.now()+30000;
+      }
+      var time_var = current_timer - Date.now();
 
-timeline.push(looping_node_p1);
+      /*jsPsych.pluginAPI.setTimeout(function() {
+        jsPsych.finishTrial(
+          function(){
+          var  timedout = 1;
+          }
+        )}, 500);*/
+    },
+    trial_duration: time_var,
+  //  response_ends_trial: true,
+  data: {
+    exp_stage: "pattern_comp_p_1",
+    corr_resp: p1_correct[test_index],
+    stim: patterns_page_1_left[test_index],
+    length: test_index,
+    time_out: timedout
+  },
+    on_finish: function(data){
+      if (data.key_press == data.corr_resp){
+        data.accuracy = 1;
+      } else {
+        data.accuracy = 0;
+        }
+    }
+  }],
+  loop_function:function(){
+    test_index++;
+      if (test_index == p1_correct.length){
+          return false; // don't loop again
+      } else {
+          return true; // loop again
+      };
 
+  },
+};
+
+
+// timeline.push(looping_node_p1);
+/*
 var interim_instructions_2 = {
   type: "html-keyboard-response",
   stimulus:
@@ -293,7 +362,7 @@ var looping_node_p2 = {
 }
 
 timeline.push(looping_node_p2);
-
+*/
 
 var debrief = {
   type: "html-keyboard-response",
@@ -301,9 +370,10 @@ var debrief = {
   data:{exp_stage: "instructions"}
 };
 
+timeline = [];
+timeline.push(welcome);
+timeline.push(instructions, instructions2);
+timeline.push(looping_node);
+timeline.push(interim_instructions);
+timeline.push(alt_test_trials);
 timeline.push(debrief);
-
-
-/*defining stimuli*/
-// set up numbers to coordinate with the file names
-// here
