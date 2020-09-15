@@ -103,8 +103,26 @@ timeline.push(instructions, instructions2);
 timeline.push(alt_practice);
 timeline.push(interim_instructions);
 
+var timeout_cancel = function(){
+  clearTimeout(timeout_function)
+}
+
 var timeout_function = function(){
+
   document.getElementById('hidden-button').click(); jsPsych.endCurrentTimeline();
+}
+
+var accuracy_function = funciton(){
+    var lasttrialdata = jsPsych.data.getLastTrialData();
+    function(lasttrialdata){
+      if (lasttrialdata.key_press == lasttrialdata.corr_resp){
+        jsPsych.data.get().addToLast({accuracy: 1});
+
+      } else {
+        jsPsych.data.get().addToLast({accuracy: 0});
+        }
+    }
+  }
 }
 
 var alt_test_trials = {
@@ -134,12 +152,9 @@ var alt_test_trials = {
   //  response_ends_trial: true,
 }],
   data: jsPsych.timelineVariable('data'),
-  on_finish: function(data){
-      if (data.key_press == data.corr_resp){
-        data.accuracy = 1;
-      } else {
-        data.accuracy = 0;
-        }
+  on_finish: function(){
+      accuracy_function();
+      
     },
     timeline_variables: [
           {
