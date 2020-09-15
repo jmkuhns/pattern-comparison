@@ -112,7 +112,7 @@ var accuracy_function = function(){
 
 // var delay = 30000;
 // set up practice trials
-
+var practice_index = 0;
 var practice_trials = {
   type: "html-keyboard-response",
   choices: [37, 39],
