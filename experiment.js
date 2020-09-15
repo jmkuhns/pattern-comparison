@@ -166,6 +166,11 @@ var interim_instructions = {
   }
 }
 
+timeline = [];
+timeline.push(welcome);
+timeline.push(instructions, instructions2);
+timeline.push(looping_node);
+timeline.push(interim_instructions);
 
 var delay = 30000;
 // idea for timer
@@ -360,10 +365,6 @@ var debrief = {
   data:{exp_stage: "instructions"}
 };
 
-timeline = [];
-timeline.push(welcome);
-timeline.push(instructions, instructions2);
-timeline.push(looping_node);
-timeline.push(interim_instructions);
+
 timeline.push(alt_test_trials);
 timeline.push(debrief);
