@@ -500,7 +500,7 @@ var test_2_2 = [
 
 // var p2_correct = [39, 39, 37, 37, 37, 37, 39, 39, 37, 37, 39, 39, 37, 39, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 39, 37, 37, 39];
 
-jsPsych.pluginAPI.preloadImages(images = [practice_left, practice_right, test_1_1, test_1_2, test_2_1, test_2_2]);
+jsPsych.pluginAPI.preloadImages(images = [practice_left, practice_right]);
 /*
 var record_acc = function() {
 	var global_trial = jsPsych.progress().current_trial_global
