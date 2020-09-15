@@ -143,12 +143,13 @@ var alt_test_trials = {
                   // patterns_page_1_right[test_index] +
                   '  style="width:150px;height:150px";></img>'+
                   '</div>'+
-                '</div>'+
-                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 10000)'></button>";
+                '</div>';
+              //  +
+              //  "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 10000)'></button>";
       return html;
     },
     post_trial_gap: 250,
-    on_load: timeout_function
+  //  on_load: timeout_function
     // trial_duration: current_timer,
   //  response_ends_trial: true,
 }],
