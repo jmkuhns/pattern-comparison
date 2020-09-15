@@ -36,7 +36,7 @@ var prac_correct = [37, 39, 39];
 
 var practice_left = [patterns_practice + "prac_1_1.png", patterns_practice + "prac_2_1.png", patterns_practice + "prac_3_1.png"];
 var practice_right = [patterns_practice + "prac_1_2.png", patterns_practice + "prac_2_2.png", patterns_practice + "prac_3_2.png"];
-
+/*
 var practice_stims = [
   {stimulus_1: patterns_practice + "prac_1_1.png",
     stimulus_2: patterns_practice + "prac_1_2.png",
@@ -51,7 +51,7 @@ var practice_stims = [
         data: {corr_resp: 39, exp_stage: "practice",
       patterns_practice + "prac_3_1.png"}}
 ];
-
+*/
 
 
 // set up test stimuli
