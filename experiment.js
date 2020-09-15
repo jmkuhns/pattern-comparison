@@ -618,6 +618,11 @@ var interim_instructions = {
     var current_timer = jsPsych.totalTime()+30000;
   }
 }
+var debrief = {
+  type: "html-keyboard-response",
+	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>",
+  data:{exp_stage: "instructions"}
+};
 
 timeline = [];
 timeline.push(welcome);
@@ -884,6 +889,7 @@ var node_p1 = {
       }, 3000);
   }
 }
+
 /*,
 loop_function:function(){
   current_timer -= jsPsych.totalTime();
@@ -966,11 +972,7 @@ var looping_node_p2 = {
 timeline.push(looping_node_p2);
 */
 
-var debrief = {
-  type: "html-keyboard-response",
-	stimulus: "<p>Press any key to complete the experiment. Thank you!</p>",
-  data:{exp_stage: "instructions"}
-};
+
 
 
 //timeline.push(node_p1);
