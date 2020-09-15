@@ -627,7 +627,7 @@ var alt_test_trials = {
                        '</img>' +
                   '</div>' +
                   '<div class="column"><img src=' +
-                  jsPsych.timelineVariable('stimulus_2', call_immediate = true)
+                  jsPsych.timelineVariable('stimulus_2', call_immediate = true)+
                   // patterns_page_1_right[test_index] +
                   '  style="width:150px;height:150px";></img>'+
                   '</div>'+
