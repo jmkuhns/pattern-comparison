@@ -112,16 +112,18 @@ var timeout_function = function(){
   document.getElementById('hidden-button').click(); jsPsych.endCurrentTimeline();
 }
 
+var inside_accuracy_function = function(x){
+    if(x.key_press == x.corr_resp){
+      jsPsych.data.get().addToLast({accuracy: 1});
+
+    } else {
+      jsPsych.data.get().addToLast({accuracy: 0});
+      }
+}
+
 var accuracy_function = function(){
     var lasttrialdata = jsPsych.data.getLastTrialData();
-    function(lasttrialdata){
-      if (lasttrialdata.key_press == lasttrialdata.corr_resp){
-        jsPsych.data.get().addToLast({accuracy: 1});
-
-      } else {
-        jsPsych.data.get().addToLast({accuracy: 0});
-        }
-    }
+    inside_accuracy_function(lasttrialdata);
   }
 }
 
