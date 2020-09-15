@@ -72,14 +72,6 @@ var p1_correct = [37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 39, 39, 37, 39
 var p2_correct = [39, 39, 37, 37, 37, 37, 39, 39, 37, 37, 39, 39, 37, 39, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 39, 37, 37, 39];
 
 jsPsych.pluginAPI.preloadImages(images = [practice_left, practice_right, patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right]);
-var accuracy_function = function(data){
-  if (data.key_press == data.corr_resp){
-    data.accuracy = 1;
-  } else {
-    data.accuracy = 0;
-    }
-
-  };
 // var delay = 30000;
 // set up practice trials
 var practice_index = 0;
@@ -144,7 +136,6 @@ var interim_instructions = {
 }
 timeline.push(interim_instructions);
 
-var timedout = 0;
 var test_index = 0;
 // patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right
 var test_trials_p1 = {
@@ -167,23 +158,19 @@ var test_trials_p1 = {
     exp_stage: "pattern_comp_p_1",
     corr_resp: p1_correct[test_index],
     stim: patterns_page_1_left[test_index],
-    length: test_index,
-    time_out: timedout
+    length: test_index
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {
-      jsPsych.finishTrial(
-        function(){
-        var  timedout = 1;
-        }
-      )}, 500);
+    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
   },
   response_ends_trial: true,
-  on_finish: function(){
-  accuracy_function(data);
-  if (timedout == 1) {
-    jsPsych.endCurrentTimeline();
-    }
+  on_finish: function(data){
+    if (data.key_press == data.corr_resp){
+      data.accuracy = 1;
+    } else {
+      data.accuracy = 0;
+      }
+
   }
 };
 
@@ -195,8 +182,7 @@ var looping_node_p1 = {
           return false; // don't loop again
       } else {
           return true; // loop again
-      };
-
+      }
   }
 }
 
@@ -240,10 +226,7 @@ var test_trials_p2 = {
     length: test_index_2
   },
   on_load: function(){
-    jsPsych.pluginAPI.setTimeout(function() {
-      //jsPsych.finishTrial();
-      jsPsych.endCurrentTimeline();
-    }, 30000);
+    jsPsych.pluginAPI.setTimeout(function() {        jsPsych.endCurrentTimeline()}, 30000);
   },
   response_ends_trial: true,
   on_finish: function(data){
