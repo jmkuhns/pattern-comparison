@@ -535,13 +535,16 @@ var prac_node = {
   timeline_variables: [
     {stimulus_1: patterns_practice + "prac_1_1.png",
       stimulus_2: patterns_practice + "prac_1_2.png",
-        data: {corr_resp: 37, exp_stage: "practice"}},
+        data: {corr_resp: 37, exp_stage: "practice" ,
+      stim: patterns_practice + "prac_1_1.png"}},
     {stimulus_1: patterns_practice + "prac_2_1.png",
       stimulus_2: patterns_practice + "prac_2_2.png",
-        data: {corr_resp: 39, exp_stage: "practice"}},
+        data: {corr_resp: 39, exp_stage: "practice",
+      stim: patterns_practice + "prac_2_1.png"}},
     {stimulus_1: patterns_practice + "prac_3_1.png",
       stimulus_2: patterns_practice + "prac_3_2.png",
-        data: {corr_resp: 39, exp_stage: "practice"}}
+        data: {corr_resp: 39, exp_stage: "practice",
+      stim: patterns_practice + "prac_3_1.png"}}
   ]
 };
 
