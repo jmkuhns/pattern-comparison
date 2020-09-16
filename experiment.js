@@ -133,8 +133,7 @@ var alt_test_trials = {
                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 1000)'></button>";
       return html;
     },
-    post_trial_gap: 250,
-  on_load: timeout_function
+    post_trial_gap: 250
     // trial_duration: current_timer,
   //  response_ends_trial: true,
 }],
@@ -360,17 +359,15 @@ var alt_test_trials = {
     ]
 };
 var block_duration = 30000;
-//var cont_el = {
-//  on_start: function(){
-//    var block_start_time = jsPsych.totalTime();
-//  },
-//  type: "html-keyboard-response",
-//  timeline:[alt_test_trials],
+
+var cont_el = {
+  on_start: timeout_function,
+  timeline:[alt_test_trials]
 //  loop_function: function(){
 //            return block_duration - Date.now() + block_start_time >= 0;
 //        },
-//
-//}
+
+}
 timeline.push(alt_test_trials);
 
 
