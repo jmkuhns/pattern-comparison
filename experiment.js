@@ -369,7 +369,14 @@ var alt_test_trials = {
     ]
 };
 
-timeline.push(alt_test_trials)
+var cont_el = {
+  timeline:[alt_test_trials],
+  on_load: {
+    setTimeout(jsPsych.endCurrentTimeline(), 10000)
+  }
+}
+timeline.push(cont_el);
+//timeline.push(alt_test_trials)
 
 var interim_instructions_2 = {
   type: "html-keyboard-response",
