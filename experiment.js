@@ -133,7 +133,7 @@ var alt_test_trials = {
                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 1000)'></button>";
       return html;
     },
-    post_trial_gap: 250
+    post_trial_gap: 249
     // trial_duration: current_timer,
   //  response_ends_trial: true,
 }],
