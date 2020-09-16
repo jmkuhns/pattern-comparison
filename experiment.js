@@ -177,7 +177,7 @@ on_load: function(){
   trl_length =
 }
 */
-
+/*
 trial_duration: function(){
 //  fixation_timing = jsPsych.randomization.sampleWithoutReplacement([250, 500, 750, 1000, 1250, 1500, 1750, 2000], 1)[0];
 //  return fixation_timing; // from separate example
@@ -203,7 +203,8 @@ if(sub = 30000){
 }
 
 
-
+*/
+/*
 var alt_test_trials = {
   timeline:[{
     type: "html-keyboard-response",
@@ -711,3 +712,4 @@ var test_trials_p2 = {
 
 timeline.push(test_trials_p2);
 timeline.push(debrief);
+*/
