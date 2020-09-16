@@ -81,6 +81,14 @@ var alt_practice = {
 // practice end
 
 // interim instructions...You will have 30 seconds...
+var timeout_cancel = function(){
+  clearTimeout(timeout_function)
+}
+
+var timeout_function = function(){
+
+  document.getElementById('hidden-button').click(); jsPsych.endCurrentTimeline();
+}
 
 var interim_instructions = {
   type: "html-keyboard-response",
@@ -88,7 +96,8 @@ var interim_instructions = {
   '<br><p>Press any key to begin.</p>',
   post_trial_gap: 1000,
   data:{
-    exp_stage: "instructions"
+    exp_stage: "instructions", special_value: true,
+          trl_dur: 0
   }
 }
 var debrief = {
@@ -103,13 +112,94 @@ timeline.push(instructions, instructions2);
 timeline.push(alt_practice);
 timeline.push(interim_instructions);
 
-var timeout_cancel = function(){
-  clearTimeout(timeout_function)
+var init_length = 30000;
+var trl_length = null;
+var d_disp = null;
+var trl_1 = {
+  type: "html-keyboard-response",
+  choices: [37, 39],
+  stimulus:   function(){
+    var html= '<div class="row">' +
+                '<div class="column"><img src=' +
+                jsPsych.timelineVariable('stimulus_1', true) +
+                     ' style="width:150px;height:150px";>' +
+                     '</img>' +
+                '</div>' +
+                '<div class="column"><img src=' +
+                jsPsych.timelineVariable('stimulus_2', true)+
+                '  style="width:150px;height:150px";></img>'+
+                '</div>'+
+              '</div>';
+    return html;
+  },
+  timeline_variables: {
+    stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_1.png',
+
+    stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_2.png',
+
+    data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1_trl1'}
+  },
+  trial_duration: init_length,
+  data: jsPsych.timelineVariable('data'),
+  on_finish: function(data){
+    if(data.key_press == data.corr_resp){
+      data.accuracy = 1
+    } else {
+      data.accuracy = 0
+    }
+    data.trial_duration = init_length;
+    d_disp = jsPsych.data.get();
+  }
+};
+
+
+
+var trl_1_iti = {
+  type: 'html-keyboard-response',
+  stimulus: "<p>" + console.log(d_disp.csv) + "</p>"
 }
 
-var timeout_function = function(){
+var next = {
+  type: 'html-keyboard-response',
+  stimulus: "<p>goodbye</p>",
+  on_load: function(){
+    jsPsych.endExperiment("goodbye fucka");
+  }
+}
 
-  document.getElementById('hidden-button').click(); jsPsych.endCurrentTimeline();
+timeline.push([trl_1, trl_iti, next]);
+
+/*
+choices: jsPsych.NO_KEYS,
+stimulus: "<p>"+console.log(jsPsych.data.get())"</p>",
+trial_duration: 250,
+on_load: function(){
+  trl_length =
+}
+*/
+
+trial_duration: function(){
+//  fixation_timing = jsPsych.randomization.sampleWithoutReplacement([250, 500, 750, 1000, 1250, 1500, 1750, 2000], 1)[0];
+//  return fixation_timing; // from separate example
+		var duration_label = jsPsych.timelineVariable('duration',true);
+		var duration_array = jsPsych.data.get().filter({unique_tag: 'calc_tria_durationsl'}).values()[0].value;
+		if (duration_label == 1) {
+		     return duration_array[0];
+		} else if (...)
+  },
+//  on_finish: function(data){
+//    data.trial_duration = fixation_timing; from separate ex
+
+
+var trl_dur_func: function(){
+  var sub = jsPsych.data.get().filter({special_value: true}).values()[0].trl_dur;
+if(sub = 30000){
+      global_trial = duration;
+      return global_trial;
+    } else {
+      global_trial = duration - sub;
+      return global_trial;
+  }
 }
 
 
@@ -133,6 +223,10 @@ var alt_test_trials = {
                "<button id = 'hidden-button' hidden type='button' onclick= 'setTimeout(timeout_function, 1000)'></button>";
       return html;
     },
+    trial_duration: function(){
+
+    }
+    ,
     post_trial_gap: 249
     // trial_duration: current_timer,
   //  response_ends_trial: true,
@@ -144,15 +238,9 @@ var alt_test_trials = {
       } else {
         data.accuracy = 0
       }
+      data.trial_duration = fixation_timing;
     },
     timeline_variables: [
-          {
-            stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_1.png',
-
-            stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_2.png',
-
-            data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-            },
             {
             stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_02_1.png',
 
