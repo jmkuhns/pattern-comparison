@@ -156,7 +156,7 @@ var trl_1 = {
 
 var trl_1_iti = {
   type: 'html-keyboard-response',
-  stimulus: "<p>" + console.log(d_disp.csv) + "</p>"
+  stimulus: "<p>" + jsPsych.data.displayData("json") + "</p>"
 }
 
 var next = {
