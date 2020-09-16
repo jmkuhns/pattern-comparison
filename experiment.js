@@ -148,27 +148,32 @@ var trl_1 = {
       data.accuracy = 0
     }
     data.trial_duration = init_length;
-    d_disp = jsPsych.data.get();
+    //d_disp = jsPsych.data.get();
   }
 };
 
 
+//
+//var trl_1_iti = {
+//  type: 'html-keyboard-response',
+//  stimulus: "<p>" + jsPsych.data.displayData("json") + "</p>"
+//}
 
-var trl_1_iti = {
-  type: 'html-keyboard-response',
-  stimulus: "<p>" + jsPsych.data.displayData("json") + "</p>"
-}
+//var next = {
+//  type: 'html-keyboard-response',
+//  stimulus: "<p>goodbye</p>",
+//  on_load: function(){
+//    jsPsych.endExperiment("goodbye fucka");
+//  }
+// }
+// create an array that holds the trial durations and then call the most recent one
+var trials_duration = [30000];
 
-var next = {
-  type: 'html-keyboard-response',
-  stimulus: "<p>goodbye</p>",
-  on_load: function(){
-    jsPsych.endExperiment("goodbye fucka");
-  }
-}
 
-timeline.push([trl_1, trl_iti, next]);
 
+
+timeline.push(trl_1);
+timeline.push(debrief);
 /*
 choices: jsPsych.NO_KEYS,
 stimulus: "<p>"+console.log(jsPsych.data.get())"</p>",
