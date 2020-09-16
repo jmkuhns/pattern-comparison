@@ -370,6 +370,7 @@ var cont_el = {
       var time = jsPsych.totalTime();
        if (time < timer) {
          return alt_test_trials
+         time = jsPsych.totalTime();
        } else {
          jsPsych.endCurrentTimeline();
        }
