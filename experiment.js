@@ -152,7 +152,7 @@ var alt_test_trials = {
   //  response_ends_trial: true,
 }],
   data: jsPsych.timelineVariable('data'),
-  on_finish: function(){
+  on_finish: function(data){
       if(data.key_press == data.corr_resp){
         data.accuracy = 1
       } else {
