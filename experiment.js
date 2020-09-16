@@ -371,7 +371,7 @@ var alt_test_trials = {
 
 var cont_el = {
   timeline:[alt_test_trials],
-  on_load: {
+  on_load: function() {
     setTimeout(function(){
       jsPsych.endCurrentTimeline();}, 10000)
   }
