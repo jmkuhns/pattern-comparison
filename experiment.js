@@ -358,7 +358,8 @@ var alt_test_trials = {
 
             data: { stim: 30, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
             }
-    ]
+    ],
+
 };
 
 var cont_el = {
@@ -366,10 +367,12 @@ var cont_el = {
   sample: {
     type: 'custom',
     fn: function(){
-      var timer = jsPsych.totalTime() + 30000;
+      i = 0;
+      var timer = jsPsych.totalTime() + 5000;
       var time = jsPsych.totalTime();
        if (time < timer) {
-         return alt_test_trials
+         return i
+         i++
          time = jsPsych.totalTime();
        } else {
          jsPsych.endCurrentTimeline();
