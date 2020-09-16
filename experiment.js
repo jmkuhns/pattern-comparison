@@ -153,7 +153,11 @@ var alt_test_trials = {
 }],
   data: jsPsych.timelineVariable('data'),
   on_finish: function(){
-      accuracy_function();
+      if(data.key_press == data.corr_resp){
+        data.accuracy = 1
+      } else {
+        data.accuracy = 0
+      }
     },
     timeline_variables: [
           {
