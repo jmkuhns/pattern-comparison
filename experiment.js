@@ -239,7 +239,7 @@ var trial_1 = {
 
 	stimulus_2:  p1_right[0],
 
-	data: {corr_resp:  , exp_stage: 'pattern_comp_p1'}
+	data: {corr_resp: 37 , exp_stage: 'pattern_comp_p1'}
 	}
 		]
 };
@@ -263,82 +263,82 @@ var test_trials_p1_trl2 = {
 		}
 	},
 	timeline_variables: [
-				{
+						{
 		stimulus_1: p1_left[1],
 
 		stimulus_2:  p1_right[1],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-	},
-{
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
 		stimulus_1: p1_left[2],
 
 		stimulus_2:  p1_right[2],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[3],
 
 		stimulus_2:  p1_right[3],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[4],
 
 		stimulus_2:  p1_right[4],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[5],
 
 		stimulus_2:  p1_right[5],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[6],
 
 		stimulus_2:  p1_right[6],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[7],
 
 		stimulus_2:  p1_right[7],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[8],
 
 		stimulus_2:  p1_right[8],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[9],
 
 		stimulus_2:  p1_right[9],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[10],
 
 		stimulus_2:  p1_right[10],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[11],
 
 		stimulus_2:  p1_right[11],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[12],
@@ -359,28 +359,28 @@ var test_trials_p1_trl2 = {
 
 		stimulus_2:  p1_right[14],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[15],
 
 		stimulus_2:  p1_right[15],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[16],
 
 		stimulus_2:  p1_right[16],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[17],
 
 		stimulus_2:  p1_right[17],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[18],
@@ -394,7 +394,7 @@ var test_trials_p1_trl2 = {
 
 		stimulus_2:  p1_right[19],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[20],
@@ -429,7 +429,7 @@ var test_trials_p1_trl2 = {
 
 		stimulus_2:  p1_right[24],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[25],
@@ -450,21 +450,21 @@ var test_trials_p1_trl2 = {
 
 		stimulus_2:  p1_right[27],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[28],
 
 		stimulus_2:  p1_right[28],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[29],
 
 		stimulus_2:  p1_right[29],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 		}
 	],
 	conditional_function: function(){
@@ -528,13 +528,13 @@ var trial_2 = {
 	},
 	timeline_variables:
 	[
-		{
-stimulus_1: p2_left[0],
+			{
+			stimulus_1: p2_left[0],
 
-stimulus_2:  p2_right[0],
+			stimulus_2:  p2_right[0],
 
-data: {corr_resp:  , exp_stage: 'pattern_comp_p2'}
-}
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			}
 	]
 }
 
@@ -556,209 +556,209 @@ var test_trials_p2_trl2 = {
 		}
 	},
 		timeline_variables: [
+	{
+		stimulus_1: p2_left[1],
+
+		stimulus_2:  p2_right[1],
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
 		{
-			stimulus_1: p2_left[1],
+		stimulus_1: p2_left[2],
 
-			stimulus_2:  p2_right[1],
+		stimulus_2:  p2_right[2],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[2],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[3],
 
-			stimulus_2:  p2_right[2],
+		stimulus_2:  p2_right[3],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[3],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[4],
 
-			stimulus_2:  p2_right[3],
+		stimulus_2:  p2_right[4],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[4],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[5],
 
-			stimulus_2:  p2_right[4],
+		stimulus_2:  p2_right[5],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[5],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[6],
 
-			stimulus_2:  p2_right[5],
+		stimulus_2:  p2_right[6],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[6],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[7],
 
-			stimulus_2:  p2_right[6],
+		stimulus_2:  p2_right[7],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[7],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[8],
 
-			stimulus_2:  p2_right[7],
+		stimulus_2:  p2_right[8],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[8],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[9],
 
-			stimulus_2:  p2_right[8],
+		stimulus_2:  p2_right[9],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[9],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[10],
 
-			stimulus_2:  p2_right[9],
+		stimulus_2:  p2_right[10],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[10],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[11],
 
-			stimulus_2:  p2_right[10],
+		stimulus_2:  p2_right[11],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[11],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[12],
 
-			stimulus_2:  p2_right[11],
+		stimulus_2:  p2_right[12],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[12],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[13],
 
-			stimulus_2:  p2_right[12],
+		stimulus_2:  p2_right[13],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[13],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[14],
 
-			stimulus_2:  p2_right[13],
+		stimulus_2:  p2_right[14],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[14],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[15],
 
-			stimulus_2:  p2_right[14],
+		stimulus_2:  p2_right[15],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[15],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[16],
 
-			stimulus_2:  p2_right[15],
+		stimulus_2:  p2_right[16],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[16],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[17],
 
-			stimulus_2:  p2_right[16],
+		stimulus_2:  p2_right[17],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[17],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[18],
 
-			stimulus_2:  p2_right[17],
+		stimulus_2:  p2_right[18],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[18],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[19],
 
-			stimulus_2:  p2_right[18],
+		stimulus_2:  p2_right[19],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[19],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[20],
 
-			stimulus_2:  p2_right[19],
+		stimulus_2:  p2_right[20],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[20],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[21],
 
-			stimulus_2:  p2_right[20],
+		stimulus_2:  p2_right[21],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[21],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[22],
 
-			stimulus_2:  p2_right[21],
+		stimulus_2:  p2_right[22],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[22],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[23],
 
-			stimulus_2:  p2_right[22],
+		stimulus_2:  p2_right[23],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[23],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[24],
 
-			stimulus_2:  p2_right[23],
+		stimulus_2:  p2_right[24],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[24],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[25],
 
-			stimulus_2:  p2_right[24],
+		stimulus_2:  p2_right[25],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[25],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[26],
 
-			stimulus_2:  p2_right[25],
+		stimulus_2:  p2_right[26],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[26],
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[27],
 
-			stimulus_2:  p2_right[26],
+		stimulus_2:  p2_right[27],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[27],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[28],
 
-			stimulus_2:  p2_right[27],
+		stimulus_2:  p2_right[28],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[28],
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1: p2_left[29],
 
-			stimulus_2:  p2_right[28],
+		stimulus_2:  p2_right[29],
 
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1: p2_left[29],
-
-			stimulus_2:  p2_right[29],
-
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		}
 		],
 		conditional_function: function(){
 					// get the data from the previous trial,
