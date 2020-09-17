@@ -91,32 +91,6 @@ var interim_instructions = {
   data:{exp_stage: "instructions"}
 }
 
-function filter_data(stage) {
-		var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
-  //  var  = jsPsych.data.get().filter(rows).ignore(ignore_columns);
-    // the next piece of codes orders the columns of the data file
-    var d = selected_data.values;// get the data values
-		for (var i = 0; i < d.length; i++){
-				if (stage == "pattern_comp_p1"){
-					if ( d[i] != p1_correct[i]){
-						selected_data.values[i] = 0;
-					} else {
-						selected_data.values[i] = 1;
-					}
-				}
-				if (stage == "pattern_comp_p2"){
-					if ( d[i] != p2_correct[i]){
-						selected_data.values[i] = 0;
-					} else {
-						selected_data.values[i] = 1;
-					}
-				}
-
-		}
-		//console.log(selected_data);
-    return selected_data;
-}
-
 var limit = 5000;
 var test_trials_p1_trl1 = {
   timeline:[{
@@ -415,7 +389,31 @@ var test_trials_p1_trl2 = {
             }
     ]
 };
+var filter_data = function(stage) {
+		var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
+  //  var  = jsPsych.data.get().filter(rows).ignore(ignore_columns);
+    // the next piece of codes orders the columns of the data file
+    var d = selected_data.values;// get the data values
+		for (var i = 0; i < d.length; i++){
+				if (stage == "pattern_comp_p1"){
+					if ( d[i] != p1_correct[i]){
+						selected_data.values[i] = 0;
+					} else {
+						selected_data.values[i] = 1;
+					}
+				}
+				if (stage == "pattern_comp_p2"){
+					if ( d[i] != p2_correct[i]){
+						selected_data.values[i] = 0;
+					} else {
+						selected_data.values[i] = 1;
+					}
+				}
 
+		}
+		//console.log(selected_data);
+    return selected_data;
+};
 var interim_instructions_2 = {
   type: "html-keyboard-response",
   stimulus:
