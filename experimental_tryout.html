@@ -515,7 +515,8 @@ var interim_instructions_2 = {
 		jsPsych.data.get().addToLast({dur: limit});
     var selected_data = filter_data("pattern_comp_p1");
     jsPsych.data.get().addToLast({correct_responses: selected_data});
-  },
+		console.log("end of interim_instructions_2")
+  }
 };
 
 var limit = 5000;
@@ -523,7 +524,7 @@ var trl = null;
 var time = null;
 var time_out = null;
 
-var trl_2 = {
+var trial_2 = {
 	timeline: [{
 	type: "html-keyboard-response",
 	stimulus: function(){
@@ -823,6 +824,7 @@ var test_trials_p2_trl2 = {
 		}
 	]
 };
+
 var debrief = {
 	  type: "html-keyboard-response",
 		stimulus: "<p>Press any key to complete the experiment. Thank you!</p>",
