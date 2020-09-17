@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jspsych-6.1.0/jspsych.js"></script>
+		<script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+		<link rel="stylesheet" href="jspsych-6.1.0/css/jspsych.css">
+	</head>
+<body></body>
+<script>
+var timeline = [];
+var patterns = "https://jmkuhns.github.io/pattern-comparison/patterns/";
+var patterns_practice = "https://jmkuhns.github.io/pattern-comparison/patterns_practice/";
+	var cresp = [37, 39, 39];
+	var p1_correct = [37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 39, 39, 37, 39, 37, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 37];
+	var p2_correct = [39, 39, 37, 37, 37, 37, 39, 39, 37, 37, 39, 39, 37, 39, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 39, 37, 37, 39];
+function filter_data(stage){
+			var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
+	  //  var  = jsPsych.data.get().filter(rows).ignore(ignore_columns);
+	    // the next piece of codes orders the columns of the data file
+	    var d = selected_data.values;// get the data values
+			if (d[d.length-1] == null){
+				d.pop();
+			}
+			for (var i = 0; i < d.length; i++){
+					if (stage == "pattern_comp_p1"){
+						if ( d[i] != p1_correct[i]){
+							selected_data.values[i] = 0;
+						} else {
+							selected_data.values[i] = 1;
+						}
+					}
+					if (stage == "pattern_comp_p2"){
+						if ( d[i] != p2_correct[i]){
+							selected_data.values[i] = 0;
+						} else {
+							selected_data.values[i] = 1;
+						}
+					}
+
+			}
+	    return selected_data;
+	}
+
+function score(){
+	var score_data_p1 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p1"}).select("key_press");
+	var score_data_p2 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p2"}).select("key_press");
+	var d = selected_data.values;// get the data values
+	if (d[d.length-1] == null){
+		d.pop(); // remove null values, which should only occur at end of array
+	}
+	var search = 0;
+	var count = d.reduce(function(n, val) {
+    return n + (val === search);
+		}, 0);
+
+}
+
+	var welcome = {
+	  type: "html-keyboard-response",
+	  stimulus: "Welcome to the experiment. Press any key to begin.",
+	  data:{
+	    exp_stage: "instructions"
+	  }
+	};
+	var instructions = {
+	  type: "html-keyboard-response",
+	  stimulus:
+	  '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
+	  '<br><br><p>In this experiment you will be asked to determine whether two patterns of lines are the same or different. If the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
+	  '<br><p>You will complete a few practice trials with feedback before starting.</p><br><p>Press any key to continue.</p>',
+	  data:{
+	    exp_stage: "instructions"
+	  }
+	};
+	var instructions2 = {
+	  type: "html-keyboard-response",
+	  stimulus:'<p>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
+	  '<br><p>Press any key to begin the practice trials.</p>',
+	  post_trial_gap: 250,
+	  data:{exp_stage: "instructions"}
+	};
+
+	var alt_practice = {
+	  timeline: [
+	  {
+	  type: "html-keyboard-response",
+	  choices: [37, 39],
+	  stimulus: function(){
+	    var html='<div class="row">' +
+	                '<div class="column"><img src=' +
+	                  jsPsych.timelineVariable("stimulus_1", true) +
+	                     //practice_left[practice_index] +
+	                     ' style="width:150px;height:150px";>' +
+	                     '</img>' +
+	                '</div>' +
+	                '<div class="column"><img src=' +
+	                jsPsych.timelineVariable("stimulus_2", true) +
+	                //practice_right[practice_index] +
+	                '  style="width:150px;height:150px";></img>'+
+	                '</div>'+
+	              '</div>';
+	    return html;
+	  },
+	      post_trial_gap: 250
+	  }],
+	  data: jsPsych.timelineVariable('data'),
+	  on_finish: function(data){
+	    if (data.key_press == data.corr_resp){
+	      data.accuracy = 1;
+	    } else {
+	      data.accuracy = 0;
+	      }
+	  },
+	  timeline_variables:
+		[
+	    {stimulus_1: patterns_practice + "prac_1_1.png",
+	      stimulus_2: patterns_practice + "prac_1_2.png",
+	        data: {corr_resp: 37, exp_stage: "practice"}},
+	    {stimulus_1: patterns_practice + "prac_2_1.png",
+	      stimulus_2: patterns_practice + "prac_2_2.png",
+	        data: {corr_resp: 39, exp_stage: "practice"}},
+	    {stimulus_1: patterns_practice + "prac_3_1.png",
+	      stimulus_2: patterns_practice + "prac_3_2.png",
+	        data: {corr_resp: 39, exp_stage: "practice"}}
+	  ]
+	};
+
+	var limit = 5000;
+	var trl = null;
+	var time = null;
+	var time_out = null;
+
+	var interim_instructions = {
+	  type: "html-keyboard-response",
+	  stimulus: '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
+	  '<br><p>Press any key to begin.</p>',
+	  post_trial_gap: 250,
+	  data:{exp_stage: "instructions"},
+		on_finish: function(){
+			console.log(limit);
+			console.log(time);
+			console.log(time_out);
+			console.log('what else???');
+		}
+	};
+
+var trial_1 = {
+	timeline: [{
+	type: "html-keyboard-response",
+	stimulus: function(){
+		var html='<div class="row">' +
+								'<div class="column"><img src=' +
+									jsPsych.timelineVariable("stimulus_1", true) +
+										 //practice_left[practice_index] +
+										 ' style="width:150px;height:150px";>' +
+										 '</img>' +
+								'</div>' +
+								'<div class="column"><img src=' +
+								jsPsych.timelineVariable("stimulus_2", true) +
+								//practice_right[practice_index] +
+								'  style="width:150px;height:150px";></img>'+
+								'</div>'+
+							'</div>';
+		return html;
+		},
+	post_trial_gap: 250,
+	trial_duration: limit
+	}],
+	data: jsPsych.timelineVariable('data'),
+	on_finish: function(){
+		jsPsych.data.get().addToLast({dur: limit});
+		trl = jsPsych.data.get().select('time_elapsed');
+		console.log(trl);
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		console.log(time);
+		jsPsych.data.get().addToLast({time_between: time});
+		limit = limit - time - 250;
+		console.log(limit);
+	},
+	timeline_variables:[
+	{stimulus_1:  patterns + '1_01_1.png',
+
+		stimulus_2:  patterns + '1_01_2.png',
+
+			data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+			}
+		]
+};
+
+
+/*
+var trl_1 = {
+		timeline: [
+		{
+		type: "html-keyboard-response",
+		choices: [37, 39],
+		stimulus: function(){
+	    var html='<div class="row">' +
+	                '<div class="column"><img src=' +
+	                  jsPsych.timelineVariable("stimulus_1", true) +
+	                     ' style="width:150px;height:150px";>' +
+	                     '</img>' +
+	                '</div>' +
+	                '<div class="column"><img src=' +
+	                jsPsych.timelineVariable("stimulus_2", true) +
+	                '  style="width:150px;height:150px";></img>'+
+	                '</div>'+
+	              '</div>';
+	    return html;
+	  },
+				post_trial_gap: 250,
+				trial_duration: limit,
+		}],
+	  data: jsPsych.timelineVariable('data'),
+	  on_finish: function(){
+	    jsPsych.data.get().addToLast({dur: limit});
+	    trl = jsPsych.data.get().select('time_elapsed');
+			console.log(trl);
+	    time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+			console.log(time);
+	    jsPsych.data.get().addToLast({time_between: time});
+	    limit = limit - time - 250;
+			console.log(limit);
+	  },
+		timeline_variables:[
+		{stimulus_1: patterns + "1_01_1.png",
+		stimulus_2:  patterns + "1_01_2.png",
+		data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}}
+	};
+*/
+var test_trials_p1_trl2 = {
+	timeline: [
+	{
+	type: "html-keyboard-response",
+	choices: [37, 39],
+	stimulus: function(){
+		var html='<div class="row">' +
+								'<div class="column"><img src=' +
+									jsPsych.timelineVariable("stimulus_1", true) +
+										 ' style="width:150px;height:150px";>' +
+										 '</img>' +
+								'</div>' +
+								'<div class="column"><img src=' +
+								jsPsych.timelineVariable("stimulus_2", true) +
+								'  style="width:150px;height:150px";></img>'+
+								'</div>'+
+							'</div>';
+		return html;
+	},
+			post_trial_gap: 250,
+			trial_duration: function(){
+				return limit;
+			},
+	}],
+  data: jsPsych.timelineVariable('data'),
+  on_start: function(){
+			setTimeout(
+				function(){
+				time_out = 1;
+				console.log('timeout');
+				console.log(time_out);
+				jsPsych.data.get().addToLast({timeout: time_out});
+				time_out += 1;
+				jsPsych.endCurrentTimeline();
+			}, limit);
+	},
+	on_finish: function(){
+		if (time_out == 1){
+			jsPsych.endCurrentTimeline();
+			console.log("this should be it...");
+		}
+		jsPsych.data.get().addToLast({dur: limit});
+		trl = jsPsych.data.get().select('time_elapsed');
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		jsPsych.data.get().addToLast({time_between: time});
+		limit = limit - time - 250;
+		if (limit <= 0){
+			limit = 30;
+					console.log(limit);
+			jsPsych.endCurrentTimeline();
+		}
+	},
+	timeline_variables: [
+			{
+			stimulus_1:  patterns + "1_02_1.png",
+
+			stimulus_2:  patterns + "1_02_2.png",
+
+			data: { corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_03_1.png",
+
+			stimulus_2:  patterns + "1_03_2.png",
+
+			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_04_1.png",
+
+			stimulus_2:  patterns + "1_04_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_05_1.png",
+
+			stimulus_2:  patterns + "1_05_2.png",
+
+			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_06_1.png",
+
+			stimulus_2:  patterns + "1_06_2.png",
+
+			data: { corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_07_1.png",
+
+			stimulus_2:  patterns + "1_07_2.png",
+
+			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_08_1.png",
+
+			stimulus_2:  patterns + "1_08_2.png",
+
+			data: { corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_09_1.png",
+
+			stimulus_2:  patterns + "1_09_2.png",
+
+			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_10_1.png",
+
+			stimulus_2:  patterns + "1_10_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_11_1.png",
+
+			stimulus_2:  patterns + "1_11_2.png",
+
+			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_12_1.png",
+
+			stimulus_2:  patterns + "1_12_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_13_1.png",
+
+			stimulus_2:  patterns + "1_13_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_14_1.png",
+
+			stimulus_2:  patterns + "1_14_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_15_1.png",
+
+			stimulus_2:  patterns + "1_15_2.png",
+
+			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_16_1.png",
+
+			stimulus_2:  patterns + "1_16_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_17_1.png",
+
+			stimulus_2:  patterns + "1_17_2.png",
+
+			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_18_1.png",
+
+			stimulus_2:  patterns + "1_18_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_19_1.png",
+
+			stimulus_2:  patterns + "1_19_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_20_1.png",
+
+			stimulus_2:  patterns + "1_20_2.png",
+
+			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_21_1.png",
+
+			stimulus_2:  patterns + "1_21_2.png",
+
+			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_22_1.png",
+
+			stimulus_2:  patterns + "1_22_2.png",
+
+			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_23_1.png",
+
+			stimulus_2:  patterns + "1_23_2.png",
+
+			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_24_1.png",
+
+			stimulus_2:  patterns + "1_24_2.png",
+
+			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_25_1.png",
+
+			stimulus_2:  patterns + "1_25_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_26_1.png",
+
+			stimulus_2:  patterns + "1_26_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_27_1.png",
+
+			stimulus_2:  patterns + "1_27_2.png",
+
+			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_28_1.png",
+
+			stimulus_2:  patterns + "1_28_2.png",
+
+			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_29_1.png",
+
+			stimulus_2:  patterns + "1_29_2.png",
+
+			data: { corr_resp:  39, exp_stage: "pattern_comp_p1"}
+			},
+			{
+			stimulus_1:  patterns + "1_30_1.png",
+
+			stimulus_2:  patterns + "1_30_2.png",
+
+			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
+			}
+	]
+};
+
+
+var interim_instructions_2 = {
+  type: "html-keyboard-response",
+  stimulus:
+  '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
+  '<br><p>Press any key to begin.</p>',
+  post_trial_gap: 250,
+  data:{
+    exp_stage: "instructions"
+  },
+  on_finish: function(){
+		trl = jsPsych.data.get().select('time_elapsed');
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		console.log("time between last trial and end");
+		console.log(time);
+		jsPsych.data.get().addToLast({dur: limit});
+    var selected_data = filter_data("pattern_comp_p1");
+    jsPsych.data.get().addToLast({correct_responses: selected_data});
+		var search = 0;
+		var error =
+  },
+};
+
+/*
+var trl_2 = {
+	timeline: [
+	{
+	type: "html-keyboard-response",
+	choices: [37, 39],
+	stimulus: function(){
+		var html='<div class="row">' +
+								'<div class="column"><img src=' +
+									jsPsych.timelineVariable("stimulus_1", true) +
+										 ' style="width:150px;height:150px";>' +
+										 '</img>' +
+								'</div>' +
+								'<div class="column"><img src=' +
+								jsPsych.timelineVariable("stimulus_2", true) +
+								'  style="width:150px;height:150px";></img>'+
+								'</div>'+
+							'</div>';
+		return html;
+	},
+			post_trial_gap: 250,
+			trial_duration: limit,
+	}],
+	data: jsPsych.timelineVariable('data'),
+	on_start: function(){
+			setTimeout(
+				function(){
+				time_out = 1;
+				jsPsych.endCurrentTimeline;
+			}, limit);
+	},
+	on_finish: function(){
+		jsPsych.data.get().addToLast({dur: limit});
+		trl = jsPsych.data.get().select('time_elapsed');
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		jsPsych.data.get().addToLast({time_between: time});
+		limit = limit - time - 250;
+		if (limit <= 0){
+			jsPsych.endCurrentTimeline;
+			jsPsych.data.get().addToLast({limit_timeout: 1});
+			limit = 30;
+		}
+		jsPsych.data.get().addToLast({timeout: time_out})
+	},
+	timeline_variables: [
+		{stimulus_1: patterns_practice + "prac_2_1.png",
+			stimulus_2: patterns_practice + "prac_2_2.png",
+				data: {corr_resp: 39, exp_stage: "practice",
+			stim:  "prac_2_1.png"}},
+		{stimulus_1: patterns_practice + "prac_3_1.png",
+			stimulus_2: patterns_practice + "prac_3_2.png",
+				data: {corr_resp: 39, exp_stage: "practice",
+			stim:  "prac_3_1.png"}}
+	]
+};
+*/
+/*
+var filter_data = function(stage){
+		var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
+  //  var  = jsPsych.data.get().filter(rows).ignore(ignore_columns);
+    // the next piece of codes orders the columns of the data file
+    var d = selected_data.values;// get the data values
+		for (var i = 0; i < d.length; i++){
+				if (stage == "pattern_comp_p1"){
+					if ( d[i] != p1_correct[i]){
+						selected_data.values[i] = 0;
+					} else {
+						selected_data.values[i] = 1;
+					}
+				}
+				if (stage == "pattern_comp_p2"){
+					if ( d[i] != p2_correct[i]){
+						selected_data.values[i] = 0;
+					} else {
+						selected_data.values[i] = 1;
+					}
+				}
+
+		}
+		console.log(selected_data);
+    return selected_data;
+  }
+
+
+var debrief = {
+	  type: "html-keyboard-response",
+		stimulus: "<p>Press any key to complete the experiment. Thank you!</p>",
+		on_finish: function(){
+			var selected_data = filter_data("practice");
+			jsPsych.data.get().addToLast({correct_responses: selected_data});
+		},
+		data:{exp_stage: "instructions"}
+	};
+*/
+timeline.push(welcome);
+timeline.push(instructions);
+timeline.push(instructions2);
+timeline.push(alt_practice);
+timeline.push(interim_instructions);
+timeline.push(trial_1);
+//timeline.push(does_it_work);
+//timeline.push(does_it_work_2);
+timeline.push(test_trials_p1_trl2);
+timeline.push(interim_instructions_2);
+// timeline.push(debrief);
+
+jsPsych.init({
+	timeline: timeline,
+	on_finish: function() {
+    jsPsych.data.displayData();
+		//jsPsych.data.get().localSave('json','mydata.json');
+  }
+
+});
+
+
+</script>
+</html>
