@@ -5,6 +5,61 @@
 // Difference is in 1 LD for a string
 // patterns_page_1_left, patterns_page_1_right, patterns_page_2_left, patterns_page_2_right
 
+// new dump
+
+//var trl_dur =  function() {
+//		 trl =	jsPsych.data.get().select('time_elapsed');
+//		 time = trl[trl.length] - trl[trl.length - 1];
+//		limit = limit - time;
+//		return limit
+//	};
+
+/*
+var does_it_work = {
+	type: "html-keyboard-response",
+	choices: [37, 39],
+	stimulus: function(){
+		var strt = jsPsych.data.get().select('start').values[0];
+		return 	"<p>"+strt+"</p>"
+	},
+	on_start: function(){
+		trl = jsPsych.data.get().select('time_elapsed');
+		var drl = trl.values.length;
+	  console.log(trl.values);
+		console.log(trl.values[drl-1]);
+		console.log(trl.values[trl.values.length-1]);
+		console.log(trl.values[trl.values.length-2]);
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		limit = limit - time;
+		return limit;
+		console.log(time);
+	},
+	trial_duration: limit,
+	on_finish: function(data){
+			data.trial_duration = limit
+	}
+};
+
+var does_it_work_2 = {
+	type: "html-keyboard-response",
+	choices: [37, 39],
+	stimulus: "<p>This seems to be working......</p>",
+	trial_duration: limit,
+	on_start: function(){
+		trl = jsPsych.data.get().select('time_elapsed');
+	  console.log(trl.values);
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		limit = limit - time;
+		return limit;
+
+	},
+	on_finish: function(data){
+			data.trial_duration = limit
+	}
+}
+*/
+
+
 // This includes older way of loading images. It worked nicely but not with the timeout functions
 /*
 // set up practice stimuli
