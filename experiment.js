@@ -946,13 +946,3 @@ timeline.push(interim_instructions_2);
 timeline.push(trial_2);
 timeline.push(test_trials_p2_trl2);
 timeline.push(debrief);
-/*
-jsPsych.init({
-	timeline: timeline,
-	on_finish: function() {
-    jsPsych.data.displayData();
-		//jsPsych.data.get().localSave('json','mydata.json');
-  }
-
-});
-*/
