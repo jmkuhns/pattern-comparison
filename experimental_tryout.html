@@ -515,14 +515,19 @@ var interim_instructions_2 = {
 		jsPsych.data.get().addToLast({dur: limit});
     var selected_data = filter_data("pattern_comp_p1");
     jsPsych.data.get().addToLast({correct_responses: selected_data});
-		console.log("end of interim_instructions_2")
+		console.log("end of interim_instructions_2");
+		var limit = 5000;
+		var trl = null;
+		var time = null;
+		var time_out = null;
+		console.log(limit);
   }
 };
+var limit2 = 5000;
+var trl2 = null;
+var time2 = null;
+var time_out2 = null;
 
-var limit = 5000;
-var trl = null;
-var time = null;
-var time_out = null;
 
 var trial_2 = {
 	timeline: [{
@@ -542,18 +547,18 @@ var trial_2 = {
 		return html;
 		},
 	post_trial_gap: 250,
-	trial_duration: limit
+	trial_duration: limit2
 	}],
 	data: jsPsych.timelineVariable('data'),
 	on_finish: function(){
-		jsPsych.data.get().addToLast({dur: limit});
-		trl = jsPsych.data.get().select('time_elapsed');
-		console.log(trl);
-		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
-		console.log(time);
-		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time - 250;
-		console.log(limit);
+		jsPsych.data.get().addToLast({dur: limit2});
+		trl2 = jsPsych.data.get().select('time_elapsed');
+		console.log(trl2);
+		time2 = trl2.values[trl2.values.length-1] - trl2.values[trl2.values.length-2];
+		console.log(time2);
+		jsPsych.data.get().addToLast({time_between: time2});
+		limit2 = limit2 - time2 - 250;
+		console.log(limit2);
 	},
 	timeline_variables: [
 		{
@@ -587,7 +592,7 @@ var test_trials_p2_trl2 = {
 	},
 			post_trial_gap: 250,
 			trial_duration: function(){
-				return limit;
+				return limit2;
 			},
 	}],
   data: jsPsych.timelineVariable('data'),
@@ -600,21 +605,21 @@ var test_trials_p2_trl2 = {
 				jsPsych.data.get().addToLast({timeout: time_out});
 				time_out += 1;
 				jsPsych.endCurrentTimeline();
-			}, limit);
+			}, limit2);
 	},
 	on_finish: function(){
 		if (time_out == 1){
 			jsPsych.endCurrentTimeline();
 			console.log("this should be it...");
 		}
-		jsPsych.data.get().addToLast({dur: limit});
-		trl = jsPsych.data.get().select('time_elapsed');
-		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
-		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time - 250;
-		if (limit <= 0){
-			limit = 30;
-					console.log(limit);
+		jsPsych.data.get().addToLast({dur: limit2});
+		trl2 = jsPsych.data.get().select('time_elapsed');
+		time2 = trl2.values[trl2.values.length-1] - trl2.values[trl2.values.length-2];
+		jsPsych.data.get().addToLast({time_between: time2});
+		limit2 = limit2 - time2 - 250;
+		if (limit2 <= 0){
+			limit2 = 30;
+					console.log(limit2);
 			jsPsych.endCurrentTimeline();
 		}
 	},
@@ -831,8 +836,8 @@ var debrief = {
 		on_finish: function(){
 			var selected_data = filter_data("pattern_comp_p2");
 			jsPsych.data.get().addToLast({correct_responses: selected_data});
-			var scores = score();
-			jsPsych.data.get().addToLast({final_tally: scores});
+	//		var scores = score();
+	//		jsPsych.data.get().addToLast({final_tally: scores});
 		},
 		data:{exp_stage: "instructions"}
 	};
@@ -841,16 +846,16 @@ timeline.push(welcome);
 timeline.push(instructions);
 timeline.push(instructions2);
 timeline.push(alt_practice);
-timeline.push(interim_instructions);
-timeline.push(trial_1);
-timeline.push(test_trials_p1_trl2);
-timeline.push(interim_instructions_2);
+//timeline.push(interim_instructions);
+//timeline.push(trial_1);
+//timeline.push(test_trials_p1_trl2);
+//timeline.push(interim_instructions_2);
 timeline.push(trial_2);
 timeline.push(test_trials_p2_trl2);
 timeline.push(debrief);
 
 jsPsych.init({
-	timeline: timeline,
+	timeline: [timeline],
 	on_finish: function() {
     jsPsych.data.displayData();
 		//jsPsych.data.get().localSave('json','mydata.json');
