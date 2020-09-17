@@ -131,6 +131,7 @@ var test_trials_p1_trl1 = {
     data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
   }
 };
+/*
 var trl = null;
 var time = null;
 var time_out = 0;
@@ -721,7 +722,7 @@ var debrief = {
     jsPsych.data.get().addToLast({correct_responses: selected_data});
   },
 };
-
+*/
 timeline.push(welcome);
 timeline.push(instructions, instructions2);
 timeline.push(alt_practice);
