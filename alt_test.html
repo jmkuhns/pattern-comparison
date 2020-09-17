@@ -52,15 +52,51 @@ function filter_data(stage){
 function score(){
 	var score_data_p1 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p1"}).select("key_press");
 	var score_data_p2 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p2"}).select("key_press");
-	var d = selected_data.values;// get the data values
-	if (d[d.length-1] == null){
-		d.pop(); // remove null values, which should only occur at end of array
+	var d_1 = score_data_p1.values;// get the data values
+	var d_2 = score_data_p2.values;// get the data values
+
+		for( var i = 0; i < d_1.length; i++){
+			if ( d_1[i] === null) {
+				d_1.splice(i, 1);
+				i--;
+			}}
+
+				for( var i = 0; i < d_2.length; i++){
+					if ( d_2[i] === null) {
+						d_2.splice(i, 1);
+						i--;
+					}}
+
+	for (var i = 0; i < d_1.length; i++){
+				if ( d_1[i] != p1_correct[i]){
+					d_1[i] = 0;
+				} else {
+					d_1[i] = 1;
+				}
+		}
+		for (var i = 0; i < d_2.length; i++){
+				if ( d_2[i] != p2_correct[i]){
+					d_2[i] = 0;
+				} else {
+					d_2[i] = 1;
+				}
 	}
+	console.log(d_1);
+	console.log(d_2);
 	var search = 0;
-	var count = d.reduce(function(n, val) {
+	var count_1 = d_1.reduce(function(n, val) {
     return n + (val === search);
 		}, 0);
+		var count_2 = d_2.reduce(function(n, val) {
+	    return n + (val === search);
+			}, 0);
+	console.log(count_1);
+	console.log(count_2);
 
+	var p1_score = d_1.length - count_1;
+	var p2_score = d_2.length - count_2;
+	var tally = (p1_score+p2_score)/2
+	return {final_score: tally, p1: p1_score, p2: p2_score}
 }
 
 	var welcome = {
@@ -133,10 +169,10 @@ function score(){
 	  ]
 	};
 
-	var limit = 5000;
+	var limit = 30000;
 	var trl = null;
 	var time = null;
-	var time_out = null;
+	var time_out = 0;
 
 	var interim_instructions = {
 	  type: "html-keyboard-response",
@@ -192,14 +228,15 @@ var trial_1 = {
 		console.log(time);
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time - 250;
-		console.log(limit);
+		time_out = 0;
+		console.log(time_out);
 		setTimeout(
 			function(){
 			time_out = 1;
+			limit = 0;
 			console.log('timeout');
 			console.log(time_out);
 			jsPsych.data.get().addToLast({timeout: time_out});
-			jsPsych.endCurrentTimeline();
 		}, limit);
 	},
 	timeline_variables:[
@@ -260,10 +297,6 @@ var test_trials_p1_trl2 = {
 //}],
 	timeline: [generic_trial],
   data: jsPsych.timelineVariable('data'),
-  on_start: function(){
-			if (time_out == 1){
-				jsPsych.endCurrentTimeline();
-			}
 	//		setTimeout(
 	//			function(){
 	//			time_out = 1;
@@ -272,22 +305,13 @@ var test_trials_p1_trl2 = {
 	//			jsPsych.data.get().addToLast({timeout: time_out});
 	//			jsPsych.endCurrentTimeline();
 	//		}, limit);
-	},
 	on_finish: function(){
-		if (time_out == 1){
-			jsPsych.endCurrentTimeline();
-			console.log("this should be it...");
-		}
+
 		jsPsych.data.get().addToLast({dur: limit});
 		trl = jsPsych.data.get().select('time_elapsed');
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time - 250;
-		if (limit <= 0){
-			limit = 0;
-			console.log(limit);
-			jsPsych.endCurrentTimeline();
-		}
 	},
 	timeline_variables: [
 			{
@@ -493,7 +517,16 @@ var test_trials_p1_trl2 = {
 
 			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
 			}
-	]
+	],
+	conditional_function: function(){
+        // get the data from the previous trial,
+        // and check which key was pressed
+        if(time_out != 0){
+            return false;
+        } else {
+            return true;
+        }
+    }
 };
 
 
@@ -514,10 +547,10 @@ var interim_instructions_2 = {
 		jsPsych.data.get().addToLast({dur: limit});
     var selected_data = filter_data("pattern_comp_p1");
     jsPsych.data.get().addToLast({correct_responses: selected_data});
-		limit = 5000;
+		limit = 30000;
 		trl = null;
 		time = null;
-		time_out = null;
+		time_out = 0;
   },
 };
 
@@ -538,10 +571,10 @@ var trial_2 = {
 		setTimeout(
 			function(){
 			time_out = 1;
+			limit = 0;
 			console.log('timeout');
 			console.log(time_out);
 			jsPsych.data.get().addToLast({timeout: time_out});
-			jsPsych.endCurrentTimeline();
 		}, limit);
 	},
 	timeline_variables:
@@ -575,6 +608,7 @@ var test_trials_p2_trl2 = {
 	on_finish: function(){
 		if (time_out == 1){
 			jsPsych.endCurrentTimeline();
+		//	alert("Time is up! Please wait for the next part of the experiment");
 			console.log("this should be it...");
 		}
 
@@ -590,10 +624,10 @@ var test_trials_p2_trl2 = {
 			console.log(limit);
 			jsPsych.endCurrentTimeline();
 		}
-		if (limit == 0){
-			console.log("round and round we go");
-			jsPsych.endCurrentTimeline();
-		}
+	//	if (limit == 0){
+	//		console.log("round and round we go");
+	//		jsPsych.endCurrentTimeline();
+	//	}
 
 	},
 		timeline_variables: [
@@ -800,7 +834,16 @@ var test_trials_p2_trl2 = {
 
 			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
 			}
-		]
+		],
+		conditional_function: function(){
+					// get the data from the previous trial,
+					// and check which key was pressed
+					if(time_out != 0){
+							return false;
+					} else {
+							return true;
+					}
+			}
 };
 /*
 var trl_2 = {
@@ -893,6 +936,9 @@ var debrief = {
 		on_finish: function(){
 			var selected_data = filter_data("pattern_comp_p2");
 			jsPsych.data.get().addToLast({correct_responses: selected_data});
+		var scores = score();
+		jsPsych.data.get().addToLast({final_tally: scores});
+
 		},
 		data:{exp_stage: "instructions"}
 	};
