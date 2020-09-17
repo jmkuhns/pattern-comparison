@@ -1,15 +1,20 @@
-
 var timeline = [];
 var patterns = "https://jmkuhns.github.io/pattern-comparison/patterns/";
 var patterns_practice = "https://jmkuhns.github.io/pattern-comparison/patterns_practice/";
 	var cresp = [37, 39, 39];
 	var p1_correct = [37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 37, 39, 39, 39, 37, 39, 37, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 37];
 	var p2_correct = [39, 39, 37, 37, 37, 37, 39, 39, 37, 37, 39, 39, 37, 39, 39, 39, 37, 37, 37, 37, 37, 39, 39, 39, 37, 39, 39, 37, 37, 39];
+
+var p1_left = [patterns+'1_01_1.png', patterns+'1_02_1.png', patterns+'1_03_1.png', patterns+'1_04_1.png', patterns+'1_05_1.png', patterns+'1_06_1.png', patterns+'1_07_1.png', patterns+'1_08_1.png', patterns+'1_09_1.png', patterns+'1_10_1.png', patterns+'1_11_1.png', patterns+'1_12_1.png', patterns+'1_13_1.png', patterns+'1_14_1.png', patterns+'1_15_1.png', patterns+'1_16_1.png', patterns+'1_17_1.png', patterns+'1_18_1.png', patterns+'1_19_1.png', patterns+'1_20_1.png', patterns+'1_21_1.png', patterns+'1_22_1.png', patterns+'1_23_1.png', patterns+'1_24_1.png', patterns+'1_25_1.png', patterns+'1_26_1.png', patterns+'1_27_1.png', patterns+'1_28_1.png', patterns+'1_29_1.png', patterns+'1_30_1.png']
+
+var p1_right = [patterns+'1_01_2.png', patterns+'1_02_2.png', patterns+'1_03_2.png', patterns+'1_04_2.png', patterns+'1_05_2.png', patterns+'1_06_2.png', patterns+'1_07_2.png', patterns+'1_08_2.png', patterns+'1_09_2.png', patterns+'1_10_2.png', patterns+'1_11_2.png', patterns+'1_12_2.png', patterns+'1_13_2.png', patterns+'1_14_2.png', patterns+'1_15_2.png', patterns+'1_16_2.png', patterns+'1_17_2.png', patterns+'1_18_2.png', patterns+'1_19_2.png', patterns+'1_20_2.png', patterns+'1_21_2.png', patterns+'1_22_2.png', patterns+'1_23_2.png', patterns+'1_24_2.png', patterns+'1_25_2.png', patterns+'1_26_2.png', patterns+'1_27_2.png', patterns+'1_28_2.png', patterns+'1_29_2.png', patterns+'1_30_2.png'];
+var p2_left = [patterns+'2_01_1.png', patterns+'2_02_1.png', patterns+'2_03_1.png', patterns+'2_04_1.png', patterns+'2_05_1.png', patterns+'2_06_1.png', patterns+'2_07_1.png', patterns+'2_08_1.png', patterns+'2_09_1.png', patterns+'2_10_1.png', patterns+'2_11_1.png', patterns+'2_12_1.png', patterns+'2_13_1.png', patterns+'2_14_1.png', patterns+'2_15_1.png', patterns+'2_16_1.png', patterns+'2_17_1.png', patterns+'2_18_1.png', patterns+'2_19_1.png', patterns+'2_20_1.png', patterns+'2_21_1.png', patterns+'2_22_1.png', patterns+'2_23_1.png', patterns+'2_24_1.png', patterns+'2_25_1.png', patterns+'2_26_1.png', patterns+'2_27_1.png', patterns+'2_28_1.png', patterns+'2_29_1.png', patterns+'2_30_1.png'];
+var p2_right = [patterns+'2_01_2.png', patterns+'2_02_2.png', patterns+'2_03_2.png', patterns+'2_04_2.png', patterns+'2_05_2.png', patterns+'2_06_2.png', patterns+'2_07_2.png', patterns+'2_08_2.png', patterns+'2_09_2.png', patterns+'2_10_2.png', patterns+'2_11_2.png', patterns+'2_12_2.png', patterns+'2_13_2.png', patterns+'2_14_2.png', patterns+'2_15_2.png', patterns+'2_16_2.png', patterns+'2_17_2.png', patterns+'2_18_2.png', patterns+'2_19_2.png', patterns+'2_20_2.png', patterns+'2_21_2.png', patterns+'2_22_2.png', patterns+'2_23_2.png', patterns+'2_24_2.png', patterns+'2_25_2.png', patterns+'2_26_2.png', patterns+'2_27_2.png', patterns+'2_28_2.png', patterns+'2_29_2.png', patterns+'2_30_2.png'];
+
+
+
 function filter_data(stage){
 			var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
-	  //  var  = jsPsych.data.get().filter(rows).ignore(ignore_columns);
-	    // the next piece of codes orders the columns of the data file
-
 	    var d = selected_data.values;// get the data values
 			console.log(d);
 				for( var i = 0; i < d.length; i++){
@@ -18,9 +23,6 @@ function filter_data(stage){
 						i--;
 					}}
 			console.log(d);
-		//  if (d[d.length-1] == null){
-		//		d.pop();
-		//	}
 			for (var i = 0; i < d.length; i++){
 					if (stage == "pattern_comp_p1"){
 						if ( d[i] != p1_correct[i]){
@@ -232,283 +234,238 @@ var trial_1 = {
 		}, limit);
 	},
 	timeline_variables:[
-	{stimulus_1:  patterns + '1_01_1.png',
+		{
+	stimulus_1: p1_left[0],
 
-		stimulus_2:  patterns + '1_01_2.png',
+	stimulus_2:  p1_right[0],
 
-			data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-			}
+	data: {corr_resp:  , exp_stage: 'pattern_comp_p1'}
+	}
 		]
 };
 
 
-/*
-var trl_1 = {
-		timeline: [
-		{
-		type: "html-keyboard-response",
-		choices: [37, 39],
-		stimulus: function(){
-	    var html='<div class="row">' +
-	                '<div class="column"><img src=' +
-	                  jsPsych.timelineVariable("stimulus_1", true) +
-	                     ' style="width:150px;height:150px";>' +
-	                     '</img>' +
-	                '</div>' +
-	                '<div class="column"><img src=' +
-	                jsPsych.timelineVariable("stimulus_2", true) +
-	                '  style="width:150px;height:150px";></img>'+
-	                '</div>'+
-	              '</div>';
-	    return html;
-	  },
-				post_trial_gap: 250,
-				trial_duration: limit,
-		}],
-	  data: jsPsych.timelineVariable('data'),
-	  on_finish: function(){
-	    jsPsych.data.get().addToLast({dur: limit});
-	    trl = jsPsych.data.get().select('time_elapsed');
-			console.log(trl);
-	    time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
-			console.log(time);
-	    jsPsych.data.get().addToLast({time_between: time});
-	    limit = limit - time - 250;
-			console.log(limit);
-	  },
-		timeline_variables:[
-		{stimulus_1: patterns + "1_01_1.png",
-		stimulus_2:  patterns + "1_01_2.png",
-		data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}}
-	};
-*/
-
 var test_trials_p1_trl2 = {
-//	timeline: [
-//	{
-//}],
 	timeline: [generic_trial],
   data: jsPsych.timelineVariable('data'),
-	//		setTimeout(
-	//			function(){
-	//			time_out = 1;
-	//			console.log('timeout');
-	//			console.log(time_out);
-	//			jsPsych.data.get().addToLast({timeout: time_out});
-	//			jsPsych.endCurrentTimeline();
-	//		}, limit);
 	on_finish: function(){
-
+		console.log("limit");
+		console.log(limit);
 		jsPsych.data.get().addToLast({dur: limit});
 		trl = jsPsych.data.get().select('time_elapsed');
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time - 250;
+		if (limit < 0){
+			limit = 0;
+			time_out = 1;
+			console.log(limit);
+		}
 	},
 	timeline_variables: [
-			{
-			stimulus_1:  patterns + "1_02_1.png",
+				{
+		stimulus_1: p1_left[1],
 
-			stimulus_2:  patterns + "1_02_2.png",
+		stimulus_2:  p1_right[1],
 
-			data: { corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_03_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+	},
+{
+		stimulus_1: p1_left[2],
 
-			stimulus_2:  patterns + "1_03_2.png",
+		stimulus_2:  p1_right[2],
 
-			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_04_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[3],
 
-			stimulus_2:  patterns + "1_04_2.png",
+		stimulus_2:  p1_right[3],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_05_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[4],
 
-			stimulus_2:  patterns + "1_05_2.png",
+		stimulus_2:  p1_right[4],
 
-			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_06_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[5],
 
-			stimulus_2:  patterns + "1_06_2.png",
+		stimulus_2:  p1_right[5],
 
-			data: { corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_07_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[6],
 
-			stimulus_2:  patterns + "1_07_2.png",
+		stimulus_2:  p1_right[6],
 
-			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_08_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[7],
 
-			stimulus_2:  patterns + "1_08_2.png",
+		stimulus_2:  p1_right[7],
 
-			data: { corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_09_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[8],
 
-			stimulus_2:  patterns + "1_09_2.png",
+		stimulus_2:  p1_right[8],
 
-			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_10_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[9],
 
-			stimulus_2:  patterns + "1_10_2.png",
+		stimulus_2:  p1_right[9],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_11_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[10],
 
-			stimulus_2:  patterns + "1_11_2.png",
+		stimulus_2:  p1_right[10],
 
-			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_12_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[11],
 
-			stimulus_2:  patterns + "1_12_2.png",
+		stimulus_2:  p1_right[11],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_13_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[12],
 
-			stimulus_2:  patterns + "1_13_2.png",
+		stimulus_2:  p1_right[12],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_14_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[13],
 
-			stimulus_2:  patterns + "1_14_2.png",
+		stimulus_2:  p1_right[13],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_15_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[14],
 
-			stimulus_2:  patterns + "1_15_2.png",
+		stimulus_2:  p1_right[14],
 
-			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_16_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[15],
 
-			stimulus_2:  patterns + "1_16_2.png",
+		stimulus_2:  p1_right[15],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_17_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[16],
 
-			stimulus_2:  patterns + "1_17_2.png",
+		stimulus_2:  p1_right[16],
 
-			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_18_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[17],
 
-			stimulus_2:  patterns + "1_18_2.png",
+		stimulus_2:  p1_right[17],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_19_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[18],
 
-			stimulus_2:  patterns + "1_19_2.png",
+		stimulus_2:  p1_right[18],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_20_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[19],
 
-			stimulus_2:  patterns + "1_20_2.png",
+		stimulus_2:  p1_right[19],
 
-			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_21_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[20],
 
-			stimulus_2:  patterns + "1_21_2.png",
+		stimulus_2:  p1_right[20],
 
-			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_22_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[21],
 
-			stimulus_2:  patterns + "1_22_2.png",
+		stimulus_2:  p1_right[21],
 
-			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_23_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[22],
 
-			stimulus_2:  patterns + "1_23_2.png",
+		stimulus_2:  p1_right[22],
 
-			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_24_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[23],
 
-			stimulus_2:  patterns + "1_24_2.png",
+		stimulus_2:  p1_right[23],
 
-			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_25_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[24],
 
-			stimulus_2:  patterns + "1_25_2.png",
+		stimulus_2:  p1_right[24],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_26_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[25],
 
-			stimulus_2:  patterns + "1_26_2.png",
+		stimulus_2:  p1_right[25],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_27_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[26],
 
-			stimulus_2:  patterns + "1_27_2.png",
+		stimulus_2:  p1_right[26],
 
-			data: {  corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_28_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[27],
 
-			stimulus_2:  patterns + "1_28_2.png",
+		stimulus_2:  p1_right[27],
 
-			data: {  corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_29_1.png",
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[28],
 
-			stimulus_2:  patterns + "1_29_2.png",
+		stimulus_2:  p1_right[28],
 
-			data: { corr_resp:  39, exp_stage: "pattern_comp_p1"}
-			},
-			{
-			stimulus_1:  patterns + "1_30_1.png",
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left[29],
 
-			stimulus_2:  patterns + "1_30_2.png",
+		stimulus_2:  p1_right[29],
 
-			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
-			}
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		}
 	],
 	conditional_function: function(){
         // get the data from the previous trial,
@@ -572,259 +529,235 @@ var trial_2 = {
 	timeline_variables:
 	[
 		{
-		stimulus_1:  patterns + '2_01_1.png',
+stimulus_1: p2_left[0],
 
-		stimulus_2:  patterns + '2_01_2.png',
+stimulus_2:  p2_right[0],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		}
+data: {corr_resp:  , exp_stage: 'pattern_comp_p2'}
+}
 	]
 }
 
 var test_trials_p2_trl2 = {
 	timeline: [generic_trial],
   data: jsPsych.timelineVariable('data'),
-  on_start: function(){
-			if (time_out == 1){
-				jsPsych.endCurrentTimeline();
-			}
-	//		setTimeout(
-	//			function(){
-	//			time_out = 1;
-	//			console.log('timeout');
-	//			console.log(time_out);
-	//			jsPsych.data.get().addToLast({timeout: time_out});
-	//			jsPsych.endCurrentTimeline();
-	//		}, limit);
-	},
 	on_finish: function(){
-		if (time_out == 1){
-			jsPsych.endCurrentTimeline();
-		//	alert("Time is up! Please wait for the next part of the experiment");
-			console.log("this should be it...");
-		}
-
-		if (time_out != 1)	{
-			jsPsych.data.get().addToLast({dur: limit});
+		console.log("limit");
+		console.log(limit);
+		jsPsych.data.get().addToLast({dur: limit});
 		trl = jsPsych.data.get().select('time_elapsed');
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time - 250;
-		}
 		if (limit < 0){
 			limit = 0;
+			time_out = 1;
 			console.log(limit);
-			jsPsych.endCurrentTimeline();
 		}
-	//	if (limit == 0){
-	//		console.log("round and round we go");
-	//		jsPsych.endCurrentTimeline();
-	//	}
-
 	},
 		timeline_variables: [
-			{
-			stimulus_1:  patterns + '2_02_1.png',
+		{
+			stimulus_1: p2_left[1],
 
-			stimulus_2:  patterns + '2_02_2.png',
-
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_03_1.png',
-
-			stimulus_2:  patterns + '2_03_2.png',
-
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_04_1.png',
-
-			stimulus_2:  patterns + '2_04_2.png',
-
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_05_1.png',
-
-			stimulus_2:  patterns + '2_05_2.png',
-
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_06_1.png',
-
-			stimulus_2:  patterns + '2_06_2.png',
-
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_07_1.png',
-
-			stimulus_2:  patterns + '2_07_2.png',
+			stimulus_2:  p2_right[1],
 
 			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_08_1.png',
+			stimulus_1: p2_left[2],
 
-			stimulus_2:  patterns + '2_08_2.png',
+			stimulus_2:  p2_right[2],
 
 			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_09_1.png',
+			stimulus_1: p2_left[3],
 
-			stimulus_2:  patterns + '2_09_2.png',
+			stimulus_2:  p2_right[3],
 
 			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_10_1.png',
+			stimulus_1: p2_left[4],
 
-			stimulus_2:  patterns + '2_10_2.png',
-
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_11_1.png',
-
-			stimulus_2:  patterns + '2_11_2.png',
-
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_12_1.png',
-
-			stimulus_2:  patterns + '2_12_2.png',
-
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_13_1.png',
-
-			stimulus_2:  patterns + '2_13_2.png',
+			stimulus_2:  p2_right[4],
 
 			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_14_1.png',
+			stimulus_1: p2_left[5],
 
-			stimulus_2:  patterns + '2_14_2.png',
-
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_15_1.png',
-
-			stimulus_2:  patterns + '2_15_2.png',
-
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_16_1.png',
-
-			stimulus_2:  patterns + '2_16_2.png',
-
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_17_1.png',
-
-			stimulus_2:  patterns + '2_17_2.png',
+			stimulus_2:  p2_right[5],
 
 			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_18_1.png',
+			stimulus_1: p2_left[6],
 
-			stimulus_2:  patterns + '2_18_2.png',
-
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_19_1.png',
-
-			stimulus_2:  patterns + '2_19_2.png',
+			stimulus_2:  p2_right[6],
 
 			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_20_1.png',
+			stimulus_1: p2_left[7],
 
-			stimulus_2:  patterns + '2_20_2.png',
-
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_21_1.png',
-
-			stimulus_2:  patterns + '2_21_2.png',
-
-			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_22_1.png',
-
-			stimulus_2:  patterns + '2_22_2.png',
+			stimulus_2:  p2_right[7],
 
 			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_23_1.png',
+			stimulus_1: p2_left[8],
 
-			stimulus_2:  patterns + '2_23_2.png',
-
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_24_1.png',
-
-			stimulus_2:  patterns + '2_24_2.png',
+			stimulus_2:  p2_right[8],
 
 			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_25_1.png',
+			stimulus_1: p2_left[9],
 
-			stimulus_2:  patterns + '2_25_2.png',
+			stimulus_2:  p2_right[9],
 
 			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_26_1.png',
+			stimulus_1: p2_left[10],
 
-			stimulus_2:  patterns + '2_26_2.png',
-
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_27_1.png',
-
-			stimulus_2:  patterns + '2_27_2.png',
-
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			},
-			{
-			stimulus_1:  patterns + '2_28_1.png',
-
-			stimulus_2:  patterns + '2_28_2.png',
+			stimulus_2:  p2_right[10],
 
 			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_29_1.png',
+			stimulus_1: p2_left[11],
 
-			stimulus_2:  patterns + '2_29_2.png',
+			stimulus_2:  p2_right[11],
+
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[12],
+
+			stimulus_2:  p2_right[12],
+
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[13],
+
+			stimulus_2:  p2_right[13],
 
 			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
 			},
 			{
-			stimulus_1:  patterns + '2_30_1.png',
+			stimulus_1: p2_left[14],
 
-			stimulus_2:  patterns + '2_30_2.png',
+			stimulus_2:  p2_right[14],
 
 			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[15],
+
+			stimulus_2:  p2_right[15],
+
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[16],
+
+			stimulus_2:  p2_right[16],
+
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[17],
+
+			stimulus_2:  p2_right[17],
+
+			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[18],
+
+			stimulus_2:  p2_right[18],
+
+			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[19],
+
+			stimulus_2:  p2_right[19],
+
+			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[20],
+
+			stimulus_2:  p2_right[20],
+
+			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[21],
+
+			stimulus_2:  p2_right[21],
+
+			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[22],
+
+			stimulus_2:  p2_right[22],
+
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[23],
+
+			stimulus_2:  p2_right[23],
+
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[24],
+
+			stimulus_2:  p2_right[24],
+
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[25],
+
+			stimulus_2:  p2_right[25],
+
+			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[26],
+
+			stimulus_2:  p2_right[26],
+
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[27],
+
+			stimulus_2:  p2_right[27],
+
+			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[28],
+
+			stimulus_2:  p2_right[28],
+
+			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+			},
+			{
+			stimulus_1: p2_left[29],
+
+			stimulus_2:  p2_right[29],
+
+			data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
 			}
 		],
 		conditional_function: function(){
@@ -929,8 +862,7 @@ var debrief = {
 			var selected_data = filter_data("pattern_comp_p2");
 			jsPsych.data.get().addToLast({correct_responses: selected_data});
 		var scores = score();
-		jsPsych.data.get().addToLast({final_tally: scores});
-
+		jsPsych.data.addProperties({final_tally: scores});
 		},
 		data:{exp_stage: "instructions"}
 	};
