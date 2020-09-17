@@ -113,7 +113,7 @@ function filter_data(stage) {
 				}
 
 		}
-		console.log(selected_data);
+		//console.log(selected_data);
     return selected_data;
 }
 
@@ -730,7 +730,6 @@ timeline.push(alt_practice);
 timeline.push(interim_instructions);
 timeline.push(test_trials_p1_trl1);
 timeline.push(test_trials_p1_trl2);
-
 timeline.push(interim_instructions_2);
 /*
 timeline.push(test_trials_p2_trl1);
