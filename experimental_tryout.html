@@ -44,15 +44,23 @@ function filter_data(stage){
 function score(){
 	var score_data_p1 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p1"}).select("key_press");
 	var score_data_p2 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p2"}).select("key_press");
-	var d = selected_data.values;// get the data values
-	if (d[d.length-1] == null){
-		d.pop(); // remove null values, which should only occur at end of array
+	var d_1 = score_data_p1.values;// get the data values
+	if (d_1[d_1.length-1] == null){
+		d_1.pop(); // remove null values, which should only occur at end of array
 	}
 	var search = 0;
-	var count = d.reduce(function(n, val) {
+	var count_1 = d_1.reduce(function(n, val) {
     return n + (val === search);
 		}, 0);
-
+		var d_2 = score_data_p2.values;// get the data values
+		if (d_2[d_2.length-1] == null){
+			d_2.pop(); // remove null values, which should only occur at end of array
+		}
+		var count_2 = d_2.reduce(function(n, val) {
+	    return n + (val === search);
+			}, 0);
+		var score_total = (count_1+count_2)/2;
+		return score_total;
 }
 
 	var welcome = {
@@ -151,13 +159,11 @@ var trial_1 = {
 		var html='<div class="row">' +
 								'<div class="column"><img src=' +
 									jsPsych.timelineVariable("stimulus_1", true) +
-										 //practice_left[practice_index] +
 										 ' style="width:150px;height:150px";>' +
 										 '</img>' +
 								'</div>' +
 								'<div class="column"><img src=' +
 								jsPsych.timelineVariable("stimulus_2", true) +
-								//practice_right[practice_index] +
 								'  style="width:150px;height:150px";></img>'+
 								'</div>'+
 							'</div>';
@@ -510,7 +516,7 @@ var interim_instructions_2 = {
   },
 };
 
-/*
+
 var trl_2 = {
 	timeline: [
 	{
@@ -565,33 +571,6 @@ var trl_2 = {
 			stim:  "prac_3_1.png"}}
 	]
 };
-*/
-/*
-var filter_data = function(stage){
-		var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
-  //  var  = jsPsych.data.get().filter(rows).ignore(ignore_columns);
-    // the next piece of codes orders the columns of the data file
-    var d = selected_data.values;// get the data values
-		for (var i = 0; i < d.length; i++){
-				if (stage == "pattern_comp_p1"){
-					if ( d[i] != p1_correct[i]){
-						selected_data.values[i] = 0;
-					} else {
-						selected_data.values[i] = 1;
-					}
-				}
-				if (stage == "pattern_comp_p2"){
-					if ( d[i] != p2_correct[i]){
-						selected_data.values[i] = 0;
-					} else {
-						selected_data.values[i] = 1;
-					}
-				}
-
-		}
-		console.log(selected_data);
-    return selected_data;
-  }
 
 
 var debrief = {
@@ -603,7 +582,7 @@ var debrief = {
 		},
 		data:{exp_stage: "instructions"}
 	};
-*/
+
 timeline.push(welcome);
 timeline.push(instructions);
 timeline.push(instructions2);
