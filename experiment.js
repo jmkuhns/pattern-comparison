@@ -221,7 +221,7 @@ var trial_1 = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		console.log(time);
 		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time - 250;
+		limit = limit - time;
 		time_out = 0;
 		console.log(time_out);
 		setTimeout(
@@ -255,7 +255,7 @@ var test_trials_p1_trl2 = {
 		trl = jsPsych.data.get().select('time_elapsed');
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time - 250;
+		limit = limit - time;
 		if (limit < 0){
 			limit = 0;
 			time_out = 1;
@@ -515,7 +515,7 @@ var trial_2 = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		console.log(time);
 		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time - 250;
+		limit = limit - time;
 		console.log(limit);
 		setTimeout(
 			function(){
@@ -548,7 +548,7 @@ var test_trials_p2_trl2 = {
 		trl = jsPsych.data.get().select('time_elapsed');
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time - 250;
+		limit = limit - time;
 		if (limit < 0){
 			limit = 0;
 			time_out = 1;
