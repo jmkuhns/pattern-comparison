@@ -514,37 +514,13 @@ var interim_instructions_2 = {
 		jsPsych.data.get().addToLast({dur: limit});
     var selected_data = filter_data("pattern_comp_p1");
     jsPsych.data.get().addToLast({correct_responses: selected_data});
+		limit = 5000;
+		trl = null;
+		time = null;
+		time_out = null;
   },
 };
 
-var generic_trial = {
-	timeline:[
-		{
-			type: "html-keyboard-response",
-			choices: [37, 39],
-			stimulus: function(){
-				var html='<div class="row">' +
-										'<div class="column"><img src=' +
-											jsPsych.timelineVariable("stimulus_1", true) +
-												 ' style="width:150px;height:150px";>' +
-												 '</img>' +
-										'</div>' +
-										'<div class="column"><img src=' +
-										jsPsych.timelineVariable("stimulus_2", true) +
-										'  style="width:150px;height:150px";></img>'+
-										'</div>'+
-									'</div>';
-				return html;
-			},
-					post_trial_gap: 250,
-					trial_duration: function(){
-						return limit;
-					},
-
-			}
-
-	]
-};
 
 
 var trial_2 = {
@@ -568,6 +544,16 @@ var trial_2 = {
 			jsPsych.endCurrentTimeline();
 		}, limit);
 	},
+	timeline_variables:
+	[
+		{
+		stimulus_1:  patterns + '2_01_1.png',
+
+		stimulus_2:  patterns + '2_01_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		}
+	]
 }
 
 var test_trials_p2_trl2 = {
