@@ -119,6 +119,7 @@ function filter_data(stage) {
 
 var limit = 5000;
 var test_trials_p1_trl1 = {
+  timeline:[{
   type: "html-keyboard-response",
   choices: [37, 39],
   stimulus:   function(){
@@ -135,6 +136,9 @@ var test_trials_p1_trl1 = {
               '</div>';
     return html;
   },
+  trial_duration: limit,
+  post_trial_gap: 250
+  }],
   timeline_variables: {
     stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_1.png',
 
@@ -142,7 +146,6 @@ var test_trials_p1_trl1 = {
 
     data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
   },
-  trial_duration: limit,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(){
 
