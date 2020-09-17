@@ -136,19 +136,11 @@ var test_trials_p1_trl1 = {
               '</div>';
     return html;
   },
-  trial_duration: limit,
-  post_trial_gap: 250
+  post_trial_gap: 250,
+  trial_duration: limit
   }],
-  timeline_variables: {
-    stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_1.png',
-
-    stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_2.png',
-
-    data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
-  },
   data: jsPsych.timelineVariable('data'),
   on_finish: function(){
-
     jsPsych.data.get().addToLast({dur: limit});
     trl = jsPsych.data.get().select('time_elapsed');
     time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
@@ -156,6 +148,13 @@ var test_trials_p1_trl1 = {
     var total = jsPsych.totalTime();
     jsPsych.data.get().addToLast({total_time: total});
     limit = limit - time - 250;
+  },
+  timeline_variables: {
+    stimulus_1: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_1.png',
+
+    stimulus_2: 'https://jmkuhns.github.io/pattern-comparison/patterns/1_01_2.png',
+
+    data: { stim: 1, corr_resp:  37, exp_stage: 'pattern_comp_p1'}
   }
 };
 var trl = null;
