@@ -22,13 +22,13 @@ function filter_data(stage){
 				d.pop();
 			}
 			for (var i = 0; i < d.length; i++){
-					if (stage == "pattern_comp_p1"){
-						if ( d[i] != p1_correct[i]){
-							selected_data.values[i] = 0;
-						} else {
-							selected_data.values[i] = 1;
-						}
-					}
+//					if (stage == "pattern_comp_p1"){
+//						if ( d[i] != p1_correct[i]){
+//							selected_data.values[i] = 0;
+//						} else {
+//							selected_data.values[i] = 1;
+//						}
+//					}
 					if (stage == "pattern_comp_p2"){
 						if ( d[i] != p2_correct[i]){
 							selected_data.values[i] = 0;
@@ -40,7 +40,7 @@ function filter_data(stage){
 			}
 	    return selected_data;
 	}
-
+/*
 function score(){
 	var score_data_p1 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p1"}).select("key_press");
 	var score_data_p2 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p2"}).select("key_press");
@@ -66,7 +66,7 @@ function score(){
 
 
 }
-
+*/
 	var welcome = {
 	  type: "html-keyboard-response",
 	  stimulus: "Welcome to the experiment. Press any key to begin.",
@@ -188,12 +188,21 @@ var trial_1 = {
 		console.log(limit);
 	},
 	timeline_variables:[
+		{
+		stimulus_1:  patterns + '2_01_1.png',
+
+		stimulus_2:  patterns + '2_01_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		}
+		/*
 	{stimulus_1:  patterns + '1_01_1.png',
 
 		stimulus_2:  patterns + '1_01_2.png',
 
 			data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
 			}
+			*/
 		]
 };
 
@@ -290,7 +299,214 @@ var test_trials_p1_trl2 = {
 			jsPsych.endCurrentTimeline();
 		}
 	},
-	timeline_variables: [
+	timeline_variables:
+	[
+		{
+		stimulus_1:  patterns + '2_02_1.png',
+
+		stimulus_2:  patterns + '2_02_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_03_1.png',
+
+		stimulus_2:  patterns + '2_03_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_04_1.png',
+
+		stimulus_2:  patterns + '2_04_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_05_1.png',
+
+		stimulus_2:  patterns + '2_05_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_06_1.png',
+
+		stimulus_2:  patterns + '2_06_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_07_1.png',
+
+		stimulus_2:  patterns + '2_07_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_08_1.png',
+
+		stimulus_2:  patterns + '2_08_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_09_1.png',
+
+		stimulus_2:  patterns + '2_09_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_10_1.png',
+
+		stimulus_2:  patterns + '2_10_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_11_1.png',
+
+		stimulus_2:  patterns + '2_11_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_12_1.png',
+
+		stimulus_2:  patterns + '2_12_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_13_1.png',
+
+		stimulus_2:  patterns + '2_13_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_14_1.png',
+
+		stimulus_2:  patterns + '2_14_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_15_1.png',
+
+		stimulus_2:  patterns + '2_15_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_16_1.png',
+
+		stimulus_2:  patterns + '2_16_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_17_1.png',
+
+		stimulus_2:  patterns + '2_17_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_18_1.png',
+
+		stimulus_2:  patterns + '2_18_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_19_1.png',
+
+		stimulus_2:  patterns + '2_19_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_20_1.png',
+
+		stimulus_2:  patterns + '2_20_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_21_1.png',
+
+		stimulus_2:  patterns + '2_21_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_22_1.png',
+
+		stimulus_2:  patterns + '2_22_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_23_1.png',
+
+		stimulus_2:  patterns + '2_23_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_24_1.png',
+
+		stimulus_2:  patterns + '2_24_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_25_1.png',
+
+		stimulus_2:  patterns + '2_25_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_26_1.png',
+
+		stimulus_2:  patterns + '2_26_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_27_1.png',
+
+		stimulus_2:  patterns + '2_27_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_28_1.png',
+
+		stimulus_2:  patterns + '2_28_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_29_1.png',
+
+		stimulus_2:  patterns + '2_29_2.png',
+
+		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
+		},
+		{
+		stimulus_1:  patterns + '2_30_1.png',
+
+		stimulus_2:  patterns + '2_30_2.png',
+
+		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
+		}
+	]
+	/*
+	[
 			{
 			stimulus_1:  patterns + "1_02_1.png",
 
@@ -495,6 +711,7 @@ var test_trials_p1_trl2 = {
 			data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}
 			}
 	]
+	*/
 };
 
 
@@ -523,6 +740,7 @@ var interim_instructions_2 = {
 		console.log(limit);
   }
 };
+/*
 var limit2 = 5000;
 var trl2 = null;
 var time2 = null;
@@ -841,18 +1059,18 @@ var debrief = {
 		},
 		data:{exp_stage: "instructions"}
 	};
-
+*/
 timeline.push(welcome);
 timeline.push(instructions);
 timeline.push(instructions2);
 timeline.push(alt_practice);
-//timeline.push(interim_instructions);
-//timeline.push(trial_1);
-//timeline.push(test_trials_p1_trl2);
-//timeline.push(interim_instructions_2);
-timeline.push(trial_2);
-timeline.push(test_trials_p2_trl2);
-timeline.push(debrief);
+timeline.push(interim_instructions);
+timeline.push(trial_1);
+timeline.push(test_trials_p1_trl2);
+timeline.push(interim_instructions_2);
+//timeline.push(trial_2);
+//timeline.push(test_trials_p2_trl2);
+//timeline.push(debrief);
 
 jsPsych.init({
 	timeline: [timeline],
