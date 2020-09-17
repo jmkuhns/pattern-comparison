@@ -99,12 +99,12 @@ var test_trials_p1_trl1 = {
   stimulus:   function(){
     var html= '<div class="row">' +
                 '<div class="column"><img src=' +
-                jsPsych.timelineVariable('stimulus_1', true) +
+                jsPsych.timelineVariable('stimulus_1', true)  +
                      ' style="width:150px;height:150px";>' +
                      '</img>' +
                 '</div>' +
                 '<div class="column"><img src=' +
-                jsPsych.timelineVariable('stimulus_2', true)+
+                jsPsych.timelineVariable('stimulus_2', true) +
                 '  style="width:150px;height:150px";></img>'+
                 '</div>'+
               '</div>';
