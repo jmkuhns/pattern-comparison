@@ -17,10 +17,18 @@ function filter_data(stage){
 			var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
 	  //  var  = jsPsych.data.get().filter(rows).ignore(ignore_columns);
 	    // the next piece of codes orders the columns of the data file
+
 	    var d = selected_data.values;// get the data values
-			if (d[d.length-1] == null){
-				d.pop();
-			}
+			console.log(d);
+				for( var i = 0; i < d.length; i++){
+					if ( d[i] === null) {
+						d.splice(i, 1);
+						i--;
+					}}
+			console.log(d);
+		//  if (d[d.length-1] == null){
+		//		d.pop();
+		//	}
 			for (var i = 0; i < d.length; i++){
 					if (stage == "pattern_comp_p1"){
 						if ( d[i] != p1_correct[i]){
@@ -144,28 +152,37 @@ function score(){
 		}
 	};
 
+	var generic_trial = {
+		timeline:[
+			{
+				type: "html-keyboard-response",
+				choices: [37, 39],
+				stimulus: function(){
+					var html='<div class="row">' +
+											'<div class="column"><img src=' +
+												jsPsych.timelineVariable("stimulus_1", true) +
+													 ' style="width:150px;height:150px";>' +
+													 '</img>' +
+											'</div>' +
+											'<div class="column"><img src=' +
+											jsPsych.timelineVariable("stimulus_2", true) +
+											'  style="width:150px;height:150px";></img>'+
+											'</div>'+
+										'</div>';
+					return html;
+				},
+						post_trial_gap: 250,
+						trial_duration: function(){
+							return limit;
+						},
+
+				}
+
+		]
+	};
+
 var trial_1 = {
-	timeline: [{
-	type: "html-keyboard-response",
-	stimulus: function(){
-		var html='<div class="row">' +
-								'<div class="column"><img src=' +
-									jsPsych.timelineVariable("stimulus_1", true) +
-										 //practice_left[practice_index] +
-										 ' style="width:150px;height:150px";>' +
-										 '</img>' +
-								'</div>' +
-								'<div class="column"><img src=' +
-								jsPsych.timelineVariable("stimulus_2", true) +
-								//practice_right[practice_index] +
-								'  style="width:150px;height:150px";></img>'+
-								'</div>'+
-							'</div>';
-		return html;
-		},
-	post_trial_gap: 250,
-	trial_duration: limit
-	}],
+	timeline: [generic_trial],
 	data: jsPsych.timelineVariable('data'),
 	on_finish: function(){
 		jsPsych.data.get().addToLast({dur: limit});
@@ -176,6 +193,14 @@ var trial_1 = {
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time - 250;
 		console.log(limit);
+		setTimeout(
+			function(){
+			time_out = 1;
+			console.log('timeout');
+			console.log(time_out);
+			jsPsych.data.get().addToLast({timeout: time_out});
+			jsPsych.endCurrentTimeline();
+		}, limit);
 	},
 	timeline_variables:[
 	{stimulus_1:  patterns + '1_01_1.png',
@@ -228,41 +253,25 @@ var trl_1 = {
 		data: { corr_resp:  37, exp_stage: "pattern_comp_p1"}}
 	};
 */
+
 var test_trials_p1_trl2 = {
-	timeline: [
-	{
-	type: "html-keyboard-response",
-	choices: [37, 39],
-	stimulus: function(){
-		var html='<div class="row">' +
-								'<div class="column"><img src=' +
-									jsPsych.timelineVariable("stimulus_1", true) +
-										 ' style="width:150px;height:150px";>' +
-										 '</img>' +
-								'</div>' +
-								'<div class="column"><img src=' +
-								jsPsych.timelineVariable("stimulus_2", true) +
-								'  style="width:150px;height:150px";></img>'+
-								'</div>'+
-							'</div>';
-		return html;
-	},
-			post_trial_gap: 250,
-			trial_duration: function(){
-				return limit;
-			},
-	}],
+//	timeline: [
+//	{
+//}],
+	timeline: [generic_trial],
   data: jsPsych.timelineVariable('data'),
   on_start: function(){
-			setTimeout(
-				function(){
-				time_out = 1;
-				console.log('timeout');
-				console.log(time_out);
-				jsPsych.data.get().addToLast({timeout: time_out});
-				time_out += 1;
+			if (time_out == 1){
 				jsPsych.endCurrentTimeline();
-			}, limit);
+			}
+	//		setTimeout(
+	//			function(){
+	//			time_out = 1;
+	//			console.log('timeout');
+	//			console.log(time_out);
+	//			jsPsych.data.get().addToLast({timeout: time_out});
+	//			jsPsych.endCurrentTimeline();
+	//		}, limit);
 	},
 	on_finish: function(){
 		if (time_out == 1){
@@ -275,8 +284,8 @@ var test_trials_p1_trl2 = {
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time - 250;
 		if (limit <= 0){
-			limit = 30;
-					console.log(limit);
+			limit = 0;
+			console.log(limit);
 			jsPsych.endCurrentTimeline();
 		}
 	},
@@ -592,16 +601,17 @@ var filter_data = function(stage){
   }
 
 
+*/
 var debrief = {
 	  type: "html-keyboard-response",
 		stimulus: "<p>Press any key to complete the experiment. Thank you!</p>",
-		on_finish: function(){
-			var selected_data = filter_data("practice");
-			jsPsych.data.get().addToLast({correct_responses: selected_data});
-		},
+	//	on_finish: function(){
+	//		var selected_data = filter_data("practice");
+	//		jsPsych.data.get().addToLast({correct_responses: selected_data});
+	//	},
 		data:{exp_stage: "instructions"}
 	};
-*/
+
 timeline.push(welcome);
 timeline.push(instructions);
 timeline.push(instructions2);
@@ -611,8 +621,7 @@ timeline.push(trial_1);
 //timeline.push(does_it_work);
 //timeline.push(does_it_work_2);
 timeline.push(test_trials_p1_trl2);
-timeline.push(interim_instructions_2);
-// timeline.push(debrief);
+timeline.push(interim_instructions_2); timeline.push(debrief);
 
 jsPsych.init({
 	timeline: timeline,
