@@ -727,8 +727,8 @@ timeline.push(instructions, instructions2);
 timeline.push(alt_practice);
 timeline.push(interim_instructions);
 timeline.push(test_trials_p1_trl1);
-timeline.push(test_trials_p1_trl2);
-timeline.push(interim_instructions_2);
+//timeline.push(test_trials_p1_trl2);
+//timeline.push(interim_instructions_2);
 /*
 timeline.push(test_trials_p2_trl1);
 timeline.push(test_trials_p2);
