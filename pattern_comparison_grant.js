@@ -95,7 +95,7 @@ function score(){
 
 	var welcome = {
 	  type: "html-keyboard-response",
-	  stimulus: "Welcome to the experiment. Press any key to begin.",
+	  stimulus: "Welcome to the next task. Press any key to begin.",
 	  data:{
 	    exp_stage: "instructions"
 	  }
