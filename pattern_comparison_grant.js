@@ -95,7 +95,7 @@ function score(){
 
 	var welcome = {
 	  type: "html-keyboard-response",
-	  stimulus: "Welcome to the next task. Press any key to begin.",
+	  stimulus: "Welcome to the Pattern Comparison task. Press any key to begin.",
 	  data:{
 	    exp_stage: "instructions"
 	  }
@@ -104,7 +104,7 @@ function score(){
 	  type: "html-keyboard-response",
 	  stimulus:
 	  '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
-	  '<br><br><p>In this experiment you will be asked to determine whether two patterns of lines are the same or different. If the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
+	  '<br><br><p>In this task you will be asked to determine whether two patterns of lines are the same or different. If the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
 	  '<br><p>You will complete a few practice trials with feedback before starting.</p><br><p>Press any key to continue.</p>',
 	  data:{
 	    exp_stage: "instructions"
@@ -138,9 +138,11 @@ function score(){
 	                '</div>'+
 	              '</div>';
 	    return html;
-	  },
-	      post_trial_gap: 250
+	  }
+		//,
+	  //    post_trial_gap: 250
 	  }],
+				prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
 	  data: jsPsych.timelineVariable('data'),
 	  on_finish: function(data){
 	    if (data.key_press == data.corr_resp){
@@ -201,7 +203,8 @@ function score(){
 										'</div>';
 					return html;
 				},
-						post_trial_gap: 250,
+						prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
+					//	post_trial_gap: 250,
 						trial_duration: function(){
 							return limit;
 						},
@@ -555,6 +558,7 @@ var test_trials_p2_trl2 = {
 			console.log(limit);
 		}
 	},
+			prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
 		timeline_variables: [
 	{
 		stimulus_1: p2_left[1],
