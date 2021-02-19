@@ -861,7 +861,7 @@ var filter_data = function(stage){
 */
 var debrief = {
 	  type: "html-keyboard-response",
-		stimulus: "<p>You have now completed the experiment. Thank you!</p>",
+		stimulus: "<p>You have now completed this task. Please continue to the next portion of the experiment.</p>",
 		on_finish: function(){
 			var selected_data = filter_data("pattern_comp_p2");
 			jsPsych.data.get().addToLast({correct_responses: selected_data});

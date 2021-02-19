@@ -22,7 +22,7 @@ var p2_right = ["JRLWBD", "SLZTJWQXC", "ZJT", "JKFLSMCWN", "VFZ", "GCTZJQ", "TRP
 
 	var welcome = {
 	  type: "html-keyboard-response",
-	  stimulus: "Welcome to the Pattern Comparison task. Press any key to begin.",
+	  stimulus: "Welcome to the Letter Comparison task. Press any key to begin.",
 	  data:{
 	    exp_stage: "instructions"
 	  }
@@ -30,7 +30,7 @@ var p2_right = ["JRLWBD", "SLZTJWQXC", "ZJT", "JKFLSMCWN", "VFZ", "GCTZJQ", "TRP
 	var instructions = {
 	  type: "html-keyboard-response",
 	  stimulus:
-	  '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
+	  '<p style:"font-size:30px">LETTER COMPARISON</p>' +
 	  '<br><br><p>In this task you will be asked to determine whether two strings of letters are the same or different. If the two strings are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
 	  '<br><p>You will complete a few practice trials with feedback before starting.</p><br><p>Press any key to continue.</p>',
 	  data:{
@@ -684,7 +684,7 @@ var test_trials_p2_trl2 = {
 
 var debrief = {
 	  type: "html-keyboard-response",
-		stimulus: "<p>You have now completed the experiment. Thank you!</p>",
+		stimulus: "<p>You have now completed this task. Please continue to the next portion of the experiment.</p>",
 		data:{exp_stage: "instructions"}
 	};
 
