@@ -407,8 +407,7 @@ var interim_instructions_2 = {
 		console.log("time between last trial and end");
 		console.log(time);
 		jsPsych.data.get().addToLast({dur: limit});
-    var selected_data = filter_data("letter_comp_p1");
-    jsPsych.data.get().addToLast({correct_responses: selected_data});
+
 		limit = 30000;
 		trl = null;
 		time = null;
@@ -441,12 +440,10 @@ var trial_2 = {
 	},
 	timeline_variables: [
 		{
-stimulus_1: p2_left[0],
-
-stimulus_2:  p2_right[0],
-
-data: {corr_resp:  p2_correct[0], exp_stage: 'letter_comp_p2'}
-}
+			stimulus_1: p2_left[0],
+			stimulus_2:  p2_right[0],
+				data: {corr_resp:  p2_correct[0], exp_stage: 'letter_comp_p2'}
+			}
 	]
 }
 
@@ -683,101 +680,11 @@ var test_trials_p2_trl2 = {
 					}
 			}
 };
-/*
-var trl_2 = {
-	timeline: [
-	{
-	type: "html-keyboard-response",
-	choices: [37, 39],
-	stimulus: function(){
-		var html='<div class="row">' +
-								'<div class="column"><img src=' +
-									jsPsych.timelineVariable("stimulus_1", true) +
-										 ' style="width:150px;height:150px";>' +
-										 '</img>' +
-								'</div>' +
-								'<div class="column"><img src=' +
-								jsPsych.timelineVariable("stimulus_2", true) +
-								'  style="width:150px;height:150px";></img>'+
-								'</div>'+
-							'</div>';
-		return html;
-	},
-			post_trial_gap: 250,
-			trial_duration: limit,
-	}],
-	data: jsPsych.timelineVariable('data'),
-	on_start: function(){
-			setTimeout(
-				function(){
-				time_out = 1;
-				jsPsych.endCurrentTimeline;
-			}, limit);
-	},
-	on_finish: function(){
-		jsPsych.data.get().addToLast({dur: limit});
-		trl = jsPsych.data.get().select('time_elapsed');
-		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
-		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time - 250;
-		if (limit <= 0){
-			jsPsych.endCurrentTimeline;
-			jsPsych.data.get().addToLast({limit_timeout: 1});
-			limit = 30;
-		}
-		jsPsych.data.get().addToLast({timeout: time_out})
-	},
-	timeline_variables: [
-		{stimulus_1: letters_practice + "prac_2_1.png",
-			stimulus_2: patterns_practice + "prac_2_2.png",
-				data: {corr_resp: 39, exp_stage: "practice",
-			stim:  "prac_2_1.png"}},
-		{stimulus_1: patterns_practice + "prac_3_1.png",
-			stimulus_2: patterns_practice + "prac_3_2.png",
-				data: {corr_resp: 39, exp_stage: "practice",
-			stim:  "prac_3_1.png"}}
-	]
-};
-*/
-/*
-var filter_data = function(stage){
-		var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
-  //  var  = jsPsych.data.get().filter(rows).ignore(ignore_columns);
-    // the next piece of codes orders the columns of the data file
-    var d = selected_data.values;// get the data values
-		for (var i = 0; i < d.length; i++){
-				if (stage == "pattern_comp_p1"){
-					if ( d[i] != p1_correct[i]){
-						selected_data.values[i] = 0;
-					} else {
-						selected_data.values[i] = 1;
-					}
-				}
-				if (stage == "pattern_comp_p2"){
-					if ( d[i] != p2_correct[i]){
-						selected_data.values[i] = 0;
-					} else {
-						selected_data.values[i] = 1;
-					}
-				}
-
-		}
-		console.log(selected_data);
-    return selected_data;
-  }
 
 
-*/
 var debrief = {
 	  type: "html-keyboard-response",
 		stimulus: "<p>You have now completed the experiment. Thank you!</p>",
-
-/*		on_finish: function(){
-			var selected_data = filter_data("pattern_comp_p2");
-			jsPsych.data.get().addToLast({correct_responses: selected_data});
-		var scores = score();
-		jsPsych.data.addProperties({final_tally: scores});
-	}, */
 		data:{exp_stage: "instructions"}
 	};
 
