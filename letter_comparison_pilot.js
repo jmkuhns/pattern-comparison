@@ -1,9 +1,11 @@
 var timeline = [];
-var patterns = "https://jmkuhns.github.io/pattern-comparison/patterns/";
-var patterns_practice = "https://jmkuhns.github.io/pattern-comparison/patterns_practice/";
-	var cresp = [37, 39, 39];
+
+	var prac_cresp = [37, 39, 39];
 	var p1_correct = [39,37,39,39,39,39,39,37,39,39,37,37,37,39,37,37,39,37,39, 37,39,37,37,39,37,37,37,39,37,39];
 	var p2_correct = [39,39,37,37,37,39,39,37,37,39,37,39,39,37,39,39,39,39,37, 37,37,37,37,39,37,37,39,39,39,37];
+
+var prac_left = ["XTL", "PDNGJR", "FRXJSYZGP"];
+var prac_right = ["XTL", "PDNGKR", "FRXJSYWGP"];
 
 var p1_left = ["SRKFMPHXQ", "MHJWLK", "LXQ", "HVBNQCWRT", "YVJ", "KLCDQZ", "LSVMNRQDY", "YCT", "RSXMVK", "QBM", "SRBNWT", "LVXHJBDMP", "NLGJYWQBM", "SNP", "FWVSPJ", "DGVLSK", "GDCYXZQPT", "YFV", "RJGPNB", "PBM", "CQGNSLMWX", "FJMSBDTZN", "LPY", "JBZMRP", "XNV", "MRXCNJ", "PRVWSTLYK", "ZQRWYM", "WHZJPXMVN", "ZSH"]
 
@@ -15,85 +17,8 @@ var p2_right = ["JRLWBD", "SLZTJWQXC", "ZJT", "JKFLSMCWN", "VFZ", "GCTZJQ", "TRP
 
 
 
-function filter_data(stage){
-			var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
-	    var d = selected_data.values;// get the data values
-			console.log(d);
-				for( var i = 0; i < d.length; i++){
-					if ( d[i] === null) {
-						d.splice(i, 1);
-						i--;
-					}}
-			console.log(d);
-			for (var i = 0; i < d.length; i++){
-					if (stage == "pattern_comp_p1"){
-						if ( d[i] != p1_correct[i]){
-							selected_data.values[i] = 0;
-						} else {
-							selected_data.values[i] = 1;
-						}
-					}
-					if (stage == "pattern_comp_p2"){
-						if ( d[i] != p2_correct[i]){
-							selected_data.values[i] = 0;
-						} else {
-							selected_data.values[i] = 1;
-						}
-					}
+// removed the calculation of scores because they were not helpful in data analysis. See pattern_comparison_grant.js for original code here.
 
-			}
-	    return selected_data;
-	}
-
-function score(){
-	var score_data_p1 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p1"}).select("key_press");
-	var score_data_p2 = jsPsych.data.get().filter({exp_stage: "pattern_comp_p2"}).select("key_press");
-	var d_1 = score_data_p1.values;// get the data values
-	var d_2 = score_data_p2.values;// get the data values
-
-		for( var i = 0; i < d_1.length; i++){
-			if ( d_1[i] === null) {
-				d_1.splice(i, 1);
-				i--;
-			}}
-
-				for( var i = 0; i < d_2.length; i++){
-					if ( d_2[i] === null) {
-						d_2.splice(i, 1);
-						i--;
-					}}
-
-	for (var i = 0; i < d_1.length; i++){
-				if ( d_1[i] != p1_correct[i]){
-					d_1[i] = 0;
-				} else {
-					d_1[i] = 1;
-				}
-		}
-		for (var i = 0; i < d_2.length; i++){
-				if ( d_2[i] != p2_correct[i]){
-					d_2[i] = 0;
-				} else {
-					d_2[i] = 1;
-				}
-	}
-	console.log(d_1);
-	console.log(d_2);
-	var search = 0;
-	var count_1 = d_1.reduce(function(n, val) {
-    return n + (val === search);
-		}, 0);
-		var count_2 = d_2.reduce(function(n, val) {
-	    return n + (val === search);
-			}, 0);
-	console.log(count_1);
-	console.log(count_2);
-
-	var p1_score = d_1.length - count_1;
-	var p2_score = d_2.length - count_2;
-	var tally = (p1_score+p2_score)/2
-	return {final_score: tally, p1: p1_score, p2: p2_score}
-}
 
 	var welcome = {
 	  type: "html-keyboard-response",
@@ -106,7 +31,7 @@ function score(){
 	  type: "html-keyboard-response",
 	  stimulus:
 	  '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
-	  '<br><br><p>In this task you will be asked to determine whether two patterns of lines are the same or different. If the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
+	  '<br><br><p>In this task you will be asked to determine whether two strings of letters are the same or different. If the two strings are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
 	  '<br><p>You will complete a few practice trials with feedback before starting.</p><br><p>Press any key to continue.</p>',
 	  data:{
 	    exp_stage: "instructions"
@@ -114,7 +39,7 @@ function score(){
 	};
 	var instructions2 = {
 	  type: "html-keyboard-response",
-	  stimulus:'<p>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
+	  stimulus:'<p>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
 	  '<br><p>Press any key to begin the practice trials.</p>',
 	  post_trial_gap: 250,
 	  data:{exp_stage: "instructions"}
@@ -127,16 +52,11 @@ function score(){
 	  choices: [37, 39],
 	  stimulus: function(){
 	    var html='<div class="row">' +
-	                '<div class="column"><img src=' +
-	                  jsPsych.timelineVariable("stimulus_1", true) +
-	                     //practice_left[practice_index] +
-	                     ' style="width:150px;height:150px";>' +
-	                     '</img>' +
+	                '<div class="column">' +
+	                  	jsPsych.timelineVariable("stimulus_1", true) +
 	                '</div>' +
-	                '<div class="column"><img src=' +
-	                jsPsych.timelineVariable("stimulus_2", true) +
-	                //practice_right[practice_index] +
-	                '  style="width:150px;height:150px";></img>'+
+	                	'<div class="column">'+
+	                			jsPsych.timelineVariable("stimulus_2", true) +
 	                '</div>'+
 	              '</div>';
 	    return html;
@@ -146,24 +66,17 @@ function score(){
 	  }],
 				prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
 	  data: jsPsych.timelineVariable('data'),
-	  on_finish: function(data){
-	    if (data.key_press == data.corr_resp){
-	      data.accuracy = 1;
-	    } else {
-	      data.accuracy = 0;
-	      }
-	  },
 	  timeline_variables:
 		[
-	    {stimulus_1: patterns_practice + "prac_1_1.png",
-	      stimulus_2: patterns_practice + "prac_1_2.png",
-	        data: {corr_resp: 37, exp_stage: "practice"}},
-	    {stimulus_1: patterns_practice + "prac_2_1.png",
-	      stimulus_2: patterns_practice + "prac_2_2.png",
-	        data: {corr_resp: 39, exp_stage: "practice"}},
-	    {stimulus_1: patterns_practice + "prac_3_1.png",
-	      stimulus_2: patterns_practice + "prac_3_2.png",
-	        data: {corr_resp: 39, exp_stage: "practice"}}
+	    {stimulus_1: prac_left[0],
+	     stimulus_2: prac_right[0],
+	     	data: {corr_resp: prac_cresp[0], exp_stage: "practice"}},
+	    {stimulus_1: prac_left[1],
+	     stimulus_2: prac_right[1],
+	        data: {corr_resp: prac_cresp[1], exp_stage: "practice"}},
+	    {stimulus_1: prac_left[2],
+	     stimulus_2: prac_right[2],
+	        data: {corr_resp: prac_cresp[2], exp_stage: "practice"}}
 	  ]
 	};
 
@@ -192,19 +105,16 @@ function score(){
 				type: "html-keyboard-response",
 				choices: [37, 39],
 				stimulus: function(){
-					var html='<div class="row">' +
-											'<div class="column"><img src=' +
-												jsPsych.timelineVariable("stimulus_1", true) +
-													 ' style="width:150px;height:150px";>' +
-													 '</img>' +
-											'</div>' +
-											'<div class="column"><img src=' +
-											jsPsych.timelineVariable("stimulus_2", true) +
-											'  style="width:150px;height:150px";></img>'+
-											'</div>'+
-										'</div>';
-					return html;
-				},
+			    var html='<div class="row">' +
+			                '<div class="column">' +
+			                  	jsPsych.timelineVariable("stimulus_1", true) +
+			                '</div>' +
+			                	'<div class="column">'+
+			                			jsPsych.timelineVariable("stimulus_2", true) +
+			                '</div>'+
+			              '</div>';
+			    return html;
+			  },
 						prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
 					//	post_trial_gap: 250,
 						trial_duration: function(){
@@ -239,14 +149,12 @@ var trial_1 = {
 		}, limit);
 	},
 	timeline_variables:[
-		{
-	stimulus_1: p1_left[0],
-
-	stimulus_2:  p1_right[0],
-
-	data: {corr_resp: 37 , exp_stage: 'pattern_comp_p1'}
-	}
-		]
+			{
+			stimulus_1: p1_left[0],
+			stimulus_2: p1_right[0],
+				data: {corr_resp: p1_correct[0] , exp_stage: 'letter_comp_p1'}
+			}
+	]
 };
 
 
@@ -273,203 +181,203 @@ var test_trials_p1_trl2 = {
 
 		stimulus_2:  p1_right[1],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[1], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[2],
 
 		stimulus_2:  p1_right[2],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[2], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[3],
 
 		stimulus_2:  p1_right[3],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[3], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[4],
 
 		stimulus_2:  p1_right[4],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[4], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[5],
 
 		stimulus_2:  p1_right[5],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[5], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[6],
 
 		stimulus_2:  p1_right[6],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[6], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[7],
 
 		stimulus_2:  p1_right[7],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[7], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[8],
 
 		stimulus_2:  p1_right[8],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[8], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[9],
 
 		stimulus_2:  p1_right[9],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[9], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[10],
 
 		stimulus_2:  p1_right[10],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[10], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[11],
 
 		stimulus_2:  p1_right[11],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[11], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[12],
 
 		stimulus_2:  p1_right[12],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[12], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[13],
 
 		stimulus_2:  p1_right[13],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[13], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[14],
 
 		stimulus_2:  p1_right[14],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[14], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[15],
 
 		stimulus_2:  p1_right[15],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[15], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[16],
 
 		stimulus_2:  p1_right[16],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[16], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[17],
 
 		stimulus_2:  p1_right[17],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[17], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[18],
 
 		stimulus_2:  p1_right[18],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[18], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[19],
 
 		stimulus_2:  p1_right[19],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[19], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[20],
 
 		stimulus_2:  p1_right[20],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[20], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[21],
 
 		stimulus_2:  p1_right[21],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[21], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[22],
 
 		stimulus_2:  p1_right[22],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[22], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[23],
 
 		stimulus_2:  p1_right[23],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[23], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[24],
 
 		stimulus_2:  p1_right[24],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[24], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[25],
 
 		stimulus_2:  p1_right[25],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[25], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[26],
 
 		stimulus_2:  p1_right[26],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[26], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[27],
 
 		stimulus_2:  p1_right[27],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[27], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[28],
 
 		stimulus_2:  p1_right[28],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[28], exp_stage: 'letter_comp_p1'}
 		},
 		{
 		stimulus_1: p1_left[29],
 
 		stimulus_2:  p1_right[29],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p1'}
+		data: {corr_resp:  p1_correct[29], exp_stage: 'letter_comp_p1'}
 		}
 	],
 	conditional_function: function(){
@@ -487,7 +395,7 @@ var test_trials_p1_trl2 = {
 var interim_instructions_2 = {
   type: "html-keyboard-response",
   stimulus:
-  '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
+  '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
   '<br><p>Press any key to begin.</p>',
   post_trial_gap: 250,
   data:{
@@ -499,7 +407,7 @@ var interim_instructions_2 = {
 		console.log("time between last trial and end");
 		console.log(time);
 		jsPsych.data.get().addToLast({dur: limit});
-    var selected_data = filter_data("pattern_comp_p1");
+    var selected_data = filter_data("letter_comp_p1");
     jsPsych.data.get().addToLast({correct_responses: selected_data});
 		limit = 30000;
 		trl = null;
@@ -531,15 +439,14 @@ var trial_2 = {
 			jsPsych.data.get().addToLast({timeout: time_out});
 		}, limit);
 	},
-	timeline_variables:
-	[
-			{
-			stimulus_1: p2_left[0],
+	timeline_variables: [
+		{
+stimulus_1: p2_left[0],
 
-			stimulus_2:  p2_right[0],
+stimulus_2:  p2_right[0],
 
-			data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-			}
+data: {corr_resp:  p2_correct[0], exp_stage: 'letter_comp_p2'}
+}
 	]
 }
 
@@ -561,211 +468,211 @@ var test_trials_p2_trl2 = {
 		}
 	},
 			prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
-		timeline_variables: [
-	{
-		stimulus_1: p2_left[1],
+			timeline_variables: [
+			          {
+			  stimulus_1: p2_left[1],
 
-		stimulus_2:  p2_right[1],
+			  stimulus_2:  p2_right[1],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[2],
+			  data: {corr_resp:  p2_correct[1], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[2],
 
-		stimulus_2:  p2_right[2],
+			  stimulus_2:  p2_right[2],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[3],
+			  data: {corr_resp:  p2_correct[2], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[3],
 
-		stimulus_2:  p2_right[3],
+			  stimulus_2:  p2_right[3],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[4],
+			  data: {corr_resp:  p2_correct[3], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[4],
 
-		stimulus_2:  p2_right[4],
+			  stimulus_2:  p2_right[4],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[5],
+			  data: {corr_resp:  p2_correct[4], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[5],
 
-		stimulus_2:  p2_right[5],
+			  stimulus_2:  p2_right[5],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[6],
+			  data: {corr_resp:  p2_correct[5], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[6],
 
-		stimulus_2:  p2_right[6],
+			  stimulus_2:  p2_right[6],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[7],
+			  data: {corr_resp:  p2_correct[6], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[7],
 
-		stimulus_2:  p2_right[7],
+			  stimulus_2:  p2_right[7],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[8],
+			  data: {corr_resp:  p2_correct[7], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[8],
 
-		stimulus_2:  p2_right[8],
+			  stimulus_2:  p2_right[8],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[9],
+			  data: {corr_resp:  p2_correct[8], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[9],
 
-		stimulus_2:  p2_right[9],
+			  stimulus_2:  p2_right[9],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[10],
+			  data: {corr_resp:  p2_correct[9], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[10],
 
-		stimulus_2:  p2_right[10],
+			  stimulus_2:  p2_right[10],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[11],
+			  data: {corr_resp:  p2_correct[10], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[11],
 
-		stimulus_2:  p2_right[11],
+			  stimulus_2:  p2_right[11],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[12],
+			  data: {corr_resp:  p2_correct[11], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[12],
 
-		stimulus_2:  p2_right[12],
+			  stimulus_2:  p2_right[12],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[13],
+			  data: {corr_resp:  p2_correct[12], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[13],
 
-		stimulus_2:  p2_right[13],
+			  stimulus_2:  p2_right[13],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[14],
+			  data: {corr_resp:  p2_correct[13], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[14],
 
-		stimulus_2:  p2_right[14],
+			  stimulus_2:  p2_right[14],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[15],
+			  data: {corr_resp:  p2_correct[14], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[15],
 
-		stimulus_2:  p2_right[15],
+			  stimulus_2:  p2_right[15],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[16],
+			  data: {corr_resp:  p2_correct[15], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[16],
 
-		stimulus_2:  p2_right[16],
+			  stimulus_2:  p2_right[16],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[17],
+			  data: {corr_resp:  p2_correct[16], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[17],
 
-		stimulus_2:  p2_right[17],
+			  stimulus_2:  p2_right[17],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[18],
+			  data: {corr_resp:  p2_correct[17], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[18],
 
-		stimulus_2:  p2_right[18],
+			  stimulus_2:  p2_right[18],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[19],
+			  data: {corr_resp:  p2_correct[18], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[19],
 
-		stimulus_2:  p2_right[19],
+			  stimulus_2:  p2_right[19],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[20],
+			  data: {corr_resp:  p2_correct[19], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[20],
 
-		stimulus_2:  p2_right[20],
+			  stimulus_2:  p2_right[20],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[21],
+			  data: {corr_resp:  p2_correct[20], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[21],
 
-		stimulus_2:  p2_right[21],
+			  stimulus_2:  p2_right[21],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[22],
+			  data: {corr_resp:  p2_correct[21], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[22],
 
-		stimulus_2:  p2_right[22],
+			  stimulus_2:  p2_right[22],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[23],
+			  data: {corr_resp:  p2_correct[22], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[23],
 
-		stimulus_2:  p2_right[23],
+			  stimulus_2:  p2_right[23],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[24],
+			  data: {corr_resp:  p2_correct[23], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[24],
 
-		stimulus_2:  p2_right[24],
+			  stimulus_2:  p2_right[24],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[25],
+			  data: {corr_resp:  p2_correct[24], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[25],
 
-		stimulus_2:  p2_right[25],
+			  stimulus_2:  p2_right[25],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[26],
+			  data: {corr_resp:  p2_correct[25], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[26],
 
-		stimulus_2:  p2_right[26],
+			  stimulus_2:  p2_right[26],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[27],
+			  data: {corr_resp:  p2_correct[26], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[27],
 
-		stimulus_2:  p2_right[27],
+			  stimulus_2:  p2_right[27],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[28],
+			  data: {corr_resp:  p2_correct[27], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[28],
 
-		stimulus_2:  p2_right[28],
+			  stimulus_2:  p2_right[28],
 
-		data: {corr_resp:  37, exp_stage: 'pattern_comp_p2'}
-		},
-		{
-		stimulus_1: p2_left[29],
+			  data: {corr_resp:  p2_correct[28], exp_stage: 'letter_comp_p2'}
+			  },
+			  {
+			  stimulus_1: p2_left[29],
 
-		stimulus_2:  p2_right[29],
+			  stimulus_2:  p2_right[29],
 
-		data: {corr_resp:  39, exp_stage: 'pattern_comp_p2'}
-		}
-		],
+			  data: {corr_resp:  p2_correct[29], exp_stage: 'letter_comp_p2'}
+			  }
+			],
 		conditional_function: function(){
 					// get the data from the previous trial,
 					// and check which key was pressed
@@ -821,7 +728,7 @@ var trl_2 = {
 		jsPsych.data.get().addToLast({timeout: time_out})
 	},
 	timeline_variables: [
-		{stimulus_1: patterns_practice + "prac_2_1.png",
+		{stimulus_1: letters_practice + "prac_2_1.png",
 			stimulus_2: patterns_practice + "prac_2_2.png",
 				data: {corr_resp: 39, exp_stage: "practice",
 			stim:  "prac_2_1.png"}},
@@ -864,12 +771,13 @@ var filter_data = function(stage){
 var debrief = {
 	  type: "html-keyboard-response",
 		stimulus: "<p>You have now completed the experiment. Thank you!</p>",
-		on_finish: function(){
+
+/*		on_finish: function(){
 			var selected_data = filter_data("pattern_comp_p2");
 			jsPsych.data.get().addToLast({correct_responses: selected_data});
 		var scores = score();
 		jsPsych.data.addProperties({final_tally: scores});
-		},
+	}, */
 		data:{exp_stage: "instructions"}
 	};
 
