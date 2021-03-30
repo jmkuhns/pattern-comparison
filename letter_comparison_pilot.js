@@ -407,6 +407,8 @@ var interim_instructions_2 = {
   '<br><p>Press any key to begin.</p>'],
 	min_viewing_time: 2500,
   post_trial_gap: 250,
+	key_forward: 39,
+	key_backward: 37,
   data:{
     exp_stage: "instructions"
   },
