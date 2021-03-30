@@ -37,8 +37,8 @@ var p2_right = ["RSXM", "XNP", "NJMRL", "WZJ", "JSVTZ", "KFLS", "JTX", "NFSHL", 
 	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.</p>',
 		'<p>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
 	  '<br><p>Press the right arrow key to begin the practice trials.</p>'],
-		key_forward: 37,
-		key_backward: 39,
+		key_forward: 39,
+		key_backward: 37,
 	  data:{
 	    exp_stage: "instructions"
 	  }
