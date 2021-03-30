@@ -33,7 +33,7 @@ var p2_right = ["RSXM", "XNP", "NJMRL", "WZJ", "JSVTZ", "KFLS", "JTX", "NFSHL", 
 	  pages:[
 		"Welcome to the Letter Comparison task. Press the right arrow key to begin.",
 	  '<p style:"font-size:30px">LETTER COMPARISON</p>' +
-	  '<br><br><p>In this task you will be asked to determine whether two strings of letters are the same or different. If the two strings are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
+	  '<br><br><p>In this task you will be asked to determine whether two strings of letters are the same or different. If the two strings are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
 	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.</p>',
 		'<p>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
 	  '<br><p>Press the right arrow key to begin the practice trials.</p>'],
@@ -96,7 +96,7 @@ var p2_right = ["RSXM", "XNP", "NJMRL", "WZJ", "JSVTZ", "KFLS", "JTX", "NFSHL", 
 
 	var interim_instructions = {
 	  type: "html-keyboard-response",
-	  stimulus: '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
+	  stimulus: '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
 	  '<br><p>Press any key to begin.</p>',
 	  post_trial_gap: 250,
 	  data:{exp_stage: "instructions"},
@@ -403,8 +403,8 @@ var test_trials_p1_trl2 = {
 
 var interim_instructions_2 = {
   type: "instructions-min-viewing-time",
-  pages:['<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as rapidly as you can.</p>' +
-  '<br><p>Press any key to begin.</p>'],
+  pages:['<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
+  '<br><p>Press the right arrow key to begin.</p>'],
 	min_viewing_time: 2500,
   post_trial_gap: 250,
 	key_forward: 39,
@@ -695,7 +695,7 @@ var test_trials_p2_trl2 = {
 
 var debrief = {
 	  type: "html-keyboard-response",
-		stimulus: "<p>You have now completed this task. Please continue to the next portion of the experiment. You may press</p>",
+		stimulus: "<p>You have now completed this task. Please continue to the next portion of the experiment. You may press any key to continue.</p>",
 		data:{exp_stage: "instructions"}
 	};
 
